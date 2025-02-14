@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>批量生成视频</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .history-section {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            column-count: 2; /* 瀑布流布局，两列 */
+            column-gap: 20px; /* 列间距 */
+        }
+        .form-section {
+            flex: 1;
+            padding: 20px;
+            border-left: 1px solid #ddd;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .add-button {
+            margin-bottom: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .add-button:hover {
+            background-color: #45a049;
+        }
+        .submit-button {
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 100%;
+        }
+        .submit-button:hover {
+            background-color: #007B9E;
+        }
+        .history-section h2 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 2px solid #008CBA;
+            padding-bottom: 10px;
+            column-span: all; /* 标题跨列 */
+        }
+        .video-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            break-inside: avoid; /* 防止内容被分割到两列 */
+        }
+        .video-item h3 {
+            margin-top: 0;
+            color: #008CBA;
+        }
+        .video-item p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .video-item a {
+            color: #008CBA;
+            text-decoration: none;
+        }
+        .video-item a:hover {
+            text-decoration: underline;
+        }
+        .story-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #008CBA;
+        }
+        .story-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 显示3行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}  .story-desc:hover {
+            white-space: normal;
+            overflow: visible;
+            text-overflow: unset;
+        }
+        .error-item{
+        border:1px solid red;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 左侧：历史生成的视频 -->
+    <div class="history-section">
+        <h2>视频列表</h2>
+        <div id="historyList">
+
+        </div>
+        <div id="moreData" onclick="loadMore()">加载更多</div>
+    </div>
+
+    <!-- 右侧：批量生成视频表单 -->
+    <div class="form-section">
+        <span id="taskCount"></span>
+        <h1>批量生成视频</h1>
+        <form id="batchForm">
+            <div id="inputFields">
+                <div class="story-title">故事一</div>
+                <div class="form-group">
+                    <label for="role1">角色</label>
+                    <input type="text" id="role1" name="role[]" required>
+                </div>
+                <div class="form-group">
+                    <label for="storyDesc1">故事描述</label>
+                    <textarea id="storyDesc1" name="storyDesc[]" rows="4" required></textarea>
+                </div>
+            </div>
+            <button type="button" class="add-button" onclick="addMoreFields()">添加更多</button>
+            <button type="submit" class="submit-button">生成视频</button>
+        </form>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    let page = 1;
+    let lastTaskCount = 0;
+    setInterval(function() {
+             axios.get('/book/queryTaskCount')
+                .then(response => {
+                    document.getElementById('taskCount').innerHTML ='后台还有' +response.data+'个任务在进行';
+                    if(response.data<lastTaskCount){
+                      page = 1;
+                      loadHistory();
+                      window.scrollTo(0, 0);
+                    }
+                    lastTaskCount = response.data;
+
+                })
+                .catch(error => {
+                    console.error('error：', error);
+                });
+
+    }, 5000);
+function loadMore(){
+page = page+1;
+loadHistory();
+}
+
+    let fieldCount = 1;
+
+    // 动态添加输入字段
+    function addMoreFields() {
+        fieldCount++;
+        const inputFields = document.getElementById('inputFields');
+        const newFields = `
+            <div class="story-title">故事${fieldCount}</div>
+            <div class="form-group">
+                <label for="role${fieldCount}">角色</label>
+                <input type="text" id="role${fieldCount}" name="role[]" required>
+            </div>
+            <div class="form-group">
+                <label for="storyDesc${fieldCount}">故事描述</label>
+                <textarea id="storyDesc${fieldCount}" name="storyDesc[]" rows="4" required></textarea>
+            </div>
+        `;
+        inputFields.insertAdjacentHTML('beforeend', newFields);
+    }
+
+    // 提交表单
+    document.getElementById('batchForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+        const data = [];
+        const roles = formData.getAll('role[]');
+        const storyDescs = formData.getAll('storyDesc[]');
+
+        roles.forEach((role, index) => {
+            data.push({
+                role: role,
+                storyDesc: storyDescs[index]
+            });
+        });
+
+        // 这里你可以将data发送到你的批量生成视频接口
+        console.log(data); // 打印数据到控制台，你可以替换为实际的API调用
+    // 调用后端接口
+            axios.post('/book/batchGenerate', {list:data})
+                .then(response => {
+                    console.log('生成视频成功：', response);
+
+                    alert('生成视频成功')
+                    page = 1;
+                      loadHistory();
+                      window.scrollTo(0, 0);
+
+                })
+                .catch(error => {
+                    console.error('生成视频失败：', error);
+                    alert('生成视频失败，请稍后重试！');
+                    document.getElementById('loading').style.display = 'none';
+                });
+
+    });
+function resetVideo(id,role, storyDesc){
+     axios.post('/book/update', {id,role,storyDesc})
+                .then(response => {
+                    console.log('生成视频成功：', response);
+
+                    alert('生成视频成功')
+                    page = 1;
+                      loadHistory();
+                      window.scrollTo(0, 0);
+
+                })
+                .catch(error => {
+                    console.error('生成视频失败：', error);
+                    alert('生成视频失败，请稍后重试！');
+                    document.getElementById('loading').style.display = 'none';
+                });
+}
+    // 加载历史生成的视频
+    async function loadHistory() {
+        const historyList = document.getElementById('historyList');
+              // 请求数据
+            const requestData = {
+                page: page,
+                pageSize: 20
+            };
+            document.getElementById('moreData').innerHTML = '加载中';
+   // 调用后端接口
+            axios.post('/book/queryByPage', requestData)
+                .then(response => {
+            const historyData =  response.data.list;
+            if(page==1){
+            historyList.innerHTML = '';
+            }
+            let html = '';
+            historyData.forEach(video => {
+                html += `
+                    <div class="video-item ${!!video.error?'error-item':''}">
+                        <h3>${video.role}</h3>
+                        `;
+                        if(!!video.error){
+                            html += `<span class="error-item">${video.error}</span>`;
+                        }
+                html+=`
+                        <span class="story-desc" title="${video.storyDesc}">${video.storyDesc}</span>
+                        <p><strong>生成时间:</strong> ${new Date(video.createTime).toLocaleString()}</p>
+                        `
+                        if(!!video.error){
+                              html+=`
+                               <button type="button" class="add-button" onclick="resetVideo('${video.id}','${video.role}','${video.storyDesc}')">重新生成</button>
+                        `
+                        }else{
+                              html+=`
+                        <p><video src="${video.videoUrl}" controls width="220" height="122"  crossorigin></video></p>
+                        `
+                        }
+
+                 html+=`
+                    </div>
+                `;
+            });
+            historyList.insertAdjacentHTML('beforeend',html);
+             if(page==1){
+            if(historyData.length==0){
+              document.getElementById('moreData').innerHTML = '暂无数据';
+            }
+
+            }
+                })
+                .catch(error => {
+                          console.error('加载历史记录失败:', error);
+            document.getElementById('moreData').innerHTML = '<p>加载历史记录失败，请稍后重试。</p>';
+
+                });
+
+    }
+
+    // 页面加载时加载历史记录
+    window.onload = loadHistory;
+</script>
+</body>
+</html>
