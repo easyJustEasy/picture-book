@@ -297,9 +297,16 @@ function resetVideo(id,role, storyDesc){
                                <button type="button" class="add-button" onclick="resetVideo('${video.id}','${video.role}','${video.storyDesc}')">重新生成</button>
                         `
                         }else{
-                              html+=`
+                           if(video.status=='成功'){
+                                   html+=`
                         <p><video src="${video.videoUrl}" controls width="220" height="122"  crossorigin></video></p>
                         `
+                           }else{
+                               html+=`
+                               <p>视频生成中...</p>
+                        `
+                           }
+
                         }
 
                  html+=`

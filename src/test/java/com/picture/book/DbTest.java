@@ -70,6 +70,9 @@ public class DbTest {
         generateResultDTO.setError("");
 
         bookDao.save(generateResultDTO,"123");
+        generateResultDTO.setRole("更新小明");
+        bookDao.update(generateResultDTO,"123");
+        System.out.println(generateResultDTO.getId());
     }
     @Test
     public void test3() throws Exception {

@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 @Slf4j
@@ -43,7 +44,7 @@ public class PictureBookGenerate implements IPictureBookGenerate {
             FileUtil.del(new File(pictureDTO.getVoice()));
             FileUtil.del(new File(pictureDTO.getVideoPath()));
         }
-        String s = AppConfig.videoDir() + File.separator + story.getTitle() + ".mp4";
+        String s = AppConfig.videoDir() + File.separator + (StrUtil.isBlankIfStr(story.getTitle())?UUID.randomUUID().toString(): story.getTitle()) + ".mp4";
         FileUtil.rename(new File(concat), s, true);
         pictureResultDTO.setPictureUrl(s);
         return pictureResultDTO;
