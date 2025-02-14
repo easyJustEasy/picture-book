@@ -10,8 +10,10 @@
 
 ## 赞助开发者
    开发者为一名失业人员，目前因为年龄问题无法找到工作靠着兄弟们的赞助生活
-   ![这是图片](weixin.jpg  "赞助我")
-   ![这是图片](zhifubao.jpg  "赞助我")
+   <div align="center">
+         <img src="weixin.jpg" width="300"/>
+    <img src="zhifubao.jpg" width="300"/>
+   </div>
 
 ## 注意事项
 - 项目中使用了三个大模型：
