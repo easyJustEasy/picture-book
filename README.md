@@ -28,22 +28,28 @@
 - 系统还需要ffmpeg转码音频为mp3格式，所以需要确保系统已经安装ffmpeg ，需要安装ffmpeg 7.1 https://www.ffmpeg.org/download.html。
 - 视频应该放置nginx的根目录，具体配置是app.properties中的videoDir，即nginx的根目录
 - 视频需要通过nginx映射，具体配置：
-      server {
+```
+    server {
         listen       80;
-        server_name  localhost;     
-        location / {
-            #允许 所有头部 所有域 所有方法
+        server_name  localhost;
+
+        location / {      
         add_header 'Access-Control-Allow-Origin' '*';
         add_header 'Access-Control-Allow-Headers' '*';
-        add_header 'Access-Control-Allow-Methods' '*';
-        #OPTIONS 直接返回204
+        add_header 'Access-Control-Allow-Methods' '*'; 
         if ($request_method = 'OPTIONS') {
             return 204;
         }
+        root   /opt/homebrew/var/www;
+        index  index.html index.htm;
+        }     
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
             root   html;
-            index  index.html index.htm;
-        }        
+        }
+   
     }
+```
 
 ## 联系方式
 
