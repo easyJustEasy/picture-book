@@ -79,7 +79,7 @@ public class BookDao {
            List<Map<String, Object>> list =  this.jdbcTemplate.queryForList("select id, role_name, story_desc,video_url,error,batch_id,create_time,story_system_message,story_user_message,story_output_message,status from book");
            pageResult.setList(convertList(list));
         }else{
-            List<Map<String, Object>> list =this.jdbcTemplate.queryForList(String.format("SELECT id, role_name, story_desc,video_url,error,batch_id,create_time,story_system_message,story_user_message,story_output_message,status FROM book LIMIT (%s * %s), %s",requestDTO.getPage(),requestDTO.getPageSize(),requestDTO.getPageSize()));
+            List<Map<String, Object>> list =this.jdbcTemplate.queryForList(String.format("SELECT id, role_name, story_desc,video_url,error,batch_id,create_time,story_system_message,story_user_message,story_output_message,status FROM book LIMIT (%s * %s), %s",requestDTO.getPage()-1,requestDTO.getPageSize(),requestDTO.getPageSize()));
             pageResult.setList(convertList(list));
         }
         return pageResult;
