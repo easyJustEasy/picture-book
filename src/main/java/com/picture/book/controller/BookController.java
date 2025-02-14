@@ -48,7 +48,6 @@ public class BookController {
         BookConsts.BACK_TASK_COUNT.addAndGet(1);
         ThreadUtil.execute(()->{
             bookGenerateService.generate(requestDTO,uuid);
-            BookConsts.BACK_TASK_COUNT.decrementAndGet();
         });
         return uuid;
     }

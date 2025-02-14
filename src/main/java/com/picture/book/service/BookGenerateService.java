@@ -29,34 +29,35 @@ public class BookGenerateService {
 
     public GenerateResultDTO generate(GenerateRequestDTO requestDTO, String uuid) {
         GenerateResultDTO dto = new GenerateResultDTO();
-        dto.setRole(requestDTO.getRole());
-        dto.setStoryDesc(requestDTO.getStoryDesc());
-        dto.setCreateTime(new Date());
-        dto.setId(requestDTO.getId());
-        dto.setStatus(GenerateStatus.ing.getDesc());
-        Story story = null;
         try {
-            GenerateResultDTO resultDTO = bookDao.queryById(requestDTO.getId());
-            if (resultDTO != null && StrUtil.isNotBlank(resultDTO.getStoryOutputMessage())) {
-                story = Story.parseStory(resultDTO.getStoryOutputMessage());
-                story.setStorySystemMessage(resultDTO.getStorySystemMessage());
-                story.setStoryUserMessage(resultDTO.getStoryUserMessage());
-            } else {
-                story = factory.storyMaker(requestDTO);
+            dto.setRole(requestDTO.getRole());
+            dto.setStoryDesc(requestDTO.getStoryDesc());
+            dto.setCreateTime(new Date());
+            dto.setId(requestDTO.getId());
+            dto.setStatus(GenerateStatus.ing.getDesc());
+            Story story = null;
+            try {
+                GenerateResultDTO resultDTO = bookDao.queryById(requestDTO.getId());
+                if (resultDTO != null && StrUtil.isNotBlank(resultDTO.getStoryOutputMessage())) {
+                    story = Story.parseStory(resultDTO.getStoryOutputMessage());
+                    story.setStorySystemMessage(resultDTO.getStorySystemMessage());
+                    story.setStoryUserMessage(resultDTO.getStoryUserMessage());
+                } else {
+                    story = factory.storyMaker(requestDTO);
+                }
+                dto.setStorySystemMessage(story.getStorySystemMessage());
+                dto.setStoryUserMessage(story.getStoryUserMessage());
+                dto.setStoryOutputMessage(story.getStoryOutputMessage());
+            } catch (Exception e) {
+                dto.setError(e.getMessage());
+                dto.setStatus(GenerateStatus.fail.getDesc());
+                log.error(ExceptionUtil.stacktraceToString(e));
             }
-            dto.setStorySystemMessage(story.getStorySystemMessage());
-            dto.setStoryUserMessage(story.getStoryUserMessage());
-            dto.setStoryOutputMessage(story.getStoryOutputMessage());
-        } catch (Exception e) {
-            dto.setError(e.getMessage());
-            dto.setStatus(GenerateStatus.fail.getDesc());
-            log.error(ExceptionUtil.stacktraceToString(e));
-        }
-        saveDb(dto, uuid);
-        if (story == null) {
-            return dto;
-        }
-        try {
+            saveDb(dto, uuid);
+            if (story == null) {
+                return dto;
+            }
+
             PictureResultDTO generate = pictureBookGenerate.generate(StrUtil.EMPTY, story);
             File file = new File(generate.getPictureUrl());
             String s = AppConfig.videoUrl() + file.getName();
