@@ -10,8 +10,10 @@
 
 ## 赞助开发者
    开发者为一名失业人员，目前因为年龄问题无法找到工作靠着兄弟们的赞助生活
-   ![这是图片](weixin.jpg  "赞助我")
-   ![这是图片](zhifubao.jpg  "赞助我")
+   <div align="center">
+         <img src="weixin.jpg" width="300"/>
+    <img src="zhifubao.jpg" width="300"/>
+   </div>
 
 ## 注意事项
 - 项目中使用了三个大模型：
@@ -24,6 +26,30 @@
   
 - 这些大模型都是使用的百炼平台中的模型，需要百炼的API KEY ,所以要确保环境变量 `DASHSCOPE_API_KEY` 已正确配置，否则API请求将会失败。
 - 系统还需要ffmpeg转码音频为mp3格式，所以需要确保系统已经安装ffmpeg ，需要安装ffmpeg 7.1 https://www.ffmpeg.org/download.html。
+- 视频应该放置nginx的根目录，具体配置是app.properties中的videoDir，即nginx的根目录
+- 视频需要通过nginx映射，具体配置：
+```
+    server {
+        listen       80;
+        server_name  localhost;
+
+        location / {      
+        add_header 'Access-Control-Allow-Origin' '*';
+        add_header 'Access-Control-Allow-Headers' '*';
+        add_header 'Access-Control-Allow-Methods' '*'; 
+        if ($request_method = 'OPTIONS') {
+            return 204;
+        }
+        root   /opt/homebrew/var/www;
+        index  index.html index.htm;
+        }     
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+   
+    }
+```
 
 ## 联系方式
 
