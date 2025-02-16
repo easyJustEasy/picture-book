@@ -32,9 +32,8 @@ public class FfmpegVideoGenerate implements IVideoGenerate {
         FFmpegFrameRecorder recorder = new FFmpegFrameRecorder(outputVideoPath, width, height);
         recorder.setFormat("mp4");
         recorder.setVideoCodec(avcodec.AV_CODEC_ID_H264);
-        recorder.setFrameRate(1); // 每张图片显示一秒
+        recorder.setFrameRate(2); // 每张图片显示一秒
         recorder.setPixelFormat(avutil.AV_PIX_FMT_YUV420P);
-
         try {
             recorder.start();
             Java2DFrameConverter converter = new Java2DFrameConverter();

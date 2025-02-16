@@ -21,6 +21,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+/**
+ *免费额度：500张
+ * wanx2.1-t2i-plus0.20元/张
+ * wanx2.1-t2i-turbo 0.14元/张
+ * wanx2.0-t2i-turbo 0.04元/张
+ * wanx-v1 0.16元/张
+ */
 @Component
 @Slf4j
 public class TongYiImageGenerate extends AbstractImageGenerate implements IImageGenerate {
@@ -29,7 +36,7 @@ public class TongYiImageGenerate extends AbstractImageGenerate implements IImage
         ImageSynthesisParam param =
                 ImageSynthesisParam.builder()
                         .apiKey(AppConfig.apiKey())
-                        .model("wanx2.1-t2i-plus")
+                        .model("wanx2.1-t2i-turbo")
 //                        .parameter("prompt_extend",false)
                         .prompt(String.format("卡通风格插画，人物描述：%s。场景描述：%s。",actors,scene))
                         .n(1)
