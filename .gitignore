@@ -33,3 +33,4 @@ build/
 .vscode/
 log/
 temp/
+.DS_Store

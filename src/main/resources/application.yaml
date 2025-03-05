@@ -1,12 +1,20 @@
+local:
+  user:
+    home: ${user.home}/.picture-book
 spring:
   application:
-    name: book
+    name: picture-book
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: org.sqlite.JDBC
-    url: "jdbc:sqlite:/opt/db/book.db"
-  ai:
-    ollama:
-      base-url: 'http://192.168.1.4:11434'
-server:
-  port: 8080
+    url: "jdbc:sqlite:${local.user.home}/book.db"
+ai:
+  text:
+     mode: 1 # 1: 通义千问 2 远程api
+     remote-url: http://127.0.0.1:8080/v1/chat/completions
+  image:
+     mode: 1
+     remote-url: http://127.0.0.1:7860/sdapi/v1/txt2img
+  voice:
+     mode: 1
+     remote-url: http://127.0.0.1:7860/sdapi/v1/tts

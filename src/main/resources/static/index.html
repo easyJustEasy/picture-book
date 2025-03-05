@@ -74,7 +74,7 @@
     <video id="videoPlayer" controls width="640" height="360" style="display: none;" crossorigin></video>
     <div id="loading" style="display: none;">生成中，请稍候...</div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./js/axios.js"></script>
 
 <script>
     // 模拟生成逻辑（实际需要对接视频生成API）
@@ -90,7 +90,6 @@
         // 显示加载状态
         document.getElementById('loading').style.display = 'block';
         document.getElementById('videoPlayer').style.display = 'none';
-        document.getElementById('downloadLink').style.display = 'none';
 
          // 请求数据
             const requestData = {
