@@ -21,17 +21,17 @@ public class ScheduleTask {
     @Scheduled(cron = "0 0/1 * * * *")
     public void deleteTemp(){
         ThreadUtil.execute(()->{
-            if(BookConsts.BACK_TASK_COUNT.get()==0){
-                try {
-                    File file = new File(AppConfig.tempDir());
-                    for (File listFile : Objects.requireNonNull(file.listFiles())) {
-                        FileUtil.del(new File(listFile.getAbsolutePath()));
-                        log.info("del "+listFile.getAbsolutePath());
-                    }
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-            }
+//            if(BookConsts.BACK_TASK_COUNT.get()==0){
+//                try {
+//                    File file = new File(AppConfig.tempDir());
+//                    for (File listFile : Objects.requireNonNull(file.listFiles())) {
+//                        FileUtil.del(new File(listFile.getAbsolutePath()));
+//                        log.info("del "+listFile.getAbsolutePath());
+//                    }
+//                } catch (Exception e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }
         });
 
 

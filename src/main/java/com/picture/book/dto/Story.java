@@ -2,6 +2,7 @@ package com.picture.book.dto;
 
 
 import cn.hutool.core.util.StrUtil;
+import com.picture.book.util.StringUtil;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -28,11 +29,12 @@ public class Story {
             if (StrUtil.isBlankIfStr(text) || text.contains("故事标题：")) {
                 return null;
             }
+            text = StringUtil.replaceLineSeparator(text);
             Scene scene = new Scene();
             // 提取旁白
             String narration = extractPart(text, "旁白：", "场景描述：");
             // 提取场景描述
-            String sceneDescription = extractPart(text, "场景描述：", "\r\n");
+            String sceneDescription = extractPart(text, "场景描述：", StringUtil.LINE_SEPARATOR);
             if (StrUtil.isBlankIfStr(sceneDescription) && StrUtil.isBlankIfStr(narration)) {
                 return null;
             }
@@ -59,7 +61,7 @@ public class Story {
             if (endIndex == -1) { // 如果没有找到换行符，则取到最后
                 endIndex = text.length();
             }
-            return text.substring(startIndex, endIndex).trim();
+            return StringUtil.replaceLineSeparatorToBlank(text.substring(startIndex, endIndex).trim());
         }
     }
 
