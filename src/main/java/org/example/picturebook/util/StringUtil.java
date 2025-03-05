@@ -1,4 +1,4 @@
-package com.picture.book.util;
+package org.example.picturebook.util;
 
 public class StringUtil {
     public static final  String LINE_SEPARATOR = "\n";
