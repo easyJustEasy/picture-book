@@ -11,7 +11,7 @@ spring:
 ai:
   text:
      mode: 1 # 1: 通义千问 2 远程api
-     remote-url: http://127.0.0.1:8080/v1/chat/completions
+     remote-url: http://192.168.1.4:11434/
   image:
      mode: 1
      remote-url: http://127.0.0.1:7860/sdapi/v1/txt2img

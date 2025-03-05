@@ -37,7 +37,7 @@ public abstract class AbstractPictureBookService {
     private ImageGenerateFactory imageGenerateFactory;
     @Autowired
     private AiConfig aiConfig;
-     static final String tail =  """
+     public static final String tail =  """
                         请生成一个故事，要求最少有6个场景，每个场景要有旁白和场景描述 每个场景用'@@@@@'隔开，结构为：’
                         @@@@@
                         故事标题：xxx

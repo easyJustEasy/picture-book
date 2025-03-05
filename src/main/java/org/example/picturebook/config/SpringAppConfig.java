@@ -11,6 +11,7 @@ import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.net.http.HttpClient;
 import java.time.Duration;
 
 @Configuration

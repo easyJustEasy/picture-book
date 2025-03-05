@@ -1,7 +1,7 @@
 package com.picture.book;
 
 import com.alibaba.fastjson.JSONObject;
-import com.picture.book.dto.Story;
+import org.example.picturebook.dto.Story;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

@@ -14,7 +14,7 @@ public class TextGenerateFactory {
     public ITextGenerate getGenerate(int mode) {
         switch (GenerateMode.getByCode(mode)) {
             case REMOTE_API:
-                return springContext.getBean(RemoteTextGenerate.class);
+                return springContext.getBean(OllamaDeepSeekTextGenerate.class);
             default:
                 return springContext.getBean(TongYiTextGenerate.class);
         }

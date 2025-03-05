@@ -2,8 +2,7 @@ package org.example.picturebook.generate.text;
 
 import cn.hutool.core.exceptions.ExceptionUtil;
 import com.alibaba.fastjson.JSONObject;
-import com.picture.book.dto.Story;
-import com.picture.book.generate.ITextGenerate;
+
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.example.picturebook.util.DeepSeekUtil;
@@ -17,7 +16,7 @@ import org.springframework.ai.ollama.api.OllamaOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
-
+@Component
 @Slf4j
 public class OllamaDeepSeekTextGenerate implements ITextGenerate {
     private static final String deepseekr17b="deepseek-r1:7b";
