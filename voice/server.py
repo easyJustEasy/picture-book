@@ -24,11 +24,12 @@ sys.path.append(f'{current_working_directory}/cosyvoice')
 cosyvoice = CosyVoice2(
        model_dir      # 使用半精度浮点数以减少显存占用
 )
+
+
 def generate_data(model_output):
     for i in model_output:
         tts_audio = (i['tts_speech'].numpy() * (2 ** 15)).astype(np.int16).tobytes()
         yield tts_audio
-
 
 
 app = FastAPI()
@@ -43,6 +44,8 @@ async def get_voice_remote(request: Request):
     form = await request.form()
     tts_text = form.get("tts_text")
     audio = form.get("audio")
+    if audio == '':
+        audio = 'longyue'
     prompt_speech_16k_r = load_wav(f'{current_working_directory}/asset/{audio}.wav', 16000)
     model_output = cosyvoice.inference_instruct2(tts_text, '请用中文普通话朗读下面的儿童故事...', prompt_speech_16k_r)
     tts_audio = b''
@@ -61,6 +64,10 @@ async def get_voice_remote(request: Request):
                     break
                 yield chunk
 
-    return StreamingResponse(iterfile(), media_type="application/octet-stream", background=BackgroundTasks(lambda: os.remove(path)))
+    return StreamingResponse(iterfile(), media_type="application/octet-stream",
+                             background=BackgroundTasks(lambda: os.remove(path)
+                                                        ))
+
 if __name__ == "__main__":
-    uvicorn.run(app="server:app", host="0.0.0.0", port=8000, log_level="info", workers=2)
+
+    uvicorn.run(app="server:app", host="0.0.0.0", port=10000, log_level="info")
