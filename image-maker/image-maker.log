@@ -11,4 +11,6 @@ Downloading Model to directory: /mnt/d/modescope_model/models/zhusiyuanhao/FLUX1
 Loading pipeline components...:  86%|████████▌ | 6/7 [04:32<00:30, 30.28s/it]Loading pipeline components...: 100%|██████████| 7/7 [04:35<00:00, 21.38s/it]Loading pipeline components...: 100%|██████████| 7/7 [04:35<00:00, 39.33s/it]
 Device set to use cuda:0
 Downloading Model to directory: /mnt/d/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
-Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:00,  7.90it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:00,  7.90it/s]Loading pipeline components...:  29%|██▊       | 2/7 [06:21<18:42, 224.50s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards:  50%|█████     | 1/2 [03:30<03:30, 210.51s/it][A

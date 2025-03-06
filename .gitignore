@@ -28,6 +28,8 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
+!**/__pycache__
+!!**/**/*.log
 
 ### VS Code ###
 .vscode/
