@@ -36,6 +36,7 @@ pip install wget
 pip install fastapi
 pip install fastapi-cli
 pip install WeTextProcessing
+pip install hyperpyyaml
 #Linux
 
 pip install deepspeed

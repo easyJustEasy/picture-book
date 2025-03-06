@@ -1,0 +1,14 @@
+2025-03-06 12:11:25.145599: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1741234285.175103   55514 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1741234285.184626   55514 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+Downloading Model to directory: /mnt/d/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:01<00:08,  1.36s/it]Loading pipeline components...:  29%|██▊       | 2/7 [01:01<02:59, 35.83s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards:  50%|█████     | 1/2 [01:57<01:57, 117.01s/it][A
+Loading checkpoint shards: 100%|██████████| 2/2 [03:22<00:00, 98.61s/it] [ALoading checkpoint shards: 100%|██████████| 2/2 [03:22<00:00, 101.38s/it]
+Loading pipeline components...:  43%|████▎     | 3/7 [04:24<07:28, 112.16s/it]Loading pipeline components...:  57%|█████▋    | 4/7 [04:30<03:30, 70.26s/it] Loading pipeline components...:  71%|███████▏  | 5/7 [04:30<01:29, 44.96s/it]You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
+Loading pipeline components...:  86%|████████▌ | 6/7 [04:32<00:30, 30.28s/it]Loading pipeline components...: 100%|██████████| 7/7 [04:35<00:00, 21.38s/it]Loading pipeline components...: 100%|██████████| 7/7 [04:35<00:00, 39.33s/it]
+Device set to use cuda:0
+Downloading Model to directory: /mnt/d/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:00,  7.90it/s]
