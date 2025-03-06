@@ -1,0 +1,47 @@
+conda create -n cosyvoice -y python=3.10
+conda activate cosyvoice
+# pynini is required by WeTextProcessing, use conda to install it as it can be executed on all platform.
+conda install -y -c conda-forge pynini==2.1.5
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 
+pip install xformers==0.0.28.post3 --index-url https://download.pytorch.org/whl/cu124
+
+pip install conformer
+pip install diffusers
+pip install gdown
+pip install gradio
+pip install grpcio
+pip install grpcio-tools
+pip install hydra-core
+pip install HyperPyYAML
+pip install inflect
+pip install librosa
+pip install lightning
+pip install matplotlib
+pip install modelscope
+pip install networkx
+pip install omegaconf
+pip install onnx
+pip install openai-whisper
+pip install protobuf
+pip install pydantic
+pip install pyworld
+pip install rich
+pip install soundfile
+pip install tensorboard
+pip install torch
+pip install torchaudio
+pip install transformers
+pip install uvicorn
+pip install wget
+pip install fastapi
+pip install fastapi-cli
+pip install WeTextProcessing
+#Linux
+
+pip install deepspeed
+pip install tensorrt-cu12
+pip install tensorrt-cu12-bindings
+pip install tensorrt-cu12-libs
+pip install onnxruntime-gpu
+#windows mac
+pip install onnxruntime
