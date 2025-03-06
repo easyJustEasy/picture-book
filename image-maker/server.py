@@ -26,6 +26,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 pipe = FluxPipeline.from_pretrained(bfl_repo, torch_dtype=torch.float16)
 pipe.enable_model_cpu_offload()
 pipe.enable_vae_slicing()
+pipe.enable_vae_tiling()
 
 trans_tokenizer = AutoTokenizer.from_pretrained(
     bfl_repo,
@@ -108,6 +109,5 @@ async def get_image_remote(request: Request):
 
 if __name__ == "__main__":
     uvicorn.run(
-        app="server:app", host="0.0.0.0", port=8001, log_level="info",
-        workers=2
+        app="server:app", host="0.0.0.0", port=8001, log_level="info"
     )
