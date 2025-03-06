@@ -83,6 +83,10 @@ def generate(prompt, steps, guidance, width, height, seed):
 
 @app.post("/get_image_remote")
 async def get_image_remote(request: Request):
+
+    # 强制清理显存
+    torch.cuda.empty_cache()
+    torch.cuda.reset_peak_memory_stats()
     form = await request.form()
     prompt = form.get("prompt")
     img = generate(prompt, 4, 0.0, 1280, 720, -1)

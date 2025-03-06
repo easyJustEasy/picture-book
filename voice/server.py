@@ -36,6 +36,10 @@ app = FastAPI()
 
 @app.post("/get_voice_remote")
 async def get_voice_remote(request: Request):
+
+    # 强制清理显存
+    torch.cuda.empty_cache()
+    torch.cuda.reset_peak_memory_stats()
     form = await request.form()
     tts_text = form.get("tts_text")
     audio = form.get("audio")
