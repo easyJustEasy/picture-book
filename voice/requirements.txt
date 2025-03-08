@@ -1,10 +1,25 @@
-conda create -n cosyvoice -y python=3.10
+ conda create -n cosyvoice -y python=3.10
 conda activate cosyvoice
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+pip config set install.trusted-host pypi.tuna.tsinghua.edu.cn
 # pynini is required by WeTextProcessing, use conda to install it as it can be executed on all platform.
 conda install -y -c conda-forge pynini==2.1.5
 pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 
 pip install xformers==0.0.28.post3 --index-url https://download.pytorch.org/whl/cu124
-
+pip install ttsfrd -f https://modelscope.oss-cn-beijing.aliyuncs.com/releases/repo.html
+pip install modelscope
+pip install transformers accelerate peft diffusers
+pip install bitsandbytes
+pip install sacremoses
+pip install sentencepiece
+pip install pyarrow
+pip install opencv-python
+pip install datasets simplejson sortedcontainers  addict
+pip install --upgrade tensorflow
+pip install tqdm==4.66.3
+pip install requests==2.32.2
+pip install -U openmim 
+pip install mmcv-full
 pip install conformer
 pip install diffusers
 pip install gdown
@@ -28,15 +43,13 @@ pip install pyworld
 pip install rich
 pip install soundfile
 pip install tensorboard
-pip install torch
-pip install torchaudio
-pip install transformers
 pip install uvicorn
 pip install wget
 pip install fastapi
 pip install fastapi-cli
 pip install WeTextProcessing
 pip install hyperpyyaml
+pip install wget
 #Linux
 
 pip install deepspeed
@@ -46,3 +59,16 @@ pip install tensorrt-cu12-libs
 pip install onnxruntime-gpu
 #windows mac
 pip install onnxruntime
+
+
+
+
+
+
+
+sudo apt-get update
+sudo apt-get install libsndfile1
+cd pretrained_models/CosyVoice-ttsfrd/
+unzip resource.zip -d .
+pip install ttsfrd_dependency-0.1-py3-none-any.whl
+pip install ttsfrd-0.4.2-cp310-cp310-linux_x86_64.whl
