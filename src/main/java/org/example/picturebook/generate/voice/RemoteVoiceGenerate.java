@@ -20,14 +20,13 @@ public class RemoteVoiceGenerate implements IVoiceGenerate {
     private AiConfig aiConfig;
 
     @Override
-    public String generate(String text, String voice, String workDir) throws Exception {
+    public String generate(String text, String voice,Float speed, String filePath) throws Exception {
         if (StrUtil.isBlankIfStr(voice)) {
             voice = "longyue";
         }
-        String filePath = workDir + File.separator + UUID.randomUUID() + ".wav";
         FileUtil.touch(filePath);
-        HttpResponse httpResponse = HttpUtil.createPost(aiConfig.getVoice().getRemoteUrl() + "/get_voice_remote")
-                .form(Map.of("tts_text", text, "audio", voice))
+        HttpResponse httpResponse = HttpUtil.createPost(aiConfig.getVoice().getRemoteUrl() )
+                .form(Map.of("tts_text", text, "audio", voice,"speed",speed))
                 .header("Accept", "audio/mpeg")
                 .execute();
         InputStream body = httpResponse.bodyStream();
@@ -44,4 +43,5 @@ public class RemoteVoiceGenerate implements IVoiceGenerate {
         }
         return filePath;
     }
+
 }

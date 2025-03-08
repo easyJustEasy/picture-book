@@ -18,7 +18,7 @@ import java.util.UUID;
 public class TongYiVoiceGenerate implements IVoiceGenerate{
     private static String model = "cosyvoice-v1";
 
-    public  String generate(String text, String voice,String workDir) throws Exception {
+    public  String generate(String text, String voice,Float speed,String workDir) throws Exception {
         if (StrUtil.isBlankIfStr(voice)) {
             voice = "longtong";
         }
@@ -27,7 +27,7 @@ public class TongYiVoiceGenerate implements IVoiceGenerate{
                         // 若没有将API Key配置到环境变量中，需将下面这行代码注释放开，并将apiKey替换为自己的API Key
                         .apiKey(AppConfig.apiKey())
                         .model(model)
-                        .voice(voice)
+                        .voice(voice).speechRate(speed)
                         .build();
         SpeechSynthesizer synthesizer = new SpeechSynthesizer(param, null);
         ByteBuffer audio = synthesizer.call(text);

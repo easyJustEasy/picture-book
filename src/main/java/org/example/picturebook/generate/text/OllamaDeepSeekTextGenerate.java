@@ -29,16 +29,16 @@ public class OllamaDeepSeekTextGenerate implements ITextGenerate {
     OllamaApi ollamaApi;
     @PostConstruct
     private void init(){
-        OllamaApi.PullModelRequest request = new OllamaApi.PullModelRequest(currentModel);
-        Flux<OllamaApi.ProgressResponse> progressResponseFlux = ollamaApi.pullModel(request);
-        progressResponseFlux.subscribe(t->{
-            log.info("pulling model {}",t);
-        },error->{
-            log.error("pull model error ,model name is {} ,error is {}",currentModel, ExceptionUtil.stacktraceToString(error));
-            throw new RuntimeException(error);
-        },()->{
-            log.info("pull model end success for {}",currentModel);
-        });
+//        OllamaApi.PullModelRequest request = new OllamaApi.PullModelRequest(currentModel);
+//        Flux<OllamaApi.ProgressResponse> progressResponseFlux = ollamaApi.pullModel(request);
+//        progressResponseFlux.subscribe(t->{
+//            log.info("pulling model {}",t);
+//        },error->{
+//            log.error("pull model error ,model name is {} ,error is {}",currentModel, ExceptionUtil.stacktraceToString(error));
+//            throw new RuntimeException(error);
+//        },()->{
+//            log.info("pull model end success for {}",currentModel);
+//        });
     }
 
     @Override

@@ -35,7 +35,7 @@ public class ChildrenBookService extends AbstractPictureBookService implements I
 
     @Override
     String generateVoice(String caption, String workDir) throws Exception {
-        return getVoiceGenerate().generate(caption, "longyue", workDir);
+        return getVoiceGenerate().generate(caption, "longyue",1.0F, workDir);
     }
 
     @Override

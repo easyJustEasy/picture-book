@@ -17,4 +17,4 @@ ai:
      remote-url: http://127.0.0.1:7860/sdapi/v1/txt2img
   voice:
      mode: 1
-     remote-url: http://127.0.0.1:7860/sdapi/v1/tts
+     remote-url: http://192.168.1.4:10000/get_voice_remote
