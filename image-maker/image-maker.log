@@ -1,9 +1,6 @@
-2025-03-06 12:37:58.735309: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-03-07 07:30:25.097129: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-E0000 00:00:1741235878.826947   56639 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1741235878.857822   56639 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-Downloading Model to directory: /mnt/d/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
-Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:00,  9.81it/s]You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
-Loading pipeline components...:  43%|████▎     | 3/7 [00:01<00:01,  2.17it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [00:01<00:01,  2.84it/s]Loading pipeline components...:  71%|███████▏  | 5/7 [07:43<05:22, 161.10s/it]Loading pipeline components...:  86%|████████▌ | 6/7 [07:44<01:47, 107.90s/it]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
-Loading checkpoint shards:  50%|█████     | 1/2 [06:00<06:00, 360.32s/it][A
+E0000 00:00:1741303825.430275    4532 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1741303825.519111    4532 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+Downloading Model to directory: /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]

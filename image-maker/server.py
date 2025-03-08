@@ -25,7 +25,6 @@ revision = "main"
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 pipe = FluxPipeline.from_pretrained(bfl_repo, torch_dtype=torch.float16)
 pipe.enable_model_cpu_offload()
-pipe.enable_model_cpu_offload()
 pipe.enable_vae_slicing()
 
 trans_tokenizer = AutoTokenizer.from_pretrained(
