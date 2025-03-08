@@ -83,7 +83,7 @@ public class Kehu {
         }
         String fileName = temp.getAbsolutePath()+File.separator+s.substring(0,20)+".wav";
         try {
-            String kehu = remoteVoiceGenerate.generate(s, "longyue",1.0F, fileName);
+            String kehu = remoteVoiceGenerate.generate(s, "女声-很烧的姐姐",1.0F, fileName);
             System.out.println("file is success ====>"+kehu);
         } catch (Exception e) {
             throw new RuntimeException(e);
