@@ -1,30 +1,24 @@
 import torch
 from diffusers import FluxPipeline
 
+import gradio as gr
 
 from transformers import AutoTokenizer, pipeline, AutoModelForSeq2SeqLM
-
 # 下载模型
 from modelscope import snapshot_download
 import os
-from fastapi import FastAPI, Request, BackgroundTasks
-from fastapi.responses import StreamingResponse
-from pathlib import Path
-import uvicorn
-import uuid
 
+# 环境变量配置
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
-current_working_directory = str(Path(__file__).resolve().parent)
-app = FastAPI()
+
 # 强制清理显存
 torch.cuda.empty_cache()
 torch.cuda.reset_peak_memory_stats()
-bfl_repo = snapshot_download("zhusiyuanhao/FLUX1-schnell-fp8")
+bfl_repo = snapshot_download('zhusiyuanhao/FLUX1-schnell-fp8')
 dtype = torch.float16
 revision = "main"
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 pipe = FluxPipeline.from_pretrained(bfl_repo, torch_dtype=torch.float16)
-pipe.enable_model_cpu_offload()
 pipe.enable_model_cpu_offload()
 pipe.enable_vae_slicing()
 
@@ -41,7 +35,9 @@ trans_model = AutoModelForSeq2SeqLM.from_pretrained(
     revision=revision,
 )
 trans_pipeline = pipeline(
-    "translation_en_to_zh", model=trans_model, tokenizer=trans_tokenizer,
+    "translation_en_to_zh",
+    model=trans_model,
+    tokenizer=trans_tokenizer,
     device=device
 )
 
@@ -82,36 +78,17 @@ def generate(prompt, steps, guidance, width, height, seed):
     return image
 
 
-@app.post("/get_image_remote")
-async def get_image_remote(request: Request):
+demo = gr.Interface(
+    fn=generate,
+    inputs=[
+        "textbox",
+        gr.Number(value=4),
+        gr.Number(value=3.5),
+        gr.Slider(0, 1920, value=1024, step=2),
+        gr.Slider(0, 1920, value=1024, step=2),
+        gr.Number(value=-1),
+    ],
+    outputs="image",
+)
 
-    # 强制清理显存
-    torch.cuda.empty_cache()
-    torch.cuda.reset_peak_memory_stats()
-    form = await request.form()
-    prompt = form.get("prompt")
-    img = generate(prompt, 20, 0.0, 1280, 720, -1)
-    path = os.path.join(
-        f"{current_working_directory}/temp", f"img_{uuid.uuid1()}.png"
-    )
-    img.save(path)
-
-    async def iterfile():
-        with open(path, mode="rb") as file_like:
-            while True:
-                chunk = file_like.read(512 * 1024)
-                if not chunk:
-                    break
-                yield chunk
-
-    return StreamingResponse(
-        iterfile(),
-        media_type="application/octet-stream",
-        background=BackgroundTasks(lambda: os.remove(path)),
-    )
-
-
-if __name__ == "__main__":
-    uvicorn.run(
-        app="server:app", host="0.0.0.0", port=10001, log_level="info"
-    )
+demo.launch(server_name="0.0.0.0", server_port=9000)
