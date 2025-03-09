@@ -15,10 +15,6 @@ model_dir = f'{current_working_directory}/pretrained_models/CosyVoice2-0.5B'
 # 初始化 CosyVoice2 模型
 cosyvoice = CosyVoice2(
        model_dir
-,
-    load_jit=False,  # 如果显存不足，可以尝试设置为 True
-    load_trt=False,  # 如果显存不足，可以尝试设置为 True
-    fp16=True       # 使用半精度浮点数以减少显存占用
 )
 
 # 加载示例音频

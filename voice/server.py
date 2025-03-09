@@ -14,16 +14,18 @@ from pathlib import Path
 import uvicorn
 import sys
 import random
+# print(os.environ["PYTORCH_CUDA_ALLOC_CONF"])
+# os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 from cosyvoice.utils.common import set_all_random_seed
 # 强制清理显存
 torch.cuda.empty_cache()
 torch.cuda.reset_peak_memory_stats()
-# 下载预训练模型
-model_dir = snapshot_download('iic/CosyVoice2-0.5B',local_dir='pretrained_models/CosyVoice2-0.5B')
-# model_dir = snapshot_download('iic/CosyVoice-300M',local_dir='pretrained_models/CosyVoice-300M')
-# 初始化CosyVoice2模型
 current_working_directory = str(Path(__file__).resolve().parent)
+# 下载预训练模型
+model_dir = snapshot_download('iic/CosyVoice2-0.5B',local_dir=f'{current_working_directory}/pretrained_models/CosyVoice2-0.5B')
+# snapshot_download('iic/CosyVoice-ttsfrd',local_dir=f'{current_working_directory}/pretrained_models/CosyVoice-ttsfrd')
+# 初始化CosyVoice2模型
 temp_path = f'{current_working_directory}/temp'
 if not os.path.exists(temp_path):
     os.mkdir()
@@ -33,8 +35,7 @@ sys.path.append(f'{current_working_directory}/cosyvoice')
 
 # 初始化 CosyVoice2 模型
 cosyvoice = CosyVoice2(
-       model_dir,
-       fp16=True
+       model_dir
 )
 
 
@@ -90,10 +91,10 @@ async def get_voice_remote(request: Request):
                     break
                 yield chunk
 
-    return StreamingResponse(iterfile(), media_type="application/octet-stream",
+    return StreamingResponse(iterfile(), media_type="audio/wav",
                              background=BackgroundTask(lambda: os.remove(path)
                                                         ))
 
 if __name__ == "__main__":
 
-    uvicorn.run(app="server:app", host="0.0.0.0", port=10000, log_level="info")
+    uvicorn.run(app="server:app", host="0.0.0.0", port=10000, log_level="info", workers=1)

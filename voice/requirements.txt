@@ -1,12 +1,11 @@
- conda create -n cosyvoice -y python=3.10
+conda create -n cosyvoice -y python=3.10
 conda activate cosyvoice
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 pip config set install.trusted-host pypi.tuna.tsinghua.edu.cn
 # pynini is required by WeTextProcessing, use conda to install it as it can be executed on all platform.
-conda install -y -c conda-forge pynini==2.1.5
-pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 
-pip install xformers==0.0.28.post3 --index-url https://download.pytorch.org/whl/cu124
-pip install ttsfrd -f https://modelscope.oss-cn-beijing.aliyuncs.com/releases/repo.html
+conda install -y -c conda-forge pynini 
+pip install torch torchvision  torchaudio 
+pip install xformers --index-url https://download.pytorch.org/whl/cu124
 pip install modelscope
 pip install transformers accelerate peft diffusers
 pip install bitsandbytes
@@ -16,8 +15,8 @@ pip install pyarrow
 pip install opencv-python
 pip install datasets simplejson sortedcontainers  addict
 pip install --upgrade tensorflow
-pip install tqdm==4.66.3
-pip install requests==2.32.2
+pip install tqdm 
+pip install requests 
 pip install -U openmim 
 pip install mmcv-full
 pip install conformer
@@ -27,7 +26,6 @@ pip install gradio
 pip install grpcio
 pip install grpcio-tools
 pip install hydra-core
-pip install HyperPyYAML
 pip install inflect
 pip install librosa
 pip install lightning
@@ -49,7 +47,7 @@ pip install fastapi
 pip install fastapi-cli
 pip install WeTextProcessing
 pip install hyperpyyaml
-pip install wget
+pip install optimum-quanto
 #Linux
 
 pip install deepspeed
