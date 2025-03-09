@@ -122,5 +122,5 @@ async def get_image_remote(request: Request):
 if __name__ == "__main__":
     print("start sercver")
     uvicorn.run(
-        app, host="0.0.0.0", port=10001, log_level="info", workers=1
+        app, host="0.0.0.0", port=10001, log_level="debug", workers=1
     )
