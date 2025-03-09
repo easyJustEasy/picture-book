@@ -27,15 +27,16 @@ pipe = FluxPipeline.from_pretrained(bfl_repo, torch_dtype=torch.float16)
 pipe.enable_model_cpu_offload()
 pipe.enable_vae_slicing()
 
+trans_model_name="cubeai/trans-opus-mt-zh-en"
 trans_tokenizer = AutoTokenizer.from_pretrained(
     bfl_repo,
-    subfolder="cubeai/trans-opus-mt-zh-en",
+    subfolder=trans_model_name,
     torch_dtype=dtype,
     revision=revision,
 )
 trans_model = AutoModelForSeq2SeqLM.from_pretrained(
     bfl_repo,
-    subfolder="cubeai/trans-opus-mt-zh-en",
+    subfolder=trans_model_name,
     torch_dtype=dtype,
     revision=revision,
 )
