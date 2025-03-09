@@ -1,6 +1,18 @@
-2025-03-07 07:30:25.097129: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-03-09 09:14:43.470873: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-E0000 00:00:1741303825.430275    4532 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1741303825.519111    4532 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1741482883.491802    5904 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1741482883.498716    5904 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
 Downloading Model to directory: /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
-Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:02<00:12,  2.14s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoinLoading pipeline components...:  57%|█████▋    | 4/7 [18:08<18:47, 375.86s/it]You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
+Loading pipeline components...:  71%|███████▏  | 5/7 [18:08<08:23, 251.73s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards:  50%|█████     | 1/2 [03:00<03:00, 180.14s/it][A
+Loading checkpoint shards: 100%|██████████| 2/2 [05:24<00:00, 158.97s/it][ALoading checkpoint shards: 100%|██████████| 2/2 [05:24<00:00, 162.14s/it]
+Loading pipeline components...:  86%|████████▌ | 6/7 [23:33<04:35, 275.13s/it]Loading pipeline components...: 100%|██████████| 7/7 [23:42<00:00, 191.44s/it]Loading pipeline components...: 100%|██████████| 7/7 [23:42<00:00, 203.18s/it]
+Device set to use cuda:0
+Downloading Model to directory: /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:01,  4.57it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:06<00:09,  2.34s/it]Loading pipeline components...:  57%|█████▋    | 4/7 [12:49<13:16, 265.44s/it]Loading pipeline components...:  71%|███████▏  | 5/7 [12:49<05:55, 177.78s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards:  50%|█████     | 1/2 [02:49<02:49, 169.73s/it][A

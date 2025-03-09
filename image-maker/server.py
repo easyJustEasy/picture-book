@@ -15,35 +15,47 @@ import uuid
 
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 current_working_directory = str(Path(__file__).resolve().parent)
-app = FastAPI()
+dtype = torch.float16
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # 强制清理显存
 torch.cuda.empty_cache()
 torch.cuda.reset_peak_memory_stats()
 bfl_repo = snapshot_download("zhusiyuanhao/FLUX1-schnell-fp8")
-dtype = torch.float16
-revision = "main"
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-pipe = FluxPipeline.from_pretrained(bfl_repo, torch_dtype=torch.float16)
+bfl_repo =  f'{bfl_repo}'
+print(f'downloaded at {bfl_repo}')
+
+# 这里要指定local_files_only 因为上面已经下载过了
+# 同时这里也解释一下为啥用snapshot_download，
+# 因为下面翻译没有加入FluxPipeline，翻译模型在flux模型文件夹里面，所以需要获取模型目录
+# 启动大概需要8分钟
+pipe = FluxPipeline.from_pretrained(
+   bfl_repo, 
+    torch_dtype=dtype, 
+    use_safetensors=True, 
+    local_files_only=True)
+print(f'FluxPipeline inited')
 pipe.enable_model_cpu_offload()
 pipe.enable_vae_slicing()
-
+trans_model_name="cubeai/trans-opus-mt-zh-en"
 trans_tokenizer = AutoTokenizer.from_pretrained(
     bfl_repo,
-    subfolder="cubeai/trans-opus-mt-zh-en",
+    subfolder=trans_model_name,
     torch_dtype=dtype,
-    revision=revision,
 )
+print(f'trans_tokenizer inited')
 trans_model = AutoModelForSeq2SeqLM.from_pretrained(
     bfl_repo,
-    subfolder="cubeai/trans-opus-mt-zh-en",
+    subfolder=trans_model_name,
     torch_dtype=dtype,
-    revision=revision,
 )
+print(f'trans_model inited')
 trans_pipeline = pipeline(
-    "translation_en_to_zh", model=trans_model, tokenizer=trans_tokenizer,
+    "translation_en_to_zh", 
+    model=trans_model, 
+    tokenizer=trans_tokenizer,
     device=device
 )
-
+print(f'trans_pipeline inited')
 
 def is_chinese(string):
     """
@@ -80,13 +92,10 @@ def generate(prompt, steps, guidance, width, height, seed):
     ).images[0]
     return image
 
-
+app = FastAPI()
+print(f'app inited')
 @app.post("/get_image_remote")
 async def get_image_remote(request: Request):
-
-    # 强制清理显存
-    torch.cuda.empty_cache()
-    torch.cuda.reset_peak_memory_stats()
     form = await request.form()
     prompt = form.get("prompt")
     img = generate(prompt, 20, 0.0, 1280, 720, -1)
@@ -105,12 +114,12 @@ async def get_image_remote(request: Request):
 
     return StreamingResponse(
         iterfile(),
-        media_type="application/octet-stream",
+        media_type="image/png",
         background=BackgroundTasks(lambda: os.remove(path)),
     )
 
 
 if __name__ == "__main__":
     uvicorn.run(
-        app="server:app", host="0.0.0.0", port=10001, log_level="info"
+        app="server:app", host="0.0.0.0", port=10001, log_level="info", workers=1
     )
