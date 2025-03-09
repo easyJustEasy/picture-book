@@ -97,4 +97,4 @@ async def get_voice_remote(request: Request):
 
 if __name__ == "__main__":
 
-    uvicorn.run(app="server:app", host="0.0.0.0", port=10000, log_level="info", workers=1)
+    uvicorn.run(app, host="0.0.0.0", port=10000, log_level="info", workers=1)
