@@ -36,3 +36,4 @@ build/
 log/
 temp/
 .DS_Store
+/src/test/resources/kongbu
