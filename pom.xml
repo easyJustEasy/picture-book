@@ -111,7 +111,11 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-
+    <dependency>
+      <groupId>com.ibeetl</groupId>
+      <artifactId>beetl</artifactId>
+      <version>3.19.1.RELEASE</version>
+    </dependency>
     </dependencies>
 
     <build>

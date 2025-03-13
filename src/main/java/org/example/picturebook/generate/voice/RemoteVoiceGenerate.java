@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.UUID;
 
@@ -24,6 +25,7 @@ public class RemoteVoiceGenerate implements IVoiceGenerate {
         if (StrUtil.isBlankIfStr(voice)) {
             voice = "longyue";
         }
+        text =  String.join("", Arrays.stream(text.split("\\r?\\n")).toArray(String[]::new));
         FileUtil.touch(filePath);
         HttpResponse httpResponse = HttpUtil.createPost(aiConfig.getVoice().getRemoteUrl() )
                 .form(Map.of("tts_text", text, "audio", voice,"speed",speed))

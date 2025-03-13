@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐展示页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .audio-item {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+            width: 300px;
+            text-align: center;
+            padding: 20px;
+            transition: transform .2s;
+        }
+
+        .audio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .audio-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .audio-title {
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .audio-description {
+            color: #666;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        audio {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <%
+    for(audio in audioList){
+      %>
+    <!-- 音频项目 -->
+    <div class="audio-item">
+        <img src="${audio.img}" alt="封面图片" class="audio-image">
+        <h2 class="audio-title">${audio.name}</h2>
+        <p class="audio-description">${audio.txt}</p>
+        <audio controls>
+            <source src="${audio.mp3}" type="audio/mpeg">
+            您的浏览器不支持 audio 元素。
+        </audio>
+    </div>
+    <%   }
+   %>
+
+</div>
+</body>
+</html>
