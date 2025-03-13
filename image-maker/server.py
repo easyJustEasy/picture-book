@@ -98,7 +98,7 @@ print(f'app inited')
 async def get_image_remote(request: Request):
     form = await request.form()
     prompt = form.get("prompt")
-    img = generate(prompt, 20, 0.0, 1280, 720, -1)
+    img = generate(prompt, 20, 3.5, 1280, 720, -1)
     path = os.path.join(
         f"{current_working_directory}/temp", f"img_{uuid.uuid1()}.png"
     )

@@ -17,9 +17,7 @@ LOG_NAME="voice.log"
 
 
 
-
-
-pid=$(sudo netstat -nlp | grep ":$port" | awk '{print $7}' | cut -d'/' -f1)
+pid=$(sudo netstat -nlp | grep ":$port .*LISTEN" | awk '{print $7}' | cut -d'/' -f1)
 # 杀掉对应的进程如果PID存在
 if [ -n "$pid" ]; then
     sudo kill -9 $pid
@@ -39,8 +37,11 @@ fi
 
 echo "current conda env is "
 conda info --envs
+
 # 运行Python脚本
-nohup $ENV_PATH $PYTHON_SCRIPT_PATH> $LOG_NAME 2>&1 &
+#nohup $ENV_PATH $PYTHON_SCRIPT_PATH> $LOG_NAME 2>&1 &
+nohup conda run -n $ENV_NAME && gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$port -t 1800 server:app > $LOG_NAME 2>&1 &
+
 echo "$ENV_PATH  $PYTHON_SCRIPT_PATH is running"
 
 

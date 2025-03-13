@@ -1,8 +1,245 @@
-2025-03-09 18:36:14.010674: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-03-09 18:38:24.145895: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-E0000 00:00:1741516574.031544   27705 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1741516574.038176   27705 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1741516704.173629   28161 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1741516704.182731   28161 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
 Downloading Model to directory: /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
 downloaded at /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
-Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:05<00:13,  2.68s/it]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [15:18<1:31:51, 918.52s/it]Loading pipeline components...:  29%|██▊       | 2/7 [15:18<31:31, 378.30s/it]  You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
+Loading pipeline components...:  57%|█████▋    | 4/7 [15:19<07:03, 141.23s/it]Loading pipeline components...:  71%|███████▏  | 5/7 [15:24<03:18, 99.17s/it] Loading pipeline components...:  86%|████████▌ | 6/7 [15:32<01:11, 71.23s/it]
 Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards:  50%|█████     | 1/2 [02:30<02:30, 150.67s/it][A
+Loading checkpoint shards: 100%|██████████| 2/2 [04:47<00:00, 142.49s/it][ALoading checkpoint shards: 100%|██████████| 2/2 [04:47<00:00, 143.72s/it]
+Loading pipeline components...: 100%|██████████| 7/7 [20:19<00:00, 137.14s/it]Loading pipeline components...: 100%|██████████| 7/7 [20:19<00:00, 174.28s/it]
+Device set to use cuda
+INFO:     Started server process [28161]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:10001 (Press CTRL+C to quit)
+FluxPipeline inited
+trans_tokenizer inited
+trans_model inited
+trans_pipeline inited
+app inited
+start sercver
+prompt is 一个中国美女 ,translated_text is A Chinese beauty.
+  0%|          | 0/20 [00:00<?, ?it/s]  0%|          | 0/20 [00:17<?, ?it/s]
+INFO:     192.168.1.7:14514 - "POST /get_image_remote HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/mnt/f/work/picture-book/image-maker/server.py", line 101, in get_image_remote
+    img = generate(prompt, 20, 3.5, 1280, 720, -1)
+  File "/mnt/f/work/picture-book/image-maker/server.py", line 85, in generate
+    image = pipe(
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/diffusers/pipelines/flux/pipeline_flux.py", line 889, in __call__
+    noise_pred = self.transformer(
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/accelerate/hooks.py", line 171, in new_forward
+    args, kwargs = module._hf_hook.pre_forward(module, *args, **kwargs)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/accelerate/hooks.py", line 722, in pre_forward
+    module.to(self.execution_device)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/diffusers/models/modeling_utils.py", line 1077, in to
+    return super().to(*args, **kwargs)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 90.00 MiB. GPU 0 has a total capacity of 23.57 GiB of which 52.62 MiB is free. Process 23854 has 4.49 GiB memory in use. Including non-PyTorch memory, this process has 18.50 GiB memory in use. Of the allocated memory 18.17 GiB is allocated by PyTorch, and 14.83 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+prompt is 一个中国美女 ,translated_text is A Chinese beauty.
+INFO:     192.168.1.7:14796 - "POST /get_image_remote HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/mnt/f/work/picture-book/image-maker/server.py", line 101, in get_image_remote
+    img = generate(prompt, 20, 3.5, 1280, 720, -1)
+  File "/mnt/f/work/picture-book/image-maker/server.py", line 85, in generate
+    image = pipe(
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/diffusers/pipelines/flux/pipeline_flux.py", line 783, in __call__
+    ) = self.encode_prompt(
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/diffusers/pipelines/flux/pipeline_flux.py", line 365, in encode_prompt
+    pooled_prompt_embeds = self._get_clip_prompt_embeds(
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/diffusers/pipelines/flux/pipeline_flux.py", line 301, in _get_clip_prompt_embeds
+    prompt_embeds = self.text_encoder(text_input_ids.to(device), output_hidden_states=False)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/accelerate/hooks.py", line 171, in new_forward
+    args, kwargs = module._hf_hook.pre_forward(module, *args, **kwargs)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/accelerate/hooks.py", line 722, in pre_forward
+    module.to(self.execution_device)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/transformers/modeling_utils.py", line 3162, in to
+    return super().to(*args, **kwargs)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 74.00 MiB. GPU 0 has a total capacity of 23.57 GiB of which 66.81 MiB is free. Process 23854 has 4.52 GiB memory in use. Including non-PyTorch memory, this process has 18.50 GiB memory in use. Of the allocated memory 18.17 GiB is allocated by PyTorch, and 19.29 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+prompt is 一个中国美女 ,translated_text is A Chinese beauty.
+INFO:     192.168.1.7:14815 - "POST /get_image_remote HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/mnt/f/work/picture-book/image-maker/server.py", line 101, in get_image_remote
+    img = generate(prompt, 20, 3.5, 1280, 720, -1)
+  File "/mnt/f/work/picture-book/image-maker/server.py", line 85, in generate
+    image = pipe(
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/diffusers/pipelines/flux/pipeline_flux.py", line 783, in __call__
+    ) = self.encode_prompt(
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/diffusers/pipelines/flux/pipeline_flux.py", line 365, in encode_prompt
+    pooled_prompt_embeds = self._get_clip_prompt_embeds(
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/diffusers/pipelines/flux/pipeline_flux.py", line 301, in _get_clip_prompt_embeds
+    prompt_embeds = self.text_encoder(text_input_ids.to(device), output_hidden_states=False)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/accelerate/hooks.py", line 171, in new_forward
+    args, kwargs = module._hf_hook.pre_forward(module, *args, **kwargs)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/accelerate/hooks.py", line 722, in pre_forward
+    module.to(self.execution_device)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/transformers/modeling_utils.py", line 3162, in to
+    return super().to(*args, **kwargs)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+  File "/home/ppx/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 74.00 MiB. GPU 0 has a total capacity of 23.57 GiB of which 52.81 MiB is free. Process 23854 has 4.53 GiB memory in use. Including non-PyTorch memory, this process has 18.50 GiB memory in use. Of the allocated memory 18.17 GiB is allocated by PyTorch, and 19.29 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

@@ -48,6 +48,7 @@ pip install fastapi-cli
 pip install WeTextProcessing
 pip install hyperpyyaml
 pip install optimum-quanto
+pip install gunicorn
 #Linux
 
 pip install deepspeed
