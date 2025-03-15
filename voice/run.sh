@@ -40,7 +40,7 @@ conda info --envs
 
 # 运行Python脚本
 #nohup $ENV_PATH $PYTHON_SCRIPT_PATH> $LOG_NAME 2>&1 &
-nohup conda run -n $ENV_NAME && gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$port -t 1800 server:app > $LOG_NAME 2>&1 &
+nohup conda run -n $ENV_NAME && pip install gunicorn && gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$port -t 1800 --log-level 'debug' server:app > $LOG_NAME 2>&1 &
 
 echo "$ENV_PATH  $PYTHON_SCRIPT_PATH is running"
 

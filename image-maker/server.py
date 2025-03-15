@@ -7,11 +7,12 @@ from transformers import AutoTokenizer, pipeline, AutoModelForSeq2SeqLM
 # 下载模型
 from modelscope import snapshot_download
 import os
-from fastapi import FastAPI, Request, BackgroundTasks
+from fastapi import FastAPI, Request
 from fastapi.responses import StreamingResponse
 from pathlib import Path
 import uvicorn
 import uuid
+from starlette.background import BackgroundTask
 
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 current_working_directory = str(Path(__file__).resolve().parent)
@@ -95,9 +96,8 @@ def generate(prompt, steps, guidance, width, height, seed):
 app = FastAPI()
 print(f'app inited')
 @app.post("/get_image_remote")
-async def get_image_remote(request: Request):
-    form = await request.form()
-    prompt = form.get("prompt")
+async def get_image_remote(prompt:str):
+
     img = generate(prompt, 20, 3.5, 1280, 720, -1)
     path = os.path.join(
         f"{current_working_directory}/temp", f"img_{uuid.uuid1()}.png"
@@ -115,12 +115,12 @@ async def get_image_remote(request: Request):
     return StreamingResponse(
         iterfile(),
         media_type="image/png",
-        background=BackgroundTasks(lambda: os.remove(path)),
+        background=BackgroundTask(lambda: os.remove(path)),
     )
 
 
-if __name__ == "__main__":
-    print("start sercver")
-    uvicorn.run(
-        app, host="0.0.0.0", port=10001, log_level="debug", workers=1
-    )
+# if __name__ == "__main__":
+#     print("start sercver")
+#     uvicorn.run(
+#         app, host="0.0.0.0", port=10001, log_level="debug", workers=1
+#     )
