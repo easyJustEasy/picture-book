@@ -1,4 +1,4 @@
-[2025-03-15 09:50:17 +0800] [13473] [DEBUG] Current configuration:
+[2025-03-15 09:53:52 +0800] [14053] [DEBUG] Current configuration:
   config: ./gunicorn.conf.py
   wsgi_app: None
   bind: ['0.0.0.0:10001']
@@ -58,22 +58,22 @@
   default_proc_name: server:app
   pythonpath: None
   paste: None
-  on_starting: <function OnStarting.on_starting at 0x7006fba184c0>
-  on_reload: <function OnReload.on_reload at 0x7006fba185e0>
-  when_ready: <function WhenReady.when_ready at 0x7006fba18700>
-  pre_fork: <function Prefork.pre_fork at 0x7006fba18820>
-  post_fork: <function Postfork.post_fork at 0x7006fba18940>
-  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7006fba18a60>
-  worker_int: <function WorkerInt.worker_int at 0x7006fba18b80>
-  worker_abort: <function WorkerAbort.worker_abort at 0x7006fba18ca0>
-  pre_exec: <function PreExec.pre_exec at 0x7006fba18dc0>
-  pre_request: <function PreRequest.pre_request at 0x7006fba18ee0>
-  post_request: <function PostRequest.post_request at 0x7006fba18f70>
-  child_exit: <function ChildExit.child_exit at 0x7006fba19090>
-  worker_exit: <function WorkerExit.worker_exit at 0x7006fba191b0>
-  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7006fba192d0>
-  on_exit: <function OnExit.on_exit at 0x7006fba193f0>
-  ssl_context: <function NewSSLContext.ssl_context at 0x7006fba19510>
+  on_starting: <function OnStarting.on_starting at 0x7aa7ce3504c0>
+  on_reload: <function OnReload.on_reload at 0x7aa7ce3505e0>
+  when_ready: <function WhenReady.when_ready at 0x7aa7ce350700>
+  pre_fork: <function Prefork.pre_fork at 0x7aa7ce350820>
+  post_fork: <function Postfork.post_fork at 0x7aa7ce350940>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7aa7ce350a60>
+  worker_int: <function WorkerInt.worker_int at 0x7aa7ce350b80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7aa7ce350ca0>
+  pre_exec: <function PreExec.pre_exec at 0x7aa7ce350dc0>
+  pre_request: <function PreRequest.pre_request at 0x7aa7ce350ee0>
+  post_request: <function PostRequest.post_request at 0x7aa7ce350f70>
+  child_exit: <function ChildExit.child_exit at 0x7aa7ce351090>
+  worker_exit: <function WorkerExit.worker_exit at 0x7aa7ce3511b0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7aa7ce3512d0>
+  on_exit: <function OnExit.on_exit at 0x7aa7ce3513f0>
+  ssl_context: <function NewSSLContext.ssl_context at 0x7aa7ce351510>
   proxy_protocol: False
   proxy_allow_ips: ['127.0.0.1', '::1']
   keyfile: None
@@ -92,21 +92,23 @@
   casefold_http_method: False
   forwarder_headers: ['SCRIPT_NAME', 'PATH_INFO']
   header_map: drop
-[2025-03-15 09:50:17 +0800] [13473] [INFO] Starting gunicorn 23.0.0
-[2025-03-15 09:50:17 +0800] [13473] [DEBUG] Arbiter booted
-[2025-03-15 09:50:17 +0800] [13473] [INFO] Listening at: http://0.0.0.0:10001 (13473)
-[2025-03-15 09:50:17 +0800] [13473] [INFO] Using worker: uvicorn.workers.UvicornWorker
-[2025-03-15 09:50:17 +0800] [13478] [INFO] Booting worker with pid: 13478
-[2025-03-15 09:50:17 +0800] [13473] [DEBUG] 1 workers
-2025-03-15 09:50:22.771372: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+[2025-03-15 09:53:52 +0800] [14053] [INFO] Starting gunicorn 23.0.0
+[2025-03-15 09:53:52 +0800] [14053] [DEBUG] Arbiter booted
+[2025-03-15 09:53:52 +0800] [14053] [INFO] Listening at: http://0.0.0.0:10001 (14053)
+[2025-03-15 09:53:52 +0800] [14053] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2025-03-15 09:53:52 +0800] [14054] [INFO] Booting worker with pid: 14054
+[2025-03-15 09:53:52 +0800] [14053] [DEBUG] 1 workers
+2025-03-15 09:53:56.478636: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-E0000 00:00:1742003422.821151   13478 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1742003422.835611   13478 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-W0000 00:00:1742003422.940851   13478 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1742003422.941483   13478 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1742003422.941759   13478 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1742003422.941882   13478 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+E0000 00:00:1742003636.499578   14054 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1742003636.506081   14054 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1742003636.522003   14054 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1742003636.522167   14054 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1742003636.522241   14054 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1742003636.522352   14054 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
 Downloading Model to directory: /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
 downloaded at /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
-Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:01,  4.56it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:14<01:24, 14.01s/it]You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
+Loading pipeline components...:  29%|██▊       | 2/7 [00:14<00:30,  6.07s/it]
 Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.30s/it][A
