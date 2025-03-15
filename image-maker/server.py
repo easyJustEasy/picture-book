@@ -7,7 +7,7 @@ from transformers import AutoTokenizer, pipeline, AutoModelForSeq2SeqLM
 # 下载模型
 from modelscope import snapshot_download
 import os
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request,Form
 from fastapi.responses import StreamingResponse
 from pathlib import Path
 import uvicorn
@@ -96,7 +96,7 @@ def generate(prompt, steps, guidance, width, height, seed):
 app = FastAPI()
 print(f'app inited')
 @app.post("/get_image_remote")
-async def get_image_remote(prompt:str):
+async def get_image_remote(prompt:str = Form(...)):
 
     img = generate(prompt, 20, 3.5, 1280, 720, -1)
     path = os.path.join(
