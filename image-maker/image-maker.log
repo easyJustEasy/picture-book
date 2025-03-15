@@ -1,1 +1,112 @@
-./run.sh: 行 44: gunicorn: 未找到命令
+[2025-03-15 09:50:17 +0800] [13473] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:10001']
+  backlog: 2048
+  workers: 1
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 1800
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /mnt/f/work/picture-book/image-maker
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1', '::1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  logconfig_json: None
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: server:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7006fba184c0>
+  on_reload: <function OnReload.on_reload at 0x7006fba185e0>
+  when_ready: <function WhenReady.when_ready at 0x7006fba18700>
+  pre_fork: <function Prefork.pre_fork at 0x7006fba18820>
+  post_fork: <function Postfork.post_fork at 0x7006fba18940>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7006fba18a60>
+  worker_int: <function WorkerInt.worker_int at 0x7006fba18b80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7006fba18ca0>
+  pre_exec: <function PreExec.pre_exec at 0x7006fba18dc0>
+  pre_request: <function PreRequest.pre_request at 0x7006fba18ee0>
+  post_request: <function PostRequest.post_request at 0x7006fba18f70>
+  child_exit: <function ChildExit.child_exit at 0x7006fba19090>
+  worker_exit: <function WorkerExit.worker_exit at 0x7006fba191b0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7006fba192d0>
+  on_exit: <function OnExit.on_exit at 0x7006fba193f0>
+  ssl_context: <function NewSSLContext.ssl_context at 0x7006fba19510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1', '::1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  permit_obsolete_folding: False
+  strip_header_spaces: False
+  permit_unconventional_http_method: False
+  permit_unconventional_http_version: False
+  casefold_http_method: False
+  forwarder_headers: ['SCRIPT_NAME', 'PATH_INFO']
+  header_map: drop
+[2025-03-15 09:50:17 +0800] [13473] [INFO] Starting gunicorn 23.0.0
+[2025-03-15 09:50:17 +0800] [13473] [DEBUG] Arbiter booted
+[2025-03-15 09:50:17 +0800] [13473] [INFO] Listening at: http://0.0.0.0:10001 (13473)
+[2025-03-15 09:50:17 +0800] [13473] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2025-03-15 09:50:17 +0800] [13478] [INFO] Booting worker with pid: 13478
+[2025-03-15 09:50:17 +0800] [13473] [DEBUG] 1 workers
+2025-03-15 09:50:22.771372: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1742003422.821151   13478 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1742003422.835611   13478 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1742003422.940851   13478 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1742003422.941483   13478 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1742003422.941759   13478 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1742003422.941882   13478 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+Downloading Model to directory: /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
+downloaded at /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:01,  4.56it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
