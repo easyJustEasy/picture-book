@@ -78,6 +78,9 @@ def translate_text(input_text):
 
 
 def generate(prompt, steps, guidance, width, height, seed):
+    # 强制清理显存
+    torch.cuda.empty_cache()
+    torch.cuda.reset_peak_memory_stats()
     if seed == -1:
         seed = torch.seed()
     generator = torch.Generator().manual_seed(int(seed))
@@ -98,7 +101,7 @@ print(f'app inited')
 @app.post("/get_image_remote")
 async def get_image_remote(prompt:str = Form(...)):
 
-    img = generate(prompt, 20, 3.5, 1280, 720, -1)
+    img = generate(prompt, 10, 3.5, 1280, 720, -1)
     path = os.path.join(
         f"{current_working_directory}/temp", f"img_{uuid.uuid1()}.png"
     )

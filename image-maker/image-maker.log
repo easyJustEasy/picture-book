@@ -1,4 +1,4 @@
-[2025-03-15 10:57:48 +0800] [7279] [DEBUG] Current configuration:
+[2025-03-15 11:55:46 +0800] [18889] [DEBUG] Current configuration:
   config: ./gunicorn.conf.py
   wsgi_app: None
   bind: ['0.0.0.0:10001']
@@ -58,22 +58,22 @@
   default_proc_name: server:app
   pythonpath: None
   paste: None
-  on_starting: <function OnStarting.on_starting at 0x76d5441584c0>
-  on_reload: <function OnReload.on_reload at 0x76d5441585e0>
-  when_ready: <function WhenReady.when_ready at 0x76d544158700>
-  pre_fork: <function Prefork.pre_fork at 0x76d544158820>
-  post_fork: <function Postfork.post_fork at 0x76d544158940>
-  post_worker_init: <function PostWorkerInit.post_worker_init at 0x76d544158a60>
-  worker_int: <function WorkerInt.worker_int at 0x76d544158b80>
-  worker_abort: <function WorkerAbort.worker_abort at 0x76d544158ca0>
-  pre_exec: <function PreExec.pre_exec at 0x76d544158dc0>
-  pre_request: <function PreRequest.pre_request at 0x76d544158ee0>
-  post_request: <function PostRequest.post_request at 0x76d544158f70>
-  child_exit: <function ChildExit.child_exit at 0x76d544159090>
-  worker_exit: <function WorkerExit.worker_exit at 0x76d5441591b0>
-  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x76d5441592d0>
-  on_exit: <function OnExit.on_exit at 0x76d5441593f0>
-  ssl_context: <function NewSSLContext.ssl_context at 0x76d544159510>
+  on_starting: <function OnStarting.on_starting at 0x7bab15cdc4c0>
+  on_reload: <function OnReload.on_reload at 0x7bab15cdc5e0>
+  when_ready: <function WhenReady.when_ready at 0x7bab15cdc700>
+  pre_fork: <function Prefork.pre_fork at 0x7bab15cdc820>
+  post_fork: <function Postfork.post_fork at 0x7bab15cdc940>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7bab15cdca60>
+  worker_int: <function WorkerInt.worker_int at 0x7bab15cdcb80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7bab15cdcca0>
+  pre_exec: <function PreExec.pre_exec at 0x7bab15cdcdc0>
+  pre_request: <function PreRequest.pre_request at 0x7bab15cdcee0>
+  post_request: <function PostRequest.post_request at 0x7bab15cdcf70>
+  child_exit: <function ChildExit.child_exit at 0x7bab15cdd090>
+  worker_exit: <function WorkerExit.worker_exit at 0x7bab15cdd1b0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7bab15cdd2d0>
+  on_exit: <function OnExit.on_exit at 0x7bab15cdd3f0>
+  ssl_context: <function NewSSLContext.ssl_context at 0x7bab15cdd510>
   proxy_protocol: False
   proxy_allow_ips: ['127.0.0.1', '::1']
   keyfile: None
@@ -92,105 +92,20 @@
   casefold_http_method: False
   forwarder_headers: ['SCRIPT_NAME', 'PATH_INFO']
   header_map: drop
-[2025-03-15 10:57:48 +0800] [7279] [INFO] Starting gunicorn 23.0.0
-[2025-03-15 10:57:48 +0800] [7279] [DEBUG] Arbiter booted
-[2025-03-15 10:57:48 +0800] [7279] [INFO] Listening at: http://0.0.0.0:10001 (7279)
-[2025-03-15 10:57:48 +0800] [7279] [INFO] Using worker: uvicorn.workers.UvicornWorker
-[2025-03-15 10:57:48 +0800] [7280] [INFO] Booting worker with pid: 7280
-[2025-03-15 10:57:48 +0800] [7279] [DEBUG] 1 workers
-2025-03-15 10:57:53.077530: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+[2025-03-15 11:55:46 +0800] [18889] [INFO] Starting gunicorn 23.0.0
+[2025-03-15 11:55:46 +0800] [18889] [DEBUG] Arbiter booted
+[2025-03-15 11:55:46 +0800] [18889] [INFO] Listening at: http://0.0.0.0:10001 (18889)
+[2025-03-15 11:55:46 +0800] [18889] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2025-03-15 11:55:46 +0800] [18890] [INFO] Booting worker with pid: 18890
+[2025-03-15 11:55:46 +0800] [18889] [DEBUG] 1 workers
+2025-03-15 11:55:51.970056: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-E0000 00:00:1742007473.099515    7280 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1742007473.106600    7280 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-W0000 00:00:1742007473.124831    7280 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1742007473.125075    7280 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1742007473.125183    7280 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1742007473.125293    7280 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+E0000 00:00:1742010952.018964   18890 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1742010952.033118   18890 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1742010952.133506   18890 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1742010952.134126   18890 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1742010952.134513   18890 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1742010952.134753   18890 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
 Downloading Model to directory: /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
 downloaded at /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
-Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
-Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:02,  2.36it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:00<00:00,  5.90it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [10:55<11:20, 226.76s/it]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
-Loading checkpoint shards:  50%|█████     | 1/2 [02:43<02:43, 163.66s/it][A
-Loading checkpoint shards: 100%|██████████| 2/2 [05:11<00:00, 154.25s/it][ALoading checkpoint shards: 100%|██████████| 2/2 [05:11<00:00, 155.66s/it]
-Loading pipeline components...:  71%|███████▏  | 5/7 [16:07<08:29, 254.82s/it]Loading pipeline components...:  86%|████████▌ | 6/7 [16:16<02:55, 175.93s/it]Loading pipeline components...: 100%|██████████| 7/7 [16:16<00:00, 120.68s/it]Loading pipeline components...: 100%|██████████| 7/7 [16:16<00:00, 139.48s/it]
-Device set to use cuda
-[2025-03-15 11:14:31 +0800] [7280] [INFO] Started server process [7280]
-[2025-03-15 11:14:31 +0800] [7280] [INFO] Waiting for application startup.
-[2025-03-15 11:14:31 +0800] [7280] [INFO] Application startup complete.
-FluxPipeline inited
-trans_tokenizer inited
-trans_model inited
-trans_pipeline inited
-app inited
-prompt is 一个美丽的中国女人 ,translated_text is A beautiful Chinese woman.
-  0%|          | 0/20 [00:00<?, ?it/s]  0%|          | 0/20 [02:27<?, ?it/s]
-[2025-03-15 11:36:33 +0800] [7280] [ERROR] Exception in ASGI application
-Traceback (most recent call last):
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
-    result = await app(  # type: ignore[func-returns-value]
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
-    return await self.app(scope, receive, send)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/fastapi/applications.py", line 1054, in __call__
-    await super().__call__(scope, receive, send)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/starlette/applications.py", line 112, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/starlette/middleware/errors.py", line 187, in __call__
-    raise exc
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/starlette/middleware/errors.py", line 165, in __call__
-    await self.app(scope, receive, _send)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
-    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/starlette/routing.py", line 714, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/starlette/routing.py", line 734, in app
-    await route.handle(scope, receive, send)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
-    await self.app(scope, receive, send)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
-    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
-    response = await f(request)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
-    raw_response = await run_endpoint_function(
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
-    return await dependant.call(**values)
-  File "/mnt/f/work/picture-book/image-maker/server.py", line 101, in get_image_remote
-    img = generate(prompt, 20, 3.5, 1280, 720, -1)
-  File "/mnt/f/work/picture-book/image-maker/server.py", line 86, in generate
-    image = pipe(
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
-    return func(*args, **kwargs)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/diffusers/pipelines/flux/pipeline_flux.py", line 889, in __call__
-    noise_pred = self.transformer(
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/accelerate/hooks.py", line 171, in new_forward
-    args, kwargs = module._hf_hook.pre_forward(module, *args, **kwargs)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/accelerate/hooks.py", line 722, in pre_forward
-    module.to(self.execution_device)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/diffusers/models/modeling_utils.py", line 1077, in to
-    return super().to(*args, **kwargs)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1343, in to
-    return self._apply(convert)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
-    module._apply(fn)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
-    module._apply(fn)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/torch/nn/modules/module.py", line 903, in _apply
-    module._apply(fn)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/torch/nn/modules/module.py", line 930, in _apply
-    param_applied = fn(param)
-  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1329, in convert
-    return t.to(
-torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 90.00 MiB. GPU 0 has a total capacity of 23.57 GiB of which 40.69 MiB is free. Including non-PyTorch memory, this process has 16.65 GiB memory in use. Process 9361 has 3.38 GiB memory in use. Process 9360 has 3.38 GiB memory in use. Of the allocated memory 16.33 GiB is allocated by PyTorch, and 15.29 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:01,  4.62it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:01,  2.62it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:10<00:19,  4.77s/it]
