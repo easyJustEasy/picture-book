@@ -35,7 +35,8 @@ sys.path.append(f'{current_working_directory}/cosyvoice')
 
 # 初始化 CosyVoice2 模型
 cosyvoice = CosyVoice2(
-       model_dir
+       model_dir,
+       fp16=True
 )
 
 
@@ -55,11 +56,12 @@ def readFile(path):
 
 @app.post("/get_voice_remote")
 async def get_voice_remote(request: Request):
-    seed = random.randint(1, 100000000)
-    set_all_random_seed(seed)
-    # 强制清理显存
+        # 强制清理显存
     torch.cuda.empty_cache()
     torch.cuda.reset_peak_memory_stats()
+    seed = random.randint(1, 100000000)
+    set_all_random_seed(seed)
+
     form = await request.form()
     tts_text = form.get("tts_text")
     audio = form.get("audio")
@@ -90,7 +92,7 @@ async def get_voice_remote(request: Request):
                 if not chunk:
                     break
                 yield chunk
-
+    print(f"当前 GPU 内存占用: {torch.cuda.memory_allocated() / 1e9:.2f} GB")
     return StreamingResponse(iterfile(), media_type="audio/wav",
                              background=BackgroundTask(lambda: os.remove(path)
                                                         ))
