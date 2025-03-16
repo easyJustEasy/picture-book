@@ -1,0 +1,1 @@
+nohup: failed to run command '/root/miniconda3/envs/img/bin//gunicorn': No such file or directory
