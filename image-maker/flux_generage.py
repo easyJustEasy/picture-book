@@ -27,7 +27,6 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 torch.cuda.empty_cache()
 torch.cuda.reset_peak_memory_stats()
 bfl_repo = snapshot_download("zhusiyuanhao/FLUX1-schnell-fp8")
-# bfl_repo = '/mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8'
 dtype = torch.bfloat16
 bfl_repo =  f'{bfl_repo}'
 print(f'downloaded at {bfl_repo}')
