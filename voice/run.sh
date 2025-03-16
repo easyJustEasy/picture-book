@@ -29,7 +29,7 @@ fi
 
 # 定义你的Conda基础路径和虚拟环境名称
 CONDA_BASE=$(conda info --base)  # 获取conda的基础路径
-ENV_BIN_PATH=${CONDA_BASE}/envs/${ENV_NAME}/bin/
+ENV_BIN_PATH=${CONDA_BASE}/envs/${ENV_NAME}/bin
 ENV_PYTHON_PATH=${ENV_BIN_PATH}/python
 # 检查是否已安装conda
 if ! command -v conda &> /dev/null; then
