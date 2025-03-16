@@ -1,4 +1,4 @@
-[2025-03-17 00:28:25 +0800] [26930] [DEBUG] Current configuration:
+[2025-03-17 00:37:16 +0800] [27803] [DEBUG] Current configuration:
   config: ./gunicorn.conf.py
   wsgi_app: None
   bind: ['0.0.0.0:10001']
@@ -58,22 +58,22 @@
   default_proc_name: server:app
   pythonpath: None
   paste: None
-  on_starting: <function OnStarting.on_starting at 0x78680028c4c0>
-  on_reload: <function OnReload.on_reload at 0x78680028c5e0>
-  when_ready: <function WhenReady.when_ready at 0x78680028c700>
-  pre_fork: <function Prefork.pre_fork at 0x78680028c820>
-  post_fork: <function Postfork.post_fork at 0x78680028c940>
-  post_worker_init: <function PostWorkerInit.post_worker_init at 0x78680028ca60>
-  worker_int: <function WorkerInt.worker_int at 0x78680028cb80>
-  worker_abort: <function WorkerAbort.worker_abort at 0x78680028cca0>
-  pre_exec: <function PreExec.pre_exec at 0x78680028cdc0>
-  pre_request: <function PreRequest.pre_request at 0x78680028cee0>
-  post_request: <function PostRequest.post_request at 0x78680028cf70>
-  child_exit: <function ChildExit.child_exit at 0x78680028d090>
-  worker_exit: <function WorkerExit.worker_exit at 0x78680028d1b0>
-  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x78680028d2d0>
-  on_exit: <function OnExit.on_exit at 0x78680028d3f0>
-  ssl_context: <function NewSSLContext.ssl_context at 0x78680028d510>
+  on_starting: <function OnStarting.on_starting at 0x76ae0a8584c0>
+  on_reload: <function OnReload.on_reload at 0x76ae0a8585e0>
+  when_ready: <function WhenReady.when_ready at 0x76ae0a858700>
+  pre_fork: <function Prefork.pre_fork at 0x76ae0a858820>
+  post_fork: <function Postfork.post_fork at 0x76ae0a858940>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x76ae0a858a60>
+  worker_int: <function WorkerInt.worker_int at 0x76ae0a858b80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x76ae0a858ca0>
+  pre_exec: <function PreExec.pre_exec at 0x76ae0a858dc0>
+  pre_request: <function PreRequest.pre_request at 0x76ae0a858ee0>
+  post_request: <function PostRequest.post_request at 0x76ae0a858f70>
+  child_exit: <function ChildExit.child_exit at 0x76ae0a859090>
+  worker_exit: <function WorkerExit.worker_exit at 0x76ae0a8591b0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x76ae0a8592d0>
+  on_exit: <function OnExit.on_exit at 0x76ae0a8593f0>
+  ssl_context: <function NewSSLContext.ssl_context at 0x76ae0a859510>
   proxy_protocol: False
   proxy_allow_ips: ['127.0.0.1', '::1']
   keyfile: None
@@ -92,29 +92,30 @@
   casefold_http_method: False
   forwarder_headers: ['SCRIPT_NAME', 'PATH_INFO']
   header_map: drop
-[2025-03-17 00:28:25 +0800] [26930] [INFO] Starting gunicorn 23.0.0
-[2025-03-17 00:28:25 +0800] [26930] [DEBUG] Arbiter booted
-[2025-03-17 00:28:25 +0800] [26930] [INFO] Listening at: http://0.0.0.0:10001 (26930)
-[2025-03-17 00:28:25 +0800] [26930] [INFO] Using worker: uvicorn.workers.UvicornWorker
-[2025-03-17 00:28:25 +0800] [26931] [INFO] Booting worker with pid: 26931
-[2025-03-17 00:28:25 +0800] [26930] [DEBUG] 1 workers
-2025-03-17 00:28:31.825888: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+[2025-03-17 00:37:16 +0800] [27803] [INFO] Starting gunicorn 23.0.0
+[2025-03-17 00:37:16 +0800] [27803] [DEBUG] Arbiter booted
+[2025-03-17 00:37:16 +0800] [27803] [INFO] Listening at: http://0.0.0.0:10001 (27803)
+[2025-03-17 00:37:16 +0800] [27803] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2025-03-17 00:37:16 +0800] [27804] [INFO] Booting worker with pid: 27804
+[2025-03-17 00:37:16 +0800] [27803] [DEBUG] 1 workers
+2025-03-17 00:37:22.572255: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-E0000 00:00:1742142511.846404   26931 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1742142511.853312   26931 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-W0000 00:00:1742142511.869510   26931 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1742142511.869743   26931 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1742142511.870097   26931 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1742142511.870203   26931 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-2025-03-17 00:28:38,280 - modelscope - INFO - Got 1 files, start to download ...
+E0000 00:00:1742143042.593975   27804 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1742143042.601009   27804 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1742143042.617407   27804 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1742143042.617495   27804 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1742143042.617558   27804 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1742143042.617607   27804 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-03-17 00:37:28,345 - modelscope - INFO - Got 1 files, start to download ...
 Downloading Model to directory: /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
 Processing 1 items:   0%|          | 0.00/1.00 [00:00<?, ?it/s]
-Downloading [README.md]:   0%|          | 0.00/5.96k [00:00<?, ?B/s][A
-Downloading [README.md]: 100%|██████████| 5.96k/5.96k [00:00<00:00, 13.9kB/s][ADownloading [README.md]: 100%|██████████| 5.96k/5.96k [00:00<00:00, 13.7kB/s]
-Processing 1 items: 100%|██████████| 1.00/1.00 [00:00<00:00, 2.18it/s]Processing 1 items: 100%|██████████| 1.00/1.00 [00:00<00:00, 2.17it/s]
-2025-03-17 00:28:38,745 - modelscope - INFO - Download model 'zhusiyuanhao/FLUX1-schnell-fp8' successfully.
+Downloading [README.md]:   0%|          | 0.00/6.03k [00:00<?, ?B/s][A
+Downloading [README.md]: 100%|██████████| 6.03k/6.03k [00:00<00:00, 20.9kB/s][ADownloading [README.md]: 100%|██████████| 6.03k/6.03k [00:00<00:00, 20.0kB/s]
+Processing 1 items: 100%|██████████| 1.00/1.00 [00:00<00:00, 3.03it/s]Processing 1 items: 100%|██████████| 1.00/1.00 [00:00<00:00, 3.02it/s]
+2025-03-17 00:37:28,681 - modelscope - INFO - Download model 'zhusiyuanhao/FLUX1-schnell-fp8' successfully.
 downloaded at /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
 scheduler model inited====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
 text_encoder model inited====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
 tokenizer model inited====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.83s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.52s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.57s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  3.01it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.07it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.06it/s]
+You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
