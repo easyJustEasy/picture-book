@@ -1,8 +1,150 @@
-2025-03-09 18:36:14.010674: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+[2025-03-17 00:37:16 +0800] [27803] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:10001']
+  backlog: 2048
+  workers: 1
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 1800
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /mnt/f/work/picture-book/image-maker
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1', '::1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  logconfig_json: None
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: server:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x76ae0a8584c0>
+  on_reload: <function OnReload.on_reload at 0x76ae0a8585e0>
+  when_ready: <function WhenReady.when_ready at 0x76ae0a858700>
+  pre_fork: <function Prefork.pre_fork at 0x76ae0a858820>
+  post_fork: <function Postfork.post_fork at 0x76ae0a858940>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x76ae0a858a60>
+  worker_int: <function WorkerInt.worker_int at 0x76ae0a858b80>
+  worker_abort: <function WorkerAbort.worker_abort at 0x76ae0a858ca0>
+  pre_exec: <function PreExec.pre_exec at 0x76ae0a858dc0>
+  pre_request: <function PreRequest.pre_request at 0x76ae0a858ee0>
+  post_request: <function PostRequest.post_request at 0x76ae0a858f70>
+  child_exit: <function ChildExit.child_exit at 0x76ae0a859090>
+  worker_exit: <function WorkerExit.worker_exit at 0x76ae0a8591b0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x76ae0a8592d0>
+  on_exit: <function OnExit.on_exit at 0x76ae0a8593f0>
+  ssl_context: <function NewSSLContext.ssl_context at 0x76ae0a859510>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1', '::1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  permit_obsolete_folding: False
+  strip_header_spaces: False
+  permit_unconventional_http_method: False
+  permit_unconventional_http_version: False
+  casefold_http_method: False
+  forwarder_headers: ['SCRIPT_NAME', 'PATH_INFO']
+  header_map: drop
+[2025-03-17 00:37:16 +0800] [27803] [INFO] Starting gunicorn 23.0.0
+[2025-03-17 00:37:16 +0800] [27803] [DEBUG] Arbiter booted
+[2025-03-17 00:37:16 +0800] [27803] [INFO] Listening at: http://0.0.0.0:10001 (27803)
+[2025-03-17 00:37:16 +0800] [27803] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2025-03-17 00:37:16 +0800] [27804] [INFO] Booting worker with pid: 27804
+[2025-03-17 00:37:16 +0800] [27803] [DEBUG] 1 workers
+2025-03-17 00:37:22.572255: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-E0000 00:00:1741516574.031544   27705 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1741516574.038176   27705 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+E0000 00:00:1742143042.593975   27804 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1742143042.601009   27804 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1742143042.617407   27804 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1742143042.617495   27804 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1742143042.617558   27804 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1742143042.617607   27804 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-03-17 00:37:28,345 - modelscope - INFO - Got 1 files, start to download ...
 Downloading Model to directory: /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
+Processing 1 items:   0%|          | 0.00/1.00 [00:00<?, ?it/s]
+Downloading [README.md]:   0%|          | 0.00/6.03k [00:00<?, ?B/s][A
+Downloading [README.md]: 100%|██████████| 6.03k/6.03k [00:00<00:00, 20.9kB/s][ADownloading [README.md]: 100%|██████████| 6.03k/6.03k [00:00<00:00, 20.0kB/s]
+Processing 1 items: 100%|██████████| 1.00/1.00 [00:00<00:00, 3.03it/s]Processing 1 items: 100%|██████████| 1.00/1.00 [00:00<00:00, 3.02it/s]
+2025-03-17 00:37:28,681 - modelscope - INFO - Download model 'zhusiyuanhao/FLUX1-schnell-fp8' successfully.
 downloaded at /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
-Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:05<00:13,  2.68s/it]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+scheduler model inited====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
+text_encoder model inited====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
+tokenizer model inited====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  3.01it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.07it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.06it/s]
+You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
+Device set to use cuda
+[2025-03-17 00:46:35 +0800] [27804] [INFO] Started server process [27804]
+[2025-03-17 00:46:35 +0800] [27804] [INFO] Waiting for application startup.
+[2025-03-17 00:46:35 +0800] [27804] [INFO] Application startup complete.
+/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+quantize text_encoder_2====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
+freeze text_encoder_2====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
+text_encoder_2 model inited====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
+tokenizer_2 model inited====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
+vae model inited====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
+quantize transformer====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
+freeze transformer====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
+transformer model inited====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
+all model inited====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
+init FluxPipeline====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
+app inited
+generate img before====> 已分配显存: 0.15 GB | 保留缓存: 0.16 GB
+prompt is 一个美丽的中国女人 ,translated_text is A beautiful Chinese woman.
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:11<01:46, 11.88s/it] 20%|██        | 2/10 [00:13<00:45,  5.66s/it] 30%|███       | 3/10 [00:14<00:26,  3.81s/it] 40%|████      | 4/10 [00:16<00:17,  2.93s/it] 50%|█████     | 5/10 [00:17<00:12,  2.45s/it] 60%|██████    | 6/10 [00:19<00:08,  2.16s/it] 70%|███████   | 7/10 [00:21<00:05,  1.97s/it] 80%|████████  | 8/10 [00:22<00:03,  1.85s/it] 90%|█████████ | 9/10 [00:24<00:01,  1.77s/it]100%|██████████| 10/10 [00:25<00:00,  1.71s/it]100%|██████████| 10/10 [00:25<00:00,  2.59s/it]
+generate img after====> 已分配显存: 0.15 GB | 保留缓存: 0.20 GB
+generate img before====> 已分配显存: 0.15 GB | 保留缓存: 0.16 GB
+prompt is 一个美丽的中国女人 ,translated_text is A beautiful Chinese woman.
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:09<01:25,  9.51s/it] 20%|██        | 2/10 [00:10<00:37,  4.64s/it] 30%|███       | 3/10 [00:12<00:22,  3.22s/it] 40%|████      | 4/10 [00:13<00:15,  2.54s/it] 50%|█████     | 5/10 [00:15<00:10,  2.17s/it] 60%|██████    | 6/10 [00:16<00:07,  1.94s/it] 70%|███████   | 7/10 [00:18<00:05,  1.80s/it] 80%|████████  | 8/10 [00:19<00:03,  1.71s/it] 90%|█████████ | 9/10 [00:21<00:01,  1.65s/it]100%|██████████| 10/10 [00:22<00:00,  1.60s/it]100%|██████████| 10/10 [00:22<00:00,  2.28s/it]
+generate img after====> 已分配显存: 0.15 GB | 保留缓存: 0.18 GB
+generate img before====> 已分配显存: 0.15 GB | 保留缓存: 0.16 GB
+prompt is 一个美丽的裸体中国女人 ,translated_text is A beautiful naked Chinese woman.
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:07<02:25,  7.68s/it] 10%|█         | 2/20 [00:08<01:10,  3.89s/it] 15%|█▌        | 3/20 [00:10<00:47,  2.81s/it] 20%|██        | 4/20 [00:11<00:36,  2.30s/it] 25%|██▌       | 5/20 [00:13<00:30,  2.01s/it] 30%|███       | 6/20 [00:14<00:25,  1.85s/it] 35%|███▌      | 7/20 [00:16<00:22,  1.74s/it] 40%|████      | 8/20 [00:18<00:20,  1.67s/it] 45%|████▌     | 9/20 [00:19<00:17,  1.63s/it] 50%|█████     | 10/20 [00:21<00:15,  1.60s/it] 55%|█████▌    | 11/20 [00:22<00:14,  1.58s/it] 60%|██████    | 12/20 [00:24<00:12,  1.57s/it] 65%|██████▌   | 13/20 [00:25<00:10,  1.57s/it] 70%|███████   | 14/20 [00:27<00:09,  1.57s/it] 75%|███████▌  | 15/20 [00:28<00:07,  1.57s/it] 80%|████████  | 16/20 [00:30<00:06,  1.57s/it] 85%|████████▌ | 17/20 [00:32<00:04,  1.58s/it] 90%|█████████ | 18/20 [00:33<00:03,  1.56s/it] 95%|█████████▌| 19/20 [00:35<00:01,  1.55s/it]100%|██████████| 20/20 [00:36<00:00,  1.55s/it]100%|██████████| 20/20 [00:36<00:00,  1.83s/it]

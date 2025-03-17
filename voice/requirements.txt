@@ -4,8 +4,8 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 pip config set install.trusted-host pypi.tuna.tsinghua.edu.cn
 # pynini is required by WeTextProcessing, use conda to install it as it can be executed on all platform.
 conda install -y -c conda-forge pynini 
-pip install torch torchvision  torchaudio 
-pip install xformers --index-url https://download.pytorch.org/whl/cu124
+pip install torch torchvision torchaudio -U --index-url https://download.pytorch.org/whl/cu126
+pip install xformers  -U  --index-url https://download.pytorch.org/whl/cu126
 pip install modelscope
 pip install transformers accelerate peft diffusers
 pip install bitsandbytes
@@ -13,7 +13,7 @@ pip install sacremoses
 pip install sentencepiece
 pip install pyarrow
 pip install opencv-python
-pip install datasets simplejson sortedcontainers  addict
+pip install datasets simplejson sortedcontasiners  addict
 pip install --upgrade tensorflow
 pip install tqdm 
 pip install requests 
@@ -48,6 +48,27 @@ pip install fastapi-cli
 pip install WeTextProcessing
 pip install hyperpyyaml
 pip install optimum-quanto
+pip install gunicorn
+pip install ninja
+pip install sacremoses
+pip install optimum-quanto
+pip install jieba subword_nmt apscheduler
+pip install torchsde
+
+pip install aiohttp
+pip install pyyaml
+pip install Pillow
+pip install scipy
+pip install tqdm
+pip install psutil
+
+#non essential dependencies:
+pip install kornia>
+pip install spandrel
+pip install soundfile
+
+
+
 #Linux
 
 pip install deepspeed
@@ -70,3 +91,4 @@ cd pretrained_models/CosyVoice-ttsfrd/
 unzip resource.zip -d .
 pip install ttsfrd_dependency-0.1-py3-none-any.whl
 pip install ttsfrd-0.4.2-cp310-cp310-linux_x86_64.whl
+conda install -c conda-forge libstdcxx-ng --update-deps
