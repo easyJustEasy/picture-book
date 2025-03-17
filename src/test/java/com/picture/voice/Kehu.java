@@ -1,23 +1,19 @@
-package com.picture.kehu1;
+package com.picture.voice;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
-import com.alibaba.fastjson.JSONObject;
-import org.bytedeco.opencv.presets.opencv_core;
 import org.example.PictureBookApp;
-import org.example.picturebook.dto.Story;
 import org.example.picturebook.generate.voice.RemoteVoiceGenerate;
 import org.example.picturebook.generate.voice.TongYiVoiceGenerate;
+import org.example.picturebook.third.audio.AudioPlayer;
 import org.example.picturebook.util.StringUtil;
 import org.example.picturebook.util.TitleUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.StringUtils;
 
 import java.io.File;
 import java.nio.charset.StandardCharsets;
-import java.util.UUID;
 
 @SpringBootTest(classes = PictureBookApp.class)
 public class Kehu {
@@ -25,6 +21,7 @@ public class Kehu {
     private RemoteVoiceGenerate remoteVoiceGenerate;
     @Autowired
     private TongYiVoiceGenerate tongYiVoiceGenerate;
+
     @Test
     void contextLoads() {
         String baseDir = "kehu1";
@@ -76,17 +73,6 @@ public class Kehu {
     }
 
     @Test
-    void contextLoads1() {
-        String[] ss = {
-                "咱们直播间会不定期发送福袋和红包，大家关注左上角，及时领取哈",
-        };
-        for (String s : ss) {
-            generageSingle(s);
-        }
-
-    }
-
-    @Test
     void contextLoads3() {
         String[] ss = {
                 "欢迎新来的小伙伴们！很高兴见到你们，希望你们能在这里找到快乐，让我们一起度过美好的时光吧！",
@@ -127,28 +113,37 @@ public class Kehu {
                 "咱们是纯手动制作，可选动物奶油和乳汁奶油哦，绝无任何添加剂哦",
         };
         for (String s : ss) {
-            generageSingle(s);
+            String s1 =   generageSingle(s,"kehu");
+            AudioPlayer.playSound(s1);
         }
 
     }
 
+
     @Test
-    void contextLoads2() {
-        generageSingle("""
-                想不到一天之间我四位至亲就这样离我而去，我实在受不了这样的打击，趴在地上嚎啕大哭了起来。二叔皱着眉头坐在门槛上抽着旱烟，他的眼眶有些红肿，在我没回来之前应该没少哭，他望着我不说话，任由我趴在地上哭泣。哭了半天后我就抽泣着问二叔这到底是怎么一回事，这种天气根本就不可能有雷，怎么能让雷给劈死了呢？二叔的声音有些嘶哑，他吐出了一个长长的烟圈才缓缓说道:“我也不是很清楚，今天早上突然就听见你家传出一声雷响，天空上既没有闪电，也没有打雷的征兆，这让我感觉事情有点不太对劲，等我来到你家的时候，果然你爷爷奶奶和父母都出事了，他们全都倒在了地上，样子就好像被雷劈过了一样。”“这也太诡异了吧？”我小声的嘀咕着，觉得这件事很邪门，老人们都说如果人坏事做尽就会遭雷劈，难道我父母他们生前做了什么违背良心的大坏事，所以才全家遭天谴的？二叔过了一会又接着说道:“我进来的时候你爷爷还有一口气，他跟我说了句话才咽气的。”“什么话?”我连忙紧张的看着二叔。二叔说:“你爷爷说，头七的那晚要你将他们的尸体都挖出来，然后把头砍掉再埋回去。”“啊？这……这到底是什么意思？
-                """);
+    void contextLoads1() {
+        String[] ss = {
+                """
+         海绵宝宝一大早就兴奋地起床了，今天他要去比奇堡最大的公共泳池玩水！
+                        """,
+        };
+        for (String s : ss) {
+            String s1 = generageSingle(s,"天童爱丽丝");
+            AudioPlayer.playSound(s1);
+        }
 
     }
 
-    void generageSingle(String s) {
+    public String generageSingle(String s,String role) {
         File temp = new File("temp");
         if (!temp.exists()) {
             temp.mkdir();
         }
-        String fileName = temp.getAbsolutePath() + File.separator + StrUtil.sub(s, 0, 20) + ".wav";
+        String fileName = temp.getAbsolutePath() + File.separator + StrUtil.sub(StringUtil.replaceLineSeparatorToBlank(s), 0, 20) + ".wav";
         try {
-            String kehu = remoteVoiceGenerate.generate(s, "女主播", 1.0F, fileName);
+            String kehu = remoteVoiceGenerate.generate(s,role , 1.0F, fileName);
             System.out.println("file is success ====>" + kehu);
+            return kehu;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

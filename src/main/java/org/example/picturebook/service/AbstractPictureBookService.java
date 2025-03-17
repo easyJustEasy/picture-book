@@ -17,6 +17,7 @@ import org.example.picturebook.generate.text.TextGenerateFactory;
 import org.example.picturebook.generate.video.VideoGenerate;
 import org.example.picturebook.generate.voice.IVoiceGenerate;
 import org.example.picturebook.generate.voice.VoiceGenerateFactory;
+import org.example.picturebook.util.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
@@ -37,32 +38,34 @@ public abstract class AbstractPictureBookService {
     private ImageGenerateFactory imageGenerateFactory;
     @Autowired
     private AiConfig aiConfig;
-     public static final String tail =  """
-                        请生成一个故事，要求最少有6个场景，每个场景要有旁白和场景描述 每个场景用'@@@@@'隔开，结构为：’
-                        @@@@@
-                        故事标题：xxx
-                        
-                        @@@@@
-                        
-                        场景1
-                        旁白：xxx
-                        场景描述：xxx
-                        
-                        @@@@@
-                        
-                        场景2
-                        旁白：xxx
-                        场景描述：xxx
-                        
-                        @@@@@
-                        故事结束‘
-                        """;
+    public static final String tail = """
+            请生成一个故事，要求最少有6个场景，每个场景要有旁白和场景描述 每个场景用'@@@@@'隔开，结构为：’
+            @@@@@
+            故事标题：xxx
+                                    
+            @@@@@
+                                    
+            场景1
+            旁白：xxx
+            场景描述：xxx
+                                    
+            @@@@@
+                                    
+            场景2
+            旁白：xxx
+            场景描述：xxx
+                                    
+            @@@@@
+            故事结束‘
+            """;
+
     /**
-     *  生成绘本故事
-     * @param actors 角色
-     * @param system 生成故事框架的系统提示词
+     * 生成绘本故事
+     *
+     * @param actors    角色
+     * @param system    生成故事框架的系统提示词
      * @param storyDesc 生成故事的用户提示词
-     * @param workDir 工作目录
+     * @param workDir   工作目录
      * @return 视频路径
      * @throws Exception 异常
      */
@@ -72,8 +75,8 @@ public abstract class AbstractPictureBookService {
                            String storyDesc,
                            GenerateResultDTO dto,
                            String workDir,
-                           GenerateCallBack callBack)  {
-        String systemMessage =  StrUtil.replace(system, "%s", role);
+                           GenerateCallBack callBack) {
+        String systemMessage = StrUtil.replace(system, "%s", role);
         String userMessage = storyDesc + tail;
         dto.setStorySystemMessage(systemMessage);
         dto.setStoryUserMessage(userMessage);
@@ -81,7 +84,7 @@ public abstract class AbstractPictureBookService {
         callBack.process(dto);
         String s = null;
         try {
-            s = generateFrame(systemMessage,userMessage );
+            s = generateFrame(systemMessage, userMessage);
         } catch (Exception e) {
             dto.setError(e.getMessage());
             dto.setStatus(GenerateStatus.txt_fail.getDesc());
@@ -94,7 +97,7 @@ public abstract class AbstractPictureBookService {
             dto.setStatus(GenerateStatus.txt_fail.getDesc());
             callBack.process(dto);
             return null;
-        }else{
+        } else {
             dto.setStatus(GenerateStatus.txt_success.getDesc());
             callBack.process(dto);
         }
@@ -104,11 +107,11 @@ public abstract class AbstractPictureBookService {
         dto.setStatus(GenerateStatus.video_ing.getDesc());
         callBack.process(dto);
         for (Story.Scene scene : story.getScenes()) {
-            PictureDTO pictureDTO = new PictureDTO(scene.getCaption(), scene.getSceneDesc(),workDir);
+            PictureDTO pictureDTO = new PictureDTO(scene.getCaption(), scene.getSceneDesc(), workDir);
             try {
-                pictureDTO.setImg(generatePictureDefault(actors, pictureDTO.getScene(), pictureDTO.getCaption(),workDir));
-                pictureDTO.setVoice(generateVoice(pictureDTO.getCaption(),workDir));
-                pictureDTO.setVideoPath(generateVideo(pictureDTO.getImg(), pictureDTO.getVoice(),workDir));
+                pictureDTO.setImg(generatePictureDefault(actors, pictureDTO.getScene(), pictureDTO.getCaption(), workDir));
+                pictureDTO.setVoice(generateVoice(pictureDTO.getCaption(), FileUtils.getUuidFileName(workDir, ".wav")));
+                pictureDTO.setVideoPath(generateVideo(pictureDTO.getImg(), pictureDTO.getVoice(), workDir));
 
             } catch (Exception e) {
                 dto.setError(e.getMessage());
@@ -121,7 +124,7 @@ public abstract class AbstractPictureBookService {
         }
         String concat = null;
         try {
-            concat = concatVideo(list,workDir);
+            concat = concatVideo(list, workDir);
         } catch (Exception e) {
             dto.setError(e.getMessage());
             dto.setStatus(GenerateStatus.video_fail.getDesc());
@@ -138,20 +141,21 @@ public abstract class AbstractPictureBookService {
             FileUtil.del(new File(pictureDTO.getVideoPath()));
         }
         String voiceUrl = workDir + File.separator + story.getTitle() + ".mp4";
-        FileUtil.rename(new File(concat),voiceUrl , true);
+        FileUtil.rename(new File(concat), voiceUrl, true);
         try {
-            dto.setVideoUrl(AppConfig.videoUrl()+new File(voiceUrl).getName());
+            FileUtil.move(new File(voiceUrl), new File(AppConfig.videoDir()), true);
+            dto.setVideoUrl(AppConfig.videoUrl() + new File(voiceUrl).getName());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
         dto.setStatus(GenerateStatus.success.getDesc());
         callBack.process(dto);
-        return concat;
+        return voiceUrl;
     }
 
     private String generatePictureDefault(String actors, String scene, String caption, String workDir) throws Exception {
         String path = generatePicture(actors, scene, caption, workDir);
-        String newPath = addCaption(path, caption,workDir);
+        String newPath = addCaption(path, caption, workDir);
         FileUtil.del(new File(path).getAbsolutePath());
         return new File(newPath).getAbsolutePath();
     }
@@ -163,12 +167,13 @@ public abstract class AbstractPictureBookService {
      * @param workDir
      * @return 视频的路径
      */
-      String concatVideo(List<PictureDTO> list, String workDir) throws Exception {
-          return videoGenerate.concat(list,workDir);
-      }
+    String concatVideo(List<PictureDTO> list, String workDir) throws Exception {
+        return videoGenerate.concat(list, workDir);
+    }
 
     /**
      * 生成语音
+     *
      * @param caption 语音文本
      * @return 语音的路径
      */
@@ -178,15 +183,18 @@ public abstract class AbstractPictureBookService {
 
     /**
      * 生成故事框架
-     * @param system 生成故事的系统提示词
+     *
+     * @param system    生成故事的系统提示词
      * @param storyDesc 生成故事的用户提示词
      * @return 故事
      */
-     abstract String generateFrame(String system, String storyDesc) throws Exception;
+    abstract String generateFrame(String system, String storyDesc) throws Exception;
+
     /**
      * 生成图片
-     * @param actors 角色
-     * @param scene 场景
+     *
+     * @param actors  角色
+     * @param scene   场景
      * @param caption 旁白
      * @return 图片路径
      */
@@ -195,20 +203,24 @@ public abstract class AbstractPictureBookService {
 
     /**
      * 生成视频
-     * @param img 图片
+     *
+     * @param img   图片
      * @param voice 声音
      * @return 视频路径
      */
-    String generateVideo(String img, String voice,String workDir) throws Exception {
-        return videoGenerate.generate(img, voice,workDir);
+    String generateVideo(String img, String voice, String workDir) throws Exception {
+        return videoGenerate.generate(img, voice, workDir);
     }
-     ITextGenerate getTextGenerate() {
+
+    ITextGenerate getTextGenerate() {
         return textGenerateFactory.getGenerate(aiConfig.getText().getMode());
     }
+
     IVoiceGenerate getVoiceGenerate() {
-        return voiceGenerateFactory.getGenerate(aiConfig.getText().getMode());
+        return voiceGenerateFactory.getGenerate(aiConfig.getVoice().getMode());
     }
+
     IImageGenerate getImageGenerate() {
-        return imageGenerateFactory.getGenerate(aiConfig.getText().getMode());
+        return imageGenerateFactory.getGenerate(aiConfig.getImage().getMode());
     }
 }

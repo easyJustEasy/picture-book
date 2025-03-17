@@ -32,7 +32,7 @@ public class TongYiImageGenerate extends AbstractImageGenerate implements IImage
                         .apiKey(AppConfig.apiKey())
                         .model("wanx2.0-t2i-turbo")
 //                        .parameter("prompt_extend",false)
-                        .prompt(String.format("卡通风格插画，人物描述：%s。场景描述：%s。", actors, scene))
+                        .prompt(makePrompt(actors,scene))
                         .n(1)
                         .size("1280*720")
                         .build();

@@ -12,30 +12,22 @@ import org.springframework.stereotype.Component;
 
 
 import java.io.File;
+import java.util.Objects;
 
 
 @Component
 @Slf4j
 public class InitListener implements CommandLineRunner {
-    @Value("${local.user.home}")
-    private String home;
-    @Value("classpath:book.db")
-    private Resource resource;
     @Autowired
-    BookDao bookDao;
+
+    private AppConfig appConfig;
+
 
     @Override
     public void run(String... args) throws Exception {
-        File file = new File(home);
-        if (!file.exists()) {
-            FileUtil.mkdir(file);
-        }
-        //把数据库文件移动到home目录下
-        File dbFile = new File(file.getAbsolutePath() + File.separator + "book.db");
-        if (!dbFile.exists()) {
-            FileUtil.copy(resource.getFile(), dbFile, true);
-//            bookDao.initDb();
-        }
+        appConfig.dbInit();
+        appConfig.tempDir();
+
         log.info("初始化完成");
     }
 

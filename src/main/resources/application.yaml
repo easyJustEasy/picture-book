@@ -4,17 +4,29 @@ local:
 spring:
   application:
     name: picture-book
+  devtools:
+    restart:
+      enabled: false
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: org.sqlite.JDBC
     url: "jdbc:sqlite:${local.user.home}/book.db"
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 15
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      auto-commit: true
+      pool-name: picture-book
+      # leak-detection-threshold: 2000  # 可选，仅用于调试
 ai:
   text:
      mode: 1 # 1: 通义千问 2 远程api
      remote-url: http://192.168.1.4:11434/
   image:
-     mode: 1
-     remote-url: http://192.168.1.4:10000/get_image_remote
+     mode: 2
+     remote-url: http://192.168.1.4:10001/get_image_remote
   voice:
-     mode: 1
+     mode: 2
      remote-url: http://192.168.1.4:10000/get_voice_remote

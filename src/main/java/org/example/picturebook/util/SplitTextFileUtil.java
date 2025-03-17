@@ -1,10 +1,10 @@
-package com.picture.kubuStory;
+package org.example.picturebook.util;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SplitTextFile {
+public class SplitTextFileUtil {
     private static final int CHUNK_SIZE = 500; // 每个分割块的大小
        private static String parentDir = "E:\\work\\picture-book\\src\\test\\resources\\kongbu";
 

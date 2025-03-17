@@ -56,7 +56,11 @@ public class Story {
          * @return 提取出的内容
          */
         private static String extractPart(String text, String startMarker, String endMarker) {
-            int startIndex = text.indexOf(startMarker) + startMarker.length();
+            int i = text.indexOf(startMarker);
+            if (i<0) {
+                return text;
+            }
+            int startIndex =  i+ startMarker.length();
             int endIndex = text.indexOf(endMarker, startIndex); // 查找下一个换行符作为结束位置
             if (endIndex == -1) { // 如果没有找到换行符，则取到最后
                 endIndex = text.length();

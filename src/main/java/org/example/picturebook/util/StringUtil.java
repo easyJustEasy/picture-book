@@ -8,7 +8,7 @@ public class StringUtil {
 
     }
     public static  String replaceLineSeparatorToBlank(String inputString){
-        return inputString.replaceAll("\\\\n", "");
+        return inputString.replaceAll("\\\\n", "").replaceAll(LINE_SEPARATOR,"");
 
     }
     public static void main(String[] args) {

@@ -25,6 +25,9 @@ public class RemoteVoiceGenerate implements IVoiceGenerate {
         if (StrUtil.isBlankIfStr(voice)) {
             voice = "longyue";
         }
+        if(new File(filePath).isDirectory()){
+            throw new RuntimeException("filePath 不能是文件夹");
+        }
         text =  String.join("", Arrays.stream(text.split("\\r?\\n")).toArray(String[]::new));
         FileUtil.touch(filePath);
         HttpResponse httpResponse = HttpUtil.createPost(aiConfig.getVoice().getRemoteUrl() )

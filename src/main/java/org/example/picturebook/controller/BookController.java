@@ -2,10 +2,7 @@ package org.example.picturebook.controller;
 
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.picturebook.dto.BatchGenerateRequestDTO;
-import org.example.picturebook.dto.GenerateRequestDTO;
-import org.example.picturebook.dto.PageResult;
-import org.example.picturebook.dto.QueryByPageRequestDTO;
+import org.example.picturebook.dto.*;
 import org.example.picturebook.service.BookGenerateService;
 import org.example.picturebook.util.ThreadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +20,8 @@ public class BookController {
     @PostMapping("generate")
     public String generate(@RequestBody GenerateRequestDTO requestDTO) throws Exception {
         String uuid = UUID.randomUUID().toString();
-        ThreadUtil.execute(()->{
-            bookGenerateService.generate(requestDTO,uuid);
-        });
-        return uuid;
+        GenerateResultDTO generate = bookGenerateService.generate(requestDTO, uuid);
+        return generate.getVideoUrl();
     }
     // 生成绘本
     @PostMapping("batchGenerate")

@@ -2,6 +2,7 @@ package org.example.picturebook.service;
 
 import org.example.picturebook.config.AppConfig;
 import org.example.picturebook.dto.GenerateResultDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -32,10 +33,12 @@ public class ChildrenBookService extends AbstractPictureBookService implements I
             - 每本绘本的故事长度控制在10-15页之间，确保阅读时间适中，适合睡前故事或课堂阅读。
             - 所有内容需经过%s版权方的审核，确保合法合规。
             """;
+    @Autowired
+    private AppConfig appConfig;
 
     @Override
     String generateVoice(String caption, String workDir) throws Exception {
-        return getVoiceGenerate().generate(caption, "longyue",1.0F, workDir);
+        return getVoiceGenerate().generate(caption, "天童爱丽丝", 1.0F, workDir);
     }
 
     @Override
@@ -51,14 +54,16 @@ public class ChildrenBookService extends AbstractPictureBookService implements I
 
     /**
      * 生成视频
-     * @param resultDTO  请求
+     *
+     * @param resultDTO 请求
      * @return 视频路径
      * @throws Exception 异常
      */
 
     @Override
     public String generate(GenerateResultDTO resultDTO, GenerateCallBack callBack) throws Exception {
-        String role = resultDTO.getRole();String storyDesc = resultDTO.getStoryDesc();
-        return generate(ACTORS, system,role, storyDesc,resultDTO, AppConfig.tempDir(),callBack);
+        String role = resultDTO.getRole();
+        String storyDesc = resultDTO.getStoryDesc();
+        return generate(ACTORS, system, role, storyDesc, resultDTO, appConfig.tempDir(), callBack);
     }
 }
