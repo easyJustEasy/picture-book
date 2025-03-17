@@ -44,7 +44,7 @@ public class SplitTextFile {
 
         // 写入文件
         for (int i = 0; i < chunks.size(); i++) {
-            try (PrintWriter writer = new PrintWriter(new FileWriter(parentDir+File.separator+"gushi"+File.separator+"output_part" + i + ".txt"))) {
+            try (PrintWriter writer = new PrintWriter(new FileWriter(parentDir+File.separator+"gushi"+File.separator+i+"_output_part" + ".txt"))) {
                 writer.print(chunks.get(i));
             }
         }

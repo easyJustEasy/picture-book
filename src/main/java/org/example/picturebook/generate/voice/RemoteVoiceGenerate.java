@@ -38,9 +38,8 @@ public class RemoteVoiceGenerate implements IVoiceGenerate {
             while ((bytesRead = body.read(buffer)) != -1) {
                 outputStream.write(buffer, 0, bytesRead);
             }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
+            FileUtil.del(filePath);
             throw new RuntimeException(e);
         }
         return filePath;

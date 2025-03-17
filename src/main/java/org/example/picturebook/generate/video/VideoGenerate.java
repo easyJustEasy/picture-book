@@ -100,7 +100,21 @@ public class VideoGenerate {
                 "-ar", "44100",
                 outWav);
         pb.inheritIO().start().waitFor();
-        FileUtil.del(new File(filelist).getAbsolutePath());
+        return outWav;
+
+    }
+    public String wavToMp3(String filelist) throws IOException, InterruptedException {
+        File file = new File(filelist);
+        String outWav = file.getParent()+File.separator+ file.getName().replaceAll(".wav","") + ".mp3";
+        ProcessBuilder pb = new ProcessBuilder("ffmpeg",
+//                "-v","debug",
+                "-i", file.getAbsolutePath(),
+                "-b:a", "64k",
+                "-acodec", "mp3",
+                "-ar", "44100",
+                "-ac","1",
+                outWav);
+        pb.inheritIO().start().waitFor();
         return outWav;
 
     }

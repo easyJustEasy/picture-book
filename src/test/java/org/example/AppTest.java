@@ -31,7 +31,11 @@ public class AppTest {
 
     @Test
     public void test() throws Exception {
-        System.out.println(home);
+       File file = new File("C:\\Users\\Administrator\\Desktop\\dangao\\img");
+       int i = 1;
+        for (File listFile : file.listFiles()) {
+            FileUtil.rename(listFile,(i++)+".jpg",true);
+        }
     }
 
     @Test
@@ -51,7 +55,7 @@ public class AppTest {
             audio.setImg("./asset/"+name+"/img.webp");
             audio.setTxt(FileUtil.readString(listFile.getAbsolutePath()+File.separator+"prompt.txt",StandardCharsets.UTF_8));
             audio.setName(name);
-            audio.setMp3("./asset/"+name+"/prompt.wav");
+            audio.setMp3("./asset/"+name+"/prompt.mp3");
             list.add(audio);
         }
         t.binding("audioList", list);
