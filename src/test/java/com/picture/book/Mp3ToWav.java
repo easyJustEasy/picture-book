@@ -1,12 +1,10 @@
 package com.picture.book;
 
-import org.example.picturebook.generate.video.VideoGenerate;
-import org.opencv.video.Video;
+import com.zhuzhu.picturebook.generate.video.VideoGenerate;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Optional;
 
 public class Mp3ToWav {
     public static void main(String[] args) throws IOException, InterruptedException {

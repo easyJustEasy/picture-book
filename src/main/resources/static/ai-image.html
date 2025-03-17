@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>动态加载图片</title>
+</head>
+<body>
+
+<!-- 用于展示图片的img标签 -->
+<img id="dynamicImage" src="" alt="动态加载的图片" style="width:100%;max-width:1280px">
+
+<script>
+    // 定时器函数，用于定时获取图片
+    function fetchImagePeriodically() {
+        // 接口地址，请替换为实际的接口URL
+        const imageUrlEndpoint = 'https://example.com/api/get-image-url';
+
+        // 使用fetch API调用接口
+        fetch(imageUrlEndInit)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('网络响应失败');
+                }
+                return response.json(); // 假设接口返回的数据是JSON格式，其中包含图片的url
+            })
+            .then(data => {
+                // 更新img元素的src属性以显示新图片
+                document.getElementById('dynamicImage').src = data.imageUrl;
+            })
+            .catch(error => console.error('获取图片时发生错误:', error));
+
+        // 每隔10秒（10000毫秒）重复执行
+        setTimeout(fetchImagePeriodically, 10000);
+    }
+
+    // 页面加载完成后开始首次调用
+    window.onload = function() {
+        fetchImagePeriodically();
+    };
+</script>
+
+</body>
+</html>

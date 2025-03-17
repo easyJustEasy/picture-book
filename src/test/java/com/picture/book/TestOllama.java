@@ -1,15 +1,14 @@
 package com.picture.book;
 
 import cn.hutool.core.util.StrUtil;
-import com.alibaba.fastjson.JSONObject;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.PictureBookApp;
-import org.example.picturebook.dto.GenerateRequestDTO;
-import org.example.picturebook.dto.Story;
-import org.example.picturebook.generate.text.OllamaDeepSeekTextGenerate;
-import org.example.picturebook.service.AbstractPictureBookService;
-import org.example.picturebook.service.ChildrenBookService;
+import com.zhuzhu.PictureBookApp;
+import com.zhuzhu.picturebook.dto.GenerateRequestDTO;
+import com.zhuzhu.picturebook.dto.Story;
+import com.zhuzhu.picturebook.generate.text.OllamaDeepSeekTextGenerate;
+import com.zhuzhu.picturebook.service.AbstractPictureBookService;
+import com.zhuzhu.picturebook.service.ChildrenBookService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

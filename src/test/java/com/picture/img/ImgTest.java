@@ -2,21 +2,20 @@ package com.picture.img;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
-import org.example.PictureBookApp;
-import org.example.picturebook.config.AppConfig;
-import org.example.picturebook.dto.GenerateRequestDTO;
-import org.example.picturebook.dto.Story;
-import org.example.picturebook.generate.imgage.RemoteImageGenerate;
-import org.example.picturebook.generate.text.TongYiTextGenerate;
-import org.example.picturebook.service.AbstractPictureBookService;
-import org.example.picturebook.service.ChildrenBookService;
+import com.zhuzhu.PictureBookApp;
+import com.zhuzhu.picturebook.dto.GenerateRequestDTO;
+import com.zhuzhu.picturebook.dto.Story;
+import com.zhuzhu.picturebook.generate.imgage.RemoteImageGenerate;
+import com.zhuzhu.picturebook.generate.text.TongYiTextGenerate;
+import com.zhuzhu.picturebook.service.AbstractPictureBookService;
+import com.zhuzhu.picturebook.service.ChildrenBookService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.File;
 
-import static org.example.picturebook.generate.imgage.AbstractImageGenerate.addCaption;
+import static com.zhuzhu.picturebook.generate.imgage.AbstractImageGenerate.addCaption;
 
 @SpringBootTest(classes = PictureBookApp.class)
 public class ImgTest {

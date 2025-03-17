@@ -2,12 +2,12 @@ package com.picture.voice;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
-import org.example.PictureBookApp;
-import org.example.picturebook.generate.voice.RemoteVoiceGenerate;
-import org.example.picturebook.generate.voice.TongYiVoiceGenerate;
-import org.example.picturebook.third.audio.AudioPlayer;
-import org.example.picturebook.util.StringUtil;
-import org.example.picturebook.util.TitleUtil;
+import com.zhuzhu.PictureBookApp;
+import com.zhuzhu.picturebook.generate.voice.RemoteVoiceGenerate;
+import com.zhuzhu.picturebook.generate.voice.TongYiVoiceGenerate;
+import com.zhuzhu.picturebook.third.audio.AudioPlayer;
+import com.zhuzhu.picturebook.util.StringUtil;
+import com.zhuzhu.picturebook.util.TitleUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
