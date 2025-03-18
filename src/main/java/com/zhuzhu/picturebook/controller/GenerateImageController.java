@@ -28,7 +28,7 @@ public class GenerateImageController {
     private AppConfig appConfig;
     @GetMapping("generate")
     public String generate() throws Exception {
-        String prompt = "生成一个关于中国美女的图片提示词，只需要提示词，不要增加额外的信息";
+        String prompt = "生成一个关于中国现代美女的图片提示词，要求皮肤白皙，形象可爱，只需要提示词，不要增加额外的信息";
         String generate = textGenerate.generate("", prompt);
         String s = genImage(generate);
         return AppConfig.videoUrl()+"/img/"+new File(s).getName();
