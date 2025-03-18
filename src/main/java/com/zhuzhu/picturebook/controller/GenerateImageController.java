@@ -11,10 +11,7 @@ import com.zhuzhu.picturebook.generate.imgage.RemoteImageGenerate;
 import com.zhuzhu.picturebook.generate.text.TongYiTextGenerate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
 import java.util.Map;
@@ -29,12 +26,12 @@ public class GenerateImageController {
     private AiConfig aiConfig;
     @Autowired
     private AppConfig appConfig;
-    @PostMapping("generate")
+    @GetMapping("generate")
     public String generate() throws Exception {
-        String prompt = "生成一个生成图片的提示词";
+        String prompt = "生成一个关于美女的图片提示词";
         String generate = textGenerate.generate("", prompt);
         String s = genImage(generate);
-        return AppConfig.videoUrl()+"/"+new File(s).getName();
+        return AppConfig.videoUrl()+"/img/"+new File(s).getName();
     }
     private String genImage(String prompt) throws Exception {
         String filePath = AppConfig.videoDir() + File.separator+"img"+File.separator + UUID.randomUUID() + ".png";

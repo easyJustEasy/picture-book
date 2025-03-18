@@ -3,40 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <title>动态加载图片</title>
+  <style>
+        /* 设置body和html的高度为100% */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        /* 全屏显示图片容器 */
+        #imageContainer {
+            position: fixed; /* 固定定位，使元素相对于浏览器窗口进行定位 */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            background-color: black; /* 可选：背景颜色 */
+            overflow: hidden; /* 防止内容溢出 */
+        }
+
+        /* 图片样式 */
+        #dynamicImage {
+            max-width: 100%; /* 图片宽度不超过其容器 */
+            max-height: 100%; /* 图片高度不超过其容器 */
+            width: auto; /* 自动调整宽度 */
+            height: auto; /* 自动调整高度 */
+        }
+    </style>
 </head>
 <body>
-
-<!-- 用于展示图片的img标签 -->
-<img id="dynamicImage" src="" alt="动态加载的图片" style="width:100%;max-width:1280px">
-
+<!-- 包含图片的div容器 -->
+<div id="imageContainer">
+  <img id="dynamicImage" src="./img/demo.jpg" alt="动态加载的图片">
+</div>
+<script src="./js/axios.js"></script>
 <script>
-    // 定时器函数，用于定时获取图片
-    function fetchImagePeriodically() {
-        // 接口地址，请替换为实际的接口URL
-        const imageUrlEndpoint = 'https://example.com/api/get-image-url';
+let generate = function() {
+             axios.get('/img/generate')
+                .then(response => {
+                   document.getElementById('dynamicImage').src=response.data
+    setTimeout(generate, 5000);
+                })
+                .catch(error => {
+                    console.error('error：', error);
+                });
 
-        // 使用fetch API调用接口
-        fetch(imageUrlEndInit)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('网络响应失败');
-                }
-                return response.json(); // 假设接口返回的数据是JSON格式，其中包含图片的url
-            })
-            .then(data => {
-                // 更新img元素的src属性以显示新图片
-                document.getElementById('dynamicImage').src = data.imageUrl;
-            })
-            .catch(error => console.error('获取图片时发生错误:', error));
-
-        // 每隔10秒（10000毫秒）重复执行
-        setTimeout(fetchImagePeriodically, 10000);
     }
-
-    // 页面加载完成后开始首次调用
-    window.onload = function() {
-        fetchImagePeriodically();
-    };
+generate();
 </script>
 
 </body>
