@@ -9,9 +9,7 @@ import java.io.File;
 import java.util.UUID;
 
 public abstract class AbstractImageGenerate {
-     String makePrompt(String actors,String scene){
-         return String.format("卡通风格插画，人物描述：%s。场景描述：%s。", actors, scene);
-     }
+
    public   static String addCaption(String path, String caption,String workDir) throws Exception {
 
         //将 caption拆分47个字一组

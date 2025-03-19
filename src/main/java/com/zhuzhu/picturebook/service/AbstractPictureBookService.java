@@ -159,6 +159,10 @@ public abstract class AbstractPictureBookService {
         return new File(newPath).getAbsolutePath();
     }
 
+    public String makePrompt(String actors, String scene) {
+        return String.format("卡通风格插画，人物描述：%s。场景描述：%s。", actors, scene);
+    }
+
     /**
      * 合并视频
      *

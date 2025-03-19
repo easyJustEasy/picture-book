@@ -49,7 +49,8 @@ public class ChildrenBookService extends AbstractPictureBookService implements I
 
     @Override
     String generatePicture(String actors, String scene, String caption, String workDir) throws Exception {
-        return getImageGenerate().generate(actors, scene, caption, workDir);
+        String prompt = makePrompt(actors, scene);
+        return getImageGenerate().generate(prompt, workDir);
     }
 
     /**

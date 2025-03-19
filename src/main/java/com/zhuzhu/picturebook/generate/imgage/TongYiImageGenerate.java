@@ -25,13 +25,13 @@ import java.util.UUID;
 @Slf4j
 public class TongYiImageGenerate extends AbstractImageGenerate implements IImageGenerate {
     @Override
-    public String generate(String actors, String scene, String caption,String workDir) throws Exception {
+    public String generate(String prompt,String workDir) throws Exception {
         ImageSynthesisParam param =
                 ImageSynthesisParam.builder()
                         .apiKey(AppConfig.apiKey())
                         .model("wanx2.0-t2i-turbo")
 //                        .parameter("prompt_extend",false)
-                        .prompt(makePrompt(actors,scene))
+                        .prompt(prompt)
                         .n(1)
                         .size("1280*720")
                         .build();

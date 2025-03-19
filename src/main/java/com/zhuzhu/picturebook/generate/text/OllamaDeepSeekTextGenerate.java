@@ -1,5 +1,6 @@
 package com.zhuzhu.picturebook.generate.text;
 
+import cn.hutool.core.exceptions.ExceptionUtil;
 import com.alibaba.fastjson.JSONObject;
 
 import jakarta.annotation.PostConstruct;
@@ -14,6 +15,7 @@ import org.springframework.ai.ollama.api.OllamaApi;
 import org.springframework.ai.ollama.api.OllamaOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Flux;
 
 @Component
 @Slf4j
@@ -29,16 +31,21 @@ public class OllamaDeepSeekTextGenerate implements ITextGenerate {
     OllamaApi ollamaApi;
     @PostConstruct
     private void init(){
-//        OllamaApi.PullModelRequest request = new OllamaApi.PullModelRequest(currentModel);
-//        Flux<OllamaApi.ProgressResponse> progressResponseFlux = ollamaApi.pullModel(request);
-//        progressResponseFlux.subscribe(t->{
-//            log.info("pulling model {}",t);
-//        },error->{
-//            log.error("pull model error ,model name is {} ,error is {}",currentModel, ExceptionUtil.stacktraceToString(error));
-//            throw new RuntimeException(error);
-//        },()->{
-//            log.info("pull model end success for {}",currentModel);
-//        });
+        try {
+            OllamaApi.PullModelRequest request = new OllamaApi.PullModelRequest(currentModel);
+            Flux<OllamaApi.ProgressResponse> progressResponseFlux = ollamaApi.pullModel(request);
+            progressResponseFlux.subscribe(t->{
+                log.info("pulling model {}",t);
+            },error->{
+                log.error("pull model error ,model name is {} ,error is {}",currentModel, ExceptionUtil.stacktraceToString(error));
+                throw new RuntimeException(error);
+            },()->{
+                log.info("pull model end success for {}",currentModel);
+            });
+        }catch (Exception e){
+            log.error("{} init error",currentModel);
+        }
+
     }
 
     @Override

@@ -8,6 +8,7 @@ import com.zhuzhu.picturebook.config.AppConfig;
 import com.zhuzhu.picturebook.dto.GenerateRequestDTO;
 import com.zhuzhu.picturebook.dto.GenerateResultDTO;
 import com.zhuzhu.picturebook.generate.imgage.RemoteImageGenerate;
+import com.zhuzhu.picturebook.generate.text.OllamaDeepSeekTextGenerate;
 import com.zhuzhu.picturebook.generate.text.TongYiTextGenerate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,7 +22,9 @@ import java.util.UUID;
 @RequestMapping("img")
 public class GenerateImageController {
     @Autowired
-    private TongYiTextGenerate textGenerate;
+    private OllamaDeepSeekTextGenerate textGenerate;
+    @Autowired
+    private RemoteImageGenerate remoteImageGenerate;
     @Autowired
     private AiConfig aiConfig;
     @Autowired
@@ -34,23 +37,6 @@ public class GenerateImageController {
         return AppConfig.videoUrl()+"/img/"+new File(s).getName();
     }
     private String genImage(String prompt) throws Exception {
-        String filePath = AppConfig.videoDir() + File.separator+"img"+File.separator + UUID.randomUUID() + ".png";
-        FileUtil.touch(filePath);
-        HttpResponse httpResponse = HttpUtil.createPost(aiConfig.getImage().getRemoteUrl())
-                .form(Map.of("prompt", prompt, "step", 20))
-                .header("Accept", "image/png")
-                .execute();
-        InputStream body = httpResponse.bodyStream();
-        try (OutputStream outputStream = new FileOutputStream(filePath)) { // 保存到文件或实时处理
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-            while ((bytesRead = body.read(buffer)) != -1) {
-                outputStream.write(buffer, 0, bytesRead);
-            }
-        } catch (IOException e) {
-            FileUtil.del(filePath);
-            throw new RuntimeException(e);
-        }
-        return filePath;
+        return remoteImageGenerate.generate(prompt,AppConfig.videoDir() + File.separator+"img");
     }
 }

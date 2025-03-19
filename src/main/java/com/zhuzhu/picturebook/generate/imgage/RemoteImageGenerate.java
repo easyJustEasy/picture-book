@@ -19,8 +19,8 @@ public class RemoteImageGenerate extends AbstractImageGenerate implements IImage
     private AiConfig aiConfig;
 
     @Override
-    public String generate(String actors, String scene, String caption, String workDir) throws Exception {
-        String prompt = makePrompt(actors, scene);
+    public String generate(String prompt, String workDir) throws Exception {
+
         String filePath = workDir + File.separator + UUID.randomUUID() + ".png";
         FileUtil.touch(filePath);
         HttpResponse httpResponse = HttpUtil.createPost(aiConfig.getImage().getRemoteUrl())
