@@ -22,7 +22,7 @@ spring:
       # leak-detection-threshold: 2000  # 可选，仅用于调试
 ai:
   text:
-     mode: 2 # 1: 通义千问 2 远程api
+     mode: 1 # 1: 通义千问 2 远程api
      remote-url: http://192.168.1.7:11434/
   image:
      mode: 2
