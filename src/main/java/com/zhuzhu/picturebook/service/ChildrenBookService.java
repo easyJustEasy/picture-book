@@ -37,8 +37,8 @@ public class ChildrenBookService extends AbstractPictureBookService implements I
     private AppConfig appConfig;
 
     @Override
-    String generateVoice(String caption, String workDir) throws Exception {
-        return getVoiceGenerate().generate(caption, "天童爱丽丝", 1.0F, workDir);
+    String generateVoice(String caption, String filePath) throws Exception {
+        return getVoiceGenerate().generate(caption, "天童爱丽丝", 1.0F, filePath);
     }
 
     @Override

@@ -18,7 +18,7 @@ import java.util.UUID;
 public class TongYiVoiceGenerate implements IVoiceGenerate{
     private static String model = "cosyvoice-v1";
 
-    public  String generate(String text, String voice,Float speed,String workDir) throws Exception {
+    public  String generate(String text, String voice,Float speed,String filePath) throws Exception {
         if (StrUtil.isBlankIfStr(voice)) {
             voice = "longtong";
         }
@@ -31,8 +31,7 @@ public class TongYiVoiceGenerate implements IVoiceGenerate{
                         .build();
         SpeechSynthesizer synthesizer = new SpeechSynthesizer(param, null);
         ByteBuffer audio = synthesizer.call(text);
-        String path = workDir + File.separator + UUID.randomUUID() + ".mp3";
-        File file = new File(path);
+        File file = new File(filePath);
         try (FileOutputStream fos = new FileOutputStream(file)) {
             fos.write(audio.array());
         } catch (IOException e) {

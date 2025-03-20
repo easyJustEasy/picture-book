@@ -182,7 +182,7 @@ public abstract class AbstractPictureBookService {
      */
 
 
-    abstract String generateVoice(String caption, String workDir) throws Exception;
+    abstract String generateVoice(String caption, String filePath) throws Exception;
 
     /**
      * 生成故事框架
