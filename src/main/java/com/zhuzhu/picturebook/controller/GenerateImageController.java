@@ -20,8 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.*;
 import java.util.Map;
 import java.util.UUID;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 @RestController
 @RequestMapping("img")
@@ -47,12 +46,40 @@ public class GenerateImageController {
                 请生成一个关于一个中国现代美女的提示词，要求年龄是18-30岁，皮肤白皙，形象可爱。
                 """;
         String generate = textGenerate.generate(system, prompt);
-        String voicePath = voiceGenerate.generate(generate, "悟空-电视剧", 1.0F, FileUtils.getUuidFileName(AppConfig.videoDir() + File.separator + "voice", ".wav"));
-        String s = genImage(generate);
-        executorService.submit(()->{
-            AudioPlayer.playSound(voicePath);
+        // 创建两个异步任务来模拟获取用户的名字和年龄
+        CompletableFuture<String> voiceFuture = CompletableFuture.supplyAsync(() -> {
+            try {
+                return voiceGenerate.generate(generate, "悟空-电视剧", 1.0F, FileUtils.getUuidFileName(AppConfig.videoDir() + File.separator + "voice", ".wav"));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            return null; // 返回用户的名字
         });
-        return AppConfig.videoUrl()+"/img/"+new File(s).getName();
+
+        CompletableFuture<String> imageFuture = CompletableFuture.supplyAsync(() -> {
+            try {
+                return  genImage(generate);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null; // 返回用户的年龄
+        });
+
+        // 组合两个异步结果并进行处理
+        CompletableFuture<String> combinedFuture = voiceFuture.thenCombine(imageFuture, (name, age) -> name+"@@@@@@@"+age);
+
+        // 等待所有异步操作完成
+        combinedFuture.get(); // 阻塞直到所有异步操作完成
+        executorService.submit(()->{
+            try {
+                AudioPlayer.playSound(voiceFuture.get(5000, TimeUnit.MINUTES));
+            } catch (InterruptedException | ExecutionException | TimeoutException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        return AppConfig.videoUrl()+"/img/"+new File(imageFuture.get(5000, TimeUnit.MINUTES)).getName();
     }
     private String genImage(String prompt) throws Exception {
         return remoteImageGenerate.generate(prompt,AppConfig.videoDir() + File.separator+"img");
