@@ -51,6 +51,7 @@ AI 开始创作程序会根据你的输入，生成一个完整的故事，并�
 🎁如何体验？
 
 从github下载项目：
+
 1 git clone https://github.com/easyJustEasy/picture-book.git
 2 启动项目：BookApplication
 3 打开浏览器并访问：
