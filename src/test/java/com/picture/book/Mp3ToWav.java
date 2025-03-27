@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class Mp3ToWav {
     public static void main(String[] args) throws IOException, InterruptedException {
-     wavToMp3();
+     wavToMp3(new File("E:\\work\\picture-book\\voice\\asset\\longtong\\prompt.wav"));
     }
     public static void mp3ToWav() throws IOException, InterruptedException {
         File file = new File("E:\\work\\picture-book\\voice\\asset");
@@ -31,5 +31,9 @@ public class Mp3ToWav {
             VideoGenerate videoGenerate = new VideoGenerate();
             videoGenerate.wavToMp3(first.getAbsolutePath());
         }
+    }
+    public static void wavToMp3(File wav) throws IOException, InterruptedException {
+        VideoGenerate videoGenerate = new VideoGenerate();
+        videoGenerate.wavToMp3(wav.getAbsolutePath());
     }
 }

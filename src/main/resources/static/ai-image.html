@@ -44,7 +44,7 @@ let generate = function() {
              axios.get('/img/generate')
                 .then(response => {
                    document.getElementById('dynamicImage').src=response.data
-    setTimeout(generate, 5000);
+                   setTimeout(generate, 300);
                 })
                 .catch(error => {
                     console.error('error：', error);
