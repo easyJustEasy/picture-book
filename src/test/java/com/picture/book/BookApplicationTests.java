@@ -1,10 +1,20 @@
 package com.picture.book;
 
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.zhuzhu.PictureBookApp;
+import com.zhuzhu.picturebook.dto.BatchGenerateRequestDTO;
+import com.zhuzhu.picturebook.dto.GenerateRequestDTO;
 import com.zhuzhu.picturebook.dto.Story;
+import com.zhuzhu.picturebook.generate.text.OllamaDeepSeekTextGenerate;
+import com.zhuzhu.picturebook.service.BookGenerateService;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 @SpringBootTest(classes = PictureBookApp.class)
 class BookApplicationTests {
@@ -56,6 +66,35 @@ class BookApplicationTests {
 				     故事结束				""";
 		Story story = Story.parseStory(s);
 		System.out.println(JSONObject.toJSONString(story));
+	}
+	@Autowired
+	BookGenerateService bookGenerateService;
+	@Autowired
+	OllamaDeepSeekTextGenerate ollamaDeepSeekTextGenerate;
+	@Test
+	public void test1() throws Exception {
+		String systemMessage = """
+                """;
+		String userMessage = "生成关于海绵宝宝的21件事，要求事件符合逻辑，只需要事件的标题，不需要详细描述事件的经过,每个标题用@@@@@@@隔开只需要文字不需要序号";
+		String desc = ollamaDeepSeekTextGenerate.generate(systemMessage, userMessage);
+		String role = "海绵宝宝";
+
+		List<GenerateRequestDTO> list = new ArrayList<>();
+		String[]s = desc.split("@@@@@@@");
+		for (String s1 : s) {
+			if(StrUtil.isBlankIfStr(s1)){
+				continue;
+			}
+			GenerateRequestDTO generateRequestDTO = new GenerateRequestDTO();
+			generateRequestDTO.setId(null);
+			generateRequestDTO.setRole(role);
+			generateRequestDTO.setStoryDesc(s1);
+			list.add(generateRequestDTO);
+
+		}
+		BatchGenerateRequestDTO requestDTO  = new BatchGenerateRequestDTO();
+		requestDTO.setList(list);
+		bookGenerateService.generateBatch(requestDTO, UUID.randomUUID().toString());
 	}
 
 }

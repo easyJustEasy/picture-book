@@ -23,10 +23,11 @@ public class OllamaDeepSeekTextGenerate implements ITextGenerate {
     private static final String deepseekr1dot5b="deepseek-r1:1.5b";
     private static final String deepseekr17b="deepseek-r1:7b";
     private static final String deepseekr114b="deepseek-r1:14b";
+    private static final String qwen257b="qwen2.5:7b";
     private static final String qwen2514b="qwen2.5:14b";
     private static final String qwen2532b="qwen2.5:32b";
     private static final String qwen2572b="qwen2.5:72b";
-    private static final String currentModel = deepseekr17b;
+    private static final String currentModel = qwen257b;
     @Autowired
     OllamaApi ollamaApi;
     @PostConstruct

@@ -35,4 +35,12 @@ public class TestOllama {
             System.out.println(scene.getCaption());
         }
     }
+    @Test
+    public void test1() throws Exception {
+        String systemMessage = """
+                """;
+        String userMessage = "生成关于海绵宝宝的20件事，要求事件符合逻辑，只需要事件的标题，不需要详细描述事件的经过,每个标题用@@@@@@@隔开只需要文字不需要序号";
+        String s = ollamaDeepSeekTextGenerate.generate(systemMessage, userMessage);
+        System.out.println(s);
+    }
 }

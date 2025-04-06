@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class Mp3ToWav {
     public static void main(String[] args) throws IOException, InterruptedException {
-     wavToMp3(new File("E:\\work\\picture-book\\voice\\asset\\longtong\\prompt.wav"));
+     wavToMp3(new File("E:\\work\\picture-book\\voice\\asset\\海绵宝宝\\prompt.wav"));
     }
     public static void mp3ToWav() throws IOException, InterruptedException {
         File file = new File("E:\\work\\picture-book\\voice\\asset");

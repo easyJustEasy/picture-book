@@ -128,7 +128,7 @@ public class Kehu {
                         """,
         };
         for (String s : ss) {
-            String s1 = generageSingle(s,"天童爱丽丝");
+            String s1 = generageSingle(s,"海绵宝宝");
             AudioPlayer.playSound(s1);
         }
 

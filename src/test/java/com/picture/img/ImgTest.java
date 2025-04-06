@@ -3,17 +3,26 @@ package com.picture.img;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
 import com.zhuzhu.PictureBookApp;
+import com.zhuzhu.picturebook.config.AiConfig;
+import com.zhuzhu.picturebook.config.AppConfig;
+import com.zhuzhu.picturebook.controller.GenerateImageController;
 import com.zhuzhu.picturebook.dto.GenerateRequestDTO;
 import com.zhuzhu.picturebook.dto.Story;
 import com.zhuzhu.picturebook.generate.imgage.RemoteImageGenerate;
+import com.zhuzhu.picturebook.generate.text.OllamaDeepSeekTextGenerate;
 import com.zhuzhu.picturebook.generate.text.TongYiTextGenerate;
+import com.zhuzhu.picturebook.generate.voice.RemoteVoiceGenerate;
 import com.zhuzhu.picturebook.service.AbstractPictureBookService;
 import com.zhuzhu.picturebook.service.ChildrenBookService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.File;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 import static com.zhuzhu.picturebook.generate.imgage.AbstractImageGenerate.addCaption;
 
@@ -58,6 +67,7 @@ public class ImgTest {
         System.out.println(newPath);
 
     }
+
     @Test
     void giveAImageByText() throws Exception {
 
@@ -68,5 +78,61 @@ public class ImgTest {
         String temp = remoteImageGenerate.generate(s, workDir);
         System.out.println(temp);
 
+    }
+
+    @Autowired
+    private OllamaDeepSeekTextGenerate textGenerate;
+
+    @Autowired
+    private RemoteVoiceGenerate voiceGenerate;
+    @Autowired
+    private AiConfig aiConfig;
+    @Autowired
+    private AppConfig appConfig;
+
+    @Test
+    void genImg() throws Exception {
+        String parent = "temp" + File.separator + "img";
+        FileUtil.mkdir(parent);
+        remoteImageGenerate.generate("""
+                一幅描绘着古老中国南方风景的画面，画面中央是一棵挂满了红色豆子的枝条，海绵宝宝站在树下，好像在思考着什么，在春天里嫩绿的新芽与鲜艳的红果相互映衬，周围点缀着几朵娇艳欲滴的花朵。远处是朦胧的山水，整个画面洋溢着淡淡的相思之情。风格应充满古典韵味，颜色鲜明但不失柔和，能够传达出诗句中蕴含的情感和意境。
+               
+                """, parent);
+//        genGImg("红豆生南国,春来发几枝.愿君多采撷,此物最相思", parent);
+    }
+
+    private void genGImg(String prompt, String parent) throws Exception {
+        String system = """
+                  请根据用户输入的中国古诗，解释古诗，并按照古诗中描绘的意境生成绘制图片的提示词
+                """;
+        String generate = textGenerate.generate(system, prompt);
+        String generate1 = remoteImageGenerate.generate(generate, parent);
+        System.out.println(generate1);
+    }
+
+    @Test
+    void scheduleImg() throws Exception {
+        LocalDate today = LocalDate.now();
+        String parent = "E:\\toutiaoimge";
+        for (int i = 0; i < 30; i++) {
+            String dir = parent + File.separator + today.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            File file = FileUtil.mkdir(dir);
+            int size = 108 - Objects.requireNonNull(file.listFiles()).length;
+            if (size < 0) {
+                size = 0;
+            }
+            for (int j = 0; j < size; j++) {
+                String prompt = "生成一个关于中国现代美女的图片提示词，要求皮肤白皙，形象可爱，只需要提示词，不要增加额外的信息";
+                String system = """
+                          请根据用户输入生成提示词，字数不得超过50个字，不需要输出额外的信息
+                        """;
+                prompt = """
+                        请生成一个关于一个中国现代美女的提示词，要求年龄是18-30岁，皮肤白皙，形象可爱。
+                        """;
+                String generate = textGenerate.generate(system, prompt);
+                remoteImageGenerate.generate(generate, dir);
+            }
+            today = today.plusDays(1);
+        }
     }
 }
