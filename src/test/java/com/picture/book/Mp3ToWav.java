@@ -8,7 +8,11 @@ import java.util.Arrays;
 
 public class Mp3ToWav {
     public static void main(String[] args) throws IOException, InterruptedException {
-     wavToMp3(new File("E:\\work\\picture-book\\voice\\asset\\海绵宝宝\\prompt.wav"));
+        mp3ToWav(new File("E:\\work\\picture-book\\voice\\asset\\海绵宝宝\\prompt.mp3"));
+    }
+    public static void mp3ToWav(File wav) throws IOException, InterruptedException {
+        VideoGenerate videoGenerate = new VideoGenerate();
+        videoGenerate.mp3ToWav(wav.getAbsolutePath());
     }
     public static void mp3ToWav() throws IOException, InterruptedException {
         File file = new File("E:\\work\\picture-book\\voice\\asset");

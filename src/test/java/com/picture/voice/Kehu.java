@@ -14,6 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.File;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.List;
 
 @SpringBootTest(classes = PictureBookApp.class)
 public class Kehu {
@@ -122,15 +124,17 @@ public class Kehu {
 
     @Test
     void contextLoads1() {
+
         String[] ss = {
-                """
-         亲爱的朋友们，感谢你们再次光临我们的直播间。今天我为大家准备了一些特别的惊喜，千万不要错过哦！
-                        """,
+                "相思","王维〔唐代〕",
+                "红豆生南国","春来发几枝" ,
+                "愿君多采撷","此物最相思"
         };
-        for (String s : ss) {
-            String s1 = generageSingle(s,"海绵宝宝");
-            AudioPlayer.playSound(s1);
+        List<String> sss = Arrays.stream(ss).map(e -> generageSingle(e, "海绵宝宝")).toList();
+        for (String s : sss) {
+            AudioPlayer.playSound(s);
         }
+
 
     }
 
