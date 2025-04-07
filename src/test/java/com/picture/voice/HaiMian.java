@@ -18,9 +18,11 @@ public class HaiMian {
     @Test
     public void test() throws Exception {
         String prompt = """
-                相思
+                红豆生南国，春来发几枝。
+				愿君多采撷，此物最相思。
                 """;
         String generate = remoteVoiceGenerate.generate(prompt, "海绵宝宝", 1f, "temp" + File.separator + UUID.randomUUID() + ".wav");
         new PlayWav(generate);
+        System.out.println(generate);
     }
 }
