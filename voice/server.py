@@ -74,6 +74,7 @@ async def get_voice_remote(request: Request):
     prompt_speech_16k_r = load_wav(f'{current_working_directory}/asset/{audio}/prompt.wav', 16000)
 
     emo = readFile(f'{current_working_directory}/asset/{audio}/prompt.txt')
+    print(f'audio txt is :{emo }')
     model_output = cosyvoice.inference_zero_shot(tts_text, emo, prompt_speech_16k_r,speed)
     tts_audio = b''
     for i, j in enumerate(model_output):
