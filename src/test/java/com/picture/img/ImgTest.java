@@ -5,7 +5,9 @@ import cn.hutool.core.util.StrUtil;
 import com.zhuzhu.PictureBookApp;
 import com.zhuzhu.picturebook.config.AiConfig;
 import com.zhuzhu.picturebook.config.AppConfig;
+import com.zhuzhu.picturebook.consts.BookType;
 import com.zhuzhu.picturebook.controller.GenerateImageController;
+import com.zhuzhu.picturebook.covert.PictureBookConvert;
 import com.zhuzhu.picturebook.dto.GenerateRequestDTO;
 import com.zhuzhu.picturebook.dto.Story;
 import com.zhuzhu.picturebook.generate.imgage.RemoteImageGenerate;
@@ -41,8 +43,8 @@ public class ImgTest {
         GenerateRequestDTO requestDTO = new GenerateRequestDTO();
         requestDTO.setRole("海绵宝宝");
         requestDTO.setStoryDesc("海绵宝宝去游泳");
-        String systemMessage = StrUtil.replace(ChildrenBookService.system, "%s", requestDTO.getRole());
-        String userMessage = requestDTO.getStoryDesc() + AbstractPictureBookService.tail;
+        String systemMessage = StrUtil.replace(BookType.getSystem(requestDTO.getBookType()), "%s", requestDTO.getRole());
+        String userMessage = requestDTO.getStoryDesc() + BookType.getTail(requestDTO.getBookType());
         String s = tongYiTextGenerate.generate(systemMessage, userMessage);
         Story story = Story.parseStory(s);
         System.out.println(story.getTitle());
@@ -95,8 +97,7 @@ public class ImgTest {
         String parent = "temp" + File.separator + "img";
         FileUtil.mkdir(parent);
         remoteImageGenerate.generate("""
-                一幅描绘着古老中国南方风景的画面，画面中央是一棵挂满了红色豆子的枝条，海绵宝宝站在树下，好像在思考着什么，在春天里嫩绿的新芽与鲜艳的红果相互映衬，周围点缀着几朵娇艳欲滴的花朵。远处是朦胧的山水，整个画面洋溢着淡淡的相思之情。风格应充满古典韵味，颜色鲜明但不失柔和，能够传达出诗句中蕴含的情感和意境。
-               
+               海绵宝宝站在一片美丽的珊瑚礁旁，手中捧着一颗红豆。
                 """, parent);
 //        genGImg("红豆生南国,春来发几枝.愿君多采撷,此物最相思", parent);
     }

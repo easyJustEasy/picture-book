@@ -96,5 +96,32 @@ class BookApplicationTests {
 		requestDTO.setList(list);
 		bookGenerateService.generateBatch(requestDTO, UUID.randomUUID().toString());
 	}
+	@Test
+	public void test2() throws Exception {
 
+		String desc = """
+				相思
+				红豆生南国，春来发几枝。
+				愿君多采撷，此物最相思。
+				""";
+		String role = "海绵宝宝";
+
+		List<GenerateRequestDTO> list = new ArrayList<>();
+		String[]s = desc.split("@@@@@@@");
+		for (String s1 : s) {
+			if(StrUtil.isBlankIfStr(s1)){
+				continue;
+			}
+			GenerateRequestDTO generateRequestDTO = new GenerateRequestDTO();
+			generateRequestDTO.setId(null);
+			generateRequestDTO.setRole(role);
+			generateRequestDTO.setStoryDesc(s1);
+			generateRequestDTO.setBookType(2);
+			list.add(generateRequestDTO);
+
+		}
+		BatchGenerateRequestDTO requestDTO  = new BatchGenerateRequestDTO();
+		requestDTO.setList(list);
+		bookGenerateService.generateBatch(requestDTO, UUID.randomUUID().toString());
+	}
 }

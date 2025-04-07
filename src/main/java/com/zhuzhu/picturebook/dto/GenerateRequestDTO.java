@@ -7,4 +7,5 @@ public class GenerateRequestDTO {
    private Integer id;
    private String role;
    private String storyDesc;
+   private Integer bookType = 1;
 }

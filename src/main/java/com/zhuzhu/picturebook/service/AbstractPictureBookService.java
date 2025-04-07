@@ -3,6 +3,7 @@ package com.zhuzhu.picturebook.service;
 import cn.hutool.core.exceptions.ExceptionUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
+import com.zhuzhu.picturebook.consts.BookType;
 import com.zhuzhu.picturebook.dto.GenerateResultDTO;
 import com.zhuzhu.picturebook.dto.Story;
 import com.zhuzhu.picturebook.generate.imgage.AbstractImageGenerate;
@@ -37,26 +38,7 @@ public abstract class AbstractPictureBookService {
     private ImageGenerateFactory imageGenerateFactory;
     @Autowired
     private AiConfig aiConfig;
-    public static final String tail = """
-            请生成一个故事，要求最少有6个场景，每个场景要有旁白和场景描述 每个场景用'@@@@@'隔开，结构为：’
-            @@@@@
-            故事标题：xxx
-                                    
-            @@@@@
-                                    
-            场景1
-            旁白：xxx
-            场景描述：xxx
-                                    
-            @@@@@
-                                    
-            场景2
-            旁白：xxx
-            场景描述：xxx
-                                    
-            @@@@@
-            故事结束‘
-            """;
+
 
     /**
      * 生成绘本故事
@@ -76,14 +58,13 @@ public abstract class AbstractPictureBookService {
                            String workDir,
                            GenerateCallBack callBack) {
         String systemMessage = StrUtil.replace(system, "%s", role);
-        String userMessage = storyDesc + tail;
         dto.setStorySystemMessage(systemMessage);
-        dto.setStoryUserMessage(userMessage);
+        dto.setStoryUserMessage(storyDesc);
         dto.setStatus(GenerateStatus.txt_ing.getDesc());
         callBack.process(dto);
         String s = null;
         try {
-            s = generateFrame(systemMessage, userMessage);
+            s = generateFrame(systemMessage, storyDesc);
         } catch (Exception e) {
             dto.setError(e.getMessage());
             dto.setStatus(GenerateStatus.txt_fail.getDesc());
@@ -109,7 +90,7 @@ public abstract class AbstractPictureBookService {
             PictureDTO pictureDTO = new PictureDTO(scene.getCaption(), scene.getSceneDesc(), workDir);
             try {
                 pictureDTO.setImg(generatePictureDefault(actors, pictureDTO.getScene(), pictureDTO.getCaption(), workDir));
-                pictureDTO.setVoice(generateVoice(pictureDTO.getCaption(), FileUtils.getUuidFileName(workDir, ".wav")));
+                pictureDTO.setVoice(generateVoice(pictureDTO.getCaption(), FileUtils.getUuidFileName(workDir, ".wav"), BookType.getVoice(dto.getBookType())));
                 pictureDTO.setVideoPath(generateVideo(pictureDTO.getImg(), pictureDTO.getVoice(), workDir));
 
             } catch (Exception e) {
@@ -182,7 +163,7 @@ public abstract class AbstractPictureBookService {
      */
 
 
-    abstract String generateVoice(String caption, String filePath) throws Exception;
+    abstract String generateVoice(String caption, String filePath,String voice) throws Exception;
 
     /**
      * 生成故事框架

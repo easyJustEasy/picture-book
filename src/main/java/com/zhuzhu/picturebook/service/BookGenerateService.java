@@ -1,6 +1,7 @@
 package com.zhuzhu.picturebook.service;
 
 import cn.hutool.core.exceptions.ExceptionUtil;
+import com.zhuzhu.picturebook.covert.PictureBookConvert;
 import com.zhuzhu.picturebook.dao.BookDao;
 import com.zhuzhu.picturebook.dto.*;
 import lombok.extern.slf4j.Slf4j;
@@ -20,13 +21,9 @@ public class BookGenerateService {
     BookDao bookDao;
 
     public GenerateResultDTO generate(GenerateRequestDTO requestDTO, String uuid) {
-        GenerateResultDTO dto = new GenerateResultDTO();
+        GenerateResultDTO dto = PictureBookConvert.convertBookResultDTO(requestDTO,uuid);
         try {
-            dto.setRole(requestDTO.getRole());
-            dto.setStoryDesc(requestDTO.getStoryDesc());
-            dto.setCreateTime(new Date());
-            dto.setId(requestDTO.getId());
-            dto.setStatus(GenerateStatus.txt_ing.getDesc());
+
             saveDb(dto, uuid);
             pictureBook.generate(dto, new GenerateCallBack() {
                 @Override

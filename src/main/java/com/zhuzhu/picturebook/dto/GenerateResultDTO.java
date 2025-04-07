@@ -18,4 +18,5 @@ public class GenerateResultDTO {
     private String error = StrUtil.EMPTY;
     private String batchId;
     private String status;
+    private Integer bookType = 1;
 }

@@ -126,9 +126,7 @@ public class Kehu {
     void contextLoads1() {
 
         String[] ss = {
-                "相思","王维〔唐代〕",
-                "红豆生南国","春来发几枝" ,
-                "愿君多采撷","此物最相思"
+                "相思"
         };
         List<String> sss = Arrays.stream(ss).map(e -> generageSingle(e, "海绵宝宝")).toList();
         for (String s : sss) {
