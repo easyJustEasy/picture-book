@@ -4,6 +4,7 @@ import cn.hutool.core.util.StrUtil;
 
 import com.zhuzhu.picturebook.consts.BookType;
 import com.zhuzhu.picturebook.covert.PictureBookConvert;
+import com.zhuzhu.picturebook.generate.text.TongYiTextGenerate;
 import lombok.extern.slf4j.Slf4j;
 import com.zhuzhu.PictureBookApp;
 import com.zhuzhu.picturebook.dto.GenerateRequestDTO;
@@ -20,7 +21,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class TestOllama {
     @Autowired
     OllamaDeepSeekTextGenerate ollamaDeepSeekTextGenerate;
-
+    @Autowired
+    TongYiTextGenerate tongYiTextGenerate;
     @Test
     public void test() throws Exception {
         GenerateRequestDTO requestDTO = new GenerateRequestDTO();
@@ -49,9 +51,23 @@ public class TestOllama {
     @Test
     public void test2() throws Exception {
         String systemMessage =StrUtil.replace(BookType.getSystem(2),"%s","海绵宝宝");
-        String userMessage = "相思\n 红豆生南国，春来发几枝。\n" +
-                "愿君多采撷，此物最相思。";
+        String userMessage = """
+				相思
+				红豆生南国，春来发几枝。
+				愿君多采撷，此物最相思。
+				""";
         String s = ollamaDeepSeekTextGenerate.generate(systemMessage, userMessage);
+        System.out.println(s);
+    }
+    @Test
+    public void test3() throws Exception {
+        String systemMessage =StrUtil.replace(BookType.getSystem(2),"%s","海绵宝宝");
+        String userMessage = """
+				相思
+				红豆生南国，春来发几枝。
+				愿君多采撷，此物最相思。
+				""";
+        String s = tongYiTextGenerate.generate(systemMessage, userMessage);
         System.out.println(s);
     }
 }
