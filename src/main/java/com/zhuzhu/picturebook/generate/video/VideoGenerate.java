@@ -14,10 +14,13 @@ import org.springframework.stereotype.Component;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Slf4j
@@ -68,6 +71,24 @@ public class VideoGenerate {
                 finalOutputPath);
         pb.inheritIO().start().waitFor();
     }
+    public static double getMediaDuration(String filePath) throws Exception {
+        // 构造 ffprobe 命令
+        String command = "ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 " + filePath;
+
+        // 执行命令
+        Process process = Runtime.getRuntime().exec(command);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+        // 读取输出结果
+        String durationStr = reader.readLine();
+        if (durationStr == null || durationStr.isEmpty()) {
+            throw new RuntimeException("无法获取媒体文件时长");
+        }
+
+        // 将时长转换为浮点数
+        return Double.parseDouble(durationStr.trim());
+    }
+
 
     public String concat(List<PictureDTO> list, String workDir) throws Exception {
         String filelist = workDir + File.separator + UUID.randomUUID() + ".txt";
@@ -82,6 +103,7 @@ public class VideoGenerate {
                 "-safe", "0",
                 "-i", new File(filelist).getAbsolutePath(),
                 "-c", "copy",
+                "-y",
                 outputVideo);
         pb.inheritIO().start().waitFor();
         FileUtil.del(new File(filelist).getAbsolutePath());
