@@ -61,13 +61,11 @@ public class TestOllama {
     }
     @Test
     public void test3() throws Exception {
-        String systemMessage =StrUtil.replace(BookType.getSystem(2),"%s","海绵宝宝");
+        String systemMessage =StrUtil.replace(BookType.getSystem(1),"%s","海绵宝宝");
         String userMessage = """
-				相思
-				红豆生南国，春来发几枝。
-				愿君多采撷，此物最相思。
-				""";
-        String s = tongYiTextGenerate.generate(systemMessage, userMessage);
+                海绵宝宝的新家
+                """;
+        String s = ollamaDeepSeekTextGenerate.generate(systemMessage, userMessage);
         System.out.println(s);
     }
 }

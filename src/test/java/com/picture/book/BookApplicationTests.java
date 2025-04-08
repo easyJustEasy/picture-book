@@ -1,5 +1,6 @@
 package com.picture.book;
 
+import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.zhuzhu.PictureBookApp;
@@ -12,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -100,25 +102,20 @@ class BookApplicationTests {
 	public void test2() throws Exception {
 
 		String desc = """
-				相思
-				红豆生南国，春来发几枝。
-				愿君多采撷，此物最相思。
-				@@@@@@@
-				赋得古原草送别
-				离离原上草，一岁一枯荣。
-				野火烧不尽，春风吹又生。
-				远芳侵古道，晴翠接荒城。
-				又送王孙去，萋萋满别情。
-				@@@@@@@
-				渡荆门送别
-				渡远荆门外，来从楚国游。
-				山随平野尽，江入大荒流。
-				月下飞天镜，云生结海楼。
-				仍怜故乡水，万里送行舟
-				@@@@@@@
-				春晓
-				春眠不觉晓，处处闻啼鸟。
-				夜来风雨声，花落知多少。
+				杜甫：佳人
+				  
+				绝代有佳人，幽居在空谷。
+				自云良家子，零落依草木。
+				关中昔丧乱，兄弟遭杀戮。
+				官高何足论，不得收骨肉。
+				世情恶衰歇，万事随转烛。
+				夫婿轻薄儿，新人美如玉。
+				合昏尚知时，鸳鸯不独宿。
+				但见新人笑，那闻旧人哭！
+				在山泉水清，出山泉水浊。
+				侍婢卖珠回，牵萝补茅屋。
+				摘花不插发，采柏动盈掬。
+				天寒翠袖薄，日暮倚修竹。
 				""";
 		String role = "海绵宝宝";
 
@@ -140,4 +137,31 @@ class BookApplicationTests {
 		requestDTO.setList(list);
 		bookGenerateService.generateBatch(requestDTO, UUID.randomUUID().toString());
 	}
+	@Test
+	public void test3() throws Exception {
+		String s = FileUtil.readString("E:\\work\\picture-book\\src\\test\\resources\\poem\\唐诗三百首.txt", StandardCharsets.UTF_8);
+		String[] split = s.split("[0-9]+");
+		String role = "海绵宝宝";
+		List<GenerateRequestDTO> list = new ArrayList<>();
+		for (String s1:split){
+			if(StrUtil.isBlankIfStr(s1)){
+				continue;
+			}
+			if(s1.trim().length()<10){
+				continue;
+			}
+
+			GenerateRequestDTO generateRequestDTO = new GenerateRequestDTO();
+			generateRequestDTO.setId(null);
+			generateRequestDTO.setRole(role);
+			generateRequestDTO.setStoryDesc(s1);
+			generateRequestDTO.setBookType(2);
+			list.add(generateRequestDTO);
+
+		}
+		BatchGenerateRequestDTO requestDTO  = new BatchGenerateRequestDTO();
+		requestDTO.setList(list);
+		bookGenerateService.generateBatch(requestDTO, UUID.randomUUID().toString());
+		}
+
 }
