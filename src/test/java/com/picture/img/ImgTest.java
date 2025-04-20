@@ -96,9 +96,10 @@ public class ImgTest {
     void genImg() throws Exception {
         String parent = "temp" + File.separator + "img";
         FileUtil.mkdir(parent);
-        remoteImageGenerate.generate("""
-               海绵宝宝站在一片美丽的珊瑚礁旁，手中捧着一颗红豆。
-                """, parent);
+        String generate = remoteImageGenerate.generate("""
+                一个性感的中国美女，站在一个优美的风景里，快乐的向前伸手
+                 """, parent);
+        System.out.println(generate);
 //        genGImg("红豆生南国,春来发几枝.愿君多采撷,此物最相思", parent);
     }
 
@@ -115,7 +116,7 @@ public class ImgTest {
     void scheduleImg() throws Exception {
         LocalDate today = LocalDate.now();
         String parent = "E:\\toutiaoimge";
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 60; i++) {
             String dir = parent + File.separator + today.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             File file = FileUtil.mkdir(dir);
             int size = 108 - Objects.requireNonNull(file.listFiles()).length;
@@ -123,17 +124,26 @@ public class ImgTest {
                 size = 0;
             }
             for (int j = 0; j < size; j++) {
-                String prompt = "生成一个关于中国现代美女的图片提示词，要求皮肤白皙，形象可爱，只需要提示词，不要增加额外的信息";
-                String system = """
-                          请根据用户输入生成提示词，字数不得超过50个字，不需要输出额外的信息
+                String generate = """
+                        生成一个现代的性感中国女孩
                         """;
-                prompt = """
-                        请生成一个关于一个中国现代美女的提示词，要求年龄是18-30岁，皮肤白皙，形象可爱。
-                        """;
-                String generate = textGenerate.generate(system, prompt);
                 remoteImageGenerate.generate(generate, dir);
+
             }
             today = today.plusDays(1);
         }
+    }
+    @Test
+    void beauty() throws Exception {
+        String actors = "";
+        String scene = "画面里，yi";
+        String caption = "海绵宝宝一大早就兴奋地起床了，今天他要去比奇堡最大的公共泳池玩水！";
+        String workDir = "temp";
+        String s = childrenBookService.makePrompt(actors, scene);
+        String temp = remoteImageGenerate.generate(s, workDir);
+        String newPath = addCaption(temp, caption, workDir);
+        FileUtil.del(new File(temp).getAbsolutePath());
+        System.out.println(newPath);
+
     }
 }

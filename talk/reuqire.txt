@@ -1,0 +1,10 @@
+
+conda create -n talk -y python=3.10
+conda activate talk
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+pip config set install.trusted-host pypi.tuna.tsinghua.edu.cn
+# pynini is required by WeTextProcessing, use conda to install it as it can be executed on all platform.
+conda install -y -c conda-forge pynini
+pip install torch torchvision torchaudio -U --index-url https://download.pytorch.org/whl/cu126
+pip install xformers  -U  --index-url https://download.pytorch.org/whl/cu126
+pip install -U funasr modelscope
