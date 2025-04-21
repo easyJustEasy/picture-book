@@ -177,7 +177,7 @@ class BookApplicationTests {
     }
 
     @Autowired
-    private RemoteTextGenerate remoteTextGenerate;
+    private OllamaDeepSeekTextGenerate remoteTextGenerate;
 
     @Test
     public void test4() throws Exception {
