@@ -1,10 +1,10 @@
 package com.zhuzhu.picturebook.consts;
 
 import cn.hutool.core.util.StrUtil;
-import com.zhuzhu.picturebook.util.StringUtil;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.springframework.util.StringUtils;
+
+import java.util.Objects;
 
 @Getter
 @AllArgsConstructor
@@ -112,7 +112,7 @@ public enum BookType {
             场景描述：画面中，一个温馨快乐的画面展现出来——海绵宝宝和克拉里昂坐在海边，手里拿着一本小书，在夕阳下享受着宁静的时光。
             
             ""","""
-            ""","longtong"),
+            ""","longtong","卡通风格"),
     POEM(2,"""
 根据用户输入的古诗词，写一个以%s为主角的绘本脚本，
 - 故事标题应为“[古诗名称]”。
@@ -189,12 +189,68 @@ public enum BookType {
 旁白：《静夜思》以其独特的艺术魅力成为了流传千古的经典之作，它不仅展示了李白卓越的艺术才华，也反映了人类共通的情感体验——无论身处何方，心中总有一份对家的眷恋。
 场景描述：%s闭眼入眠，梦中在月光下玩耍，背景是发光的诗句《静夜思》悬浮在柔和的海底星空之中。
               """, "",
-            "海绵宝宝");
+            "海绵宝宝",""),
+    CHICKEN_SOUP_FOR_THE_SOUL(3, """
+            你是一个心灵鸡汤大师，擅长写作各种励志文案，听完能够振奋人心，激发人的斗志。
+- 每句心灵鸡汤限制100字以内
+- 使用如下格式组织输出内容：
+@@@@@
+故事标题：[生成一个心灵鸡汤标题，限制15字以内]
+@@@@@
+场景1
+旁白：[第一句心灵鸡汤]
+场景描述：[生成一个春日或者夏日的优美风景图，可以有一个美丽的中国女孩作为主角]
+
+@@@@@
+
+场景2
+旁白：[第二句心灵鸡汤]
+场景描述：[生成一个春日或者夏日的优美风景图，可以有一个美丽的中国女孩作为主角]
+
+@@@@@
+
+...（依此类推）
+
+@@@@@
+
+
+具体例子如下：
+
+@@@@@
+故事标题：心灵鸡汤
+@@@@@
+场景1
+旁白：你不能决定太阳几点升起，但可以决定自己几点起床。你不能控制生命的长度，但可以增加生命的宽度。
+场景描述：生成一个春日或者夏日的优美风景图，可以有一个美丽的中国女孩作为主角
+
+@@@@@
+
+场景2
+旁白：耐心点、坚强点，总有一天，你承受过的疼痛会有助于你，生活从来不会刻意亏欠谁，它给了你一块阴影，必会在不远地方撒下阳光。
+场景描述：生成一个春日或者夏日的优美风景图，可以有一个美丽的中国女孩作为主角
+
+@@@@@
+
+场景3
+旁白：用随和淡然的态度，过随遇而安的生活。不慌不忙地坚强，安安静静地盛大，终有一天，你要的时光都会给你。
+场景描述：生成一个春日或者夏日的优美风景图，可以有一个美丽的中国女孩作为主角
+
+@@@@@
+
+场景4
+旁白：世界本来很简单，是我们有一颗复杂的心，让这个世界变得复杂了。无须多言，也无须多虑，做自己该做的，过程上努力，结果上随缘，活一回潇洒无憾的人生。
+场景描述：生成一个春日或者夏日的优美风景图，可以有一个美丽的中国女孩作为主角
+
+@@@@@
+
+            """, """
+            ，生成一个励志文案
+            ""","蒋介石","写实风格");
     private int code;
     private String systemMessage;
     private String userMessageTail;
     private String voice;
-
+    private String pictureStyle;
     public static String getTail(int bookType) {
         for (BookType value : values()) {
             if (value.getCode()==bookType) {
@@ -220,5 +276,14 @@ public enum BookType {
             }
         }
         return "longtong";
+    }
+
+    public static String getPictureStyle(Integer bookType) {
+        for (BookType value : values()) {
+            if (Objects.equals(bookType,value.getCode())) {
+                return value.getPictureStyle();
+            }
+        }
+        return "卡通风格";
     }
 }

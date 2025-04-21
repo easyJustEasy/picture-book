@@ -9,7 +9,8 @@ import java.util.Arrays;
 @AllArgsConstructor
 public enum GenerateMode {
     TONGYI(1, "通义"),
-    REMOTE_API(2,"远程调用"),;
+    REMOTE_API(2,"远程调用"),
+    OLLAMA_REMOTE_API(3,"OLLAMA远程调用"),;
     private int code;
     private String desc;
 

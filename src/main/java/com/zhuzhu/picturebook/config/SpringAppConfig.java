@@ -16,7 +16,7 @@ import java.time.Duration;
 
 @Configuration
 public class SpringAppConfig {
-    @Value("${ai.text.remote-url}")
+    @Value("${ai.text.ollama-url}")
     private String ollamaUrl;
     @Bean
     public RestClient.Builder ollamaRestClientBuilder() {
