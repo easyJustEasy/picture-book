@@ -2,10 +2,8 @@ from modelscope import AutoModelForCausalLM, AutoTokenizer,snapshot_download
 import torch
 import bitsandbytes as bnb
 print(bnb.__version__)  # 应输出 0.41.1
-model_name = snapshot_download("Qwen/Qwen2.5-1.5B-Instruct")
+model_name = snapshot_download("Qwen/Qwen2.5-7B-Instruct-GPTQ-Int8")
 print(torch.cuda.is_available())
-  # 明确使用bfloat16数据类型（3090支持）
-torch_dtype = torch.bfloat16 if torch.cuda.is_available() else torch.float32
         
         # 加载模型，添加内存优化选项
 model = AutoModelForCausalLM.from_pretrained(
