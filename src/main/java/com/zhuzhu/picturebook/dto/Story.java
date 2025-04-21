@@ -91,6 +91,11 @@ public class Story {
                 story.getScenes().add(scene);
             }
         }
+        Scene scene = new Scene();
+        scene.setSceneTitle("点点关注");
+        scene.setCaption("点点关注，明天中大奖呦");
+        scene.setSceneDesc("中大奖，有好运");
+        story.getScenes().add(scene);
         return story;
     }
 }

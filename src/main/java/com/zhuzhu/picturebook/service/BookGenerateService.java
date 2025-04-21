@@ -21,7 +21,7 @@ public class BookGenerateService {
     BookDao bookDao;
 
     public GenerateResultDTO generate(GenerateRequestDTO requestDTO, String uuid) {
-        GenerateResultDTO dto = PictureBookConvert.convertBookResultDTO(requestDTO,uuid);
+        GenerateResultDTO dto = PictureBookConvert.convertBookResultDTO(requestDTO, uuid);
         try {
 
             saveDb(dto, uuid);

@@ -7,6 +7,9 @@ import com.zhuzhu.picturebook.config.AppConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+import java.util.UUID;
+
 @Service
 public class ChildrenBookService extends AbstractPictureBookService implements IPictureBook {
     public static final String ACTORS = "";
@@ -29,8 +32,8 @@ public class ChildrenBookService extends AbstractPictureBookService implements I
     }
 
     @Override
-    String generatePicture(String actors, String scene, String caption, String workDir) throws Exception {
-        String prompt = makePrompt(actors, scene);
+    String generatePicture(Integer bookType, String actors, String scene, String caption, String workDir) throws Exception {
+        String prompt = makePrompt(bookType,actors, scene);
         return getImageGenerate().generate(prompt, workDir);
     }
 
@@ -46,6 +49,6 @@ public class ChildrenBookService extends AbstractPictureBookService implements I
     public String generate(GenerateResultDTO resultDTO, GenerateCallBack callBack) throws Exception {
         String role = resultDTO.getRole();
         String storyDesc = resultDTO.getStoryDesc();
-        return generate(ACTORS, BookType.getSystem(resultDTO.getBookType()), role, storyDesc, resultDTO, appConfig.tempDir(), callBack);
+        return generate(ACTORS, BookType.getSystem(resultDTO.getBookType()), role, storyDesc, resultDTO, appConfig.tempDir(false)+ File.separator+ UUID.randomUUID().toString(), callBack);
     }
 }

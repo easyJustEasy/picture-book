@@ -3,8 +3,11 @@ package com.zhuzhu.picturebook.util;
 import cn.hutool.core.util.StrUtil;
 import com.google.common.collect.Maps;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Properties;
 
@@ -33,7 +36,9 @@ public class PropertiesUtil {
             // 使用ClassLoader加载properties配置文件生成对应的输入流
             InputStream in = PropertiesUtil.class.getClassLoader().getResourceAsStream(file + ".properties");
             // 使用properties对象加载输入流
-            properties.load(in);
+            assert in != null;
+            properties.load(new InputStreamReader(in, StandardCharsets.UTF_8));
+
             PROPERTIES_MAP.put(file, properties);
         }
         return properties;

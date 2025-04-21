@@ -30,16 +30,19 @@ public class AppConfig {
         return dashscopeApiKey;
     }
 
-    public synchronized String tempDir() throws Exception {
+    public synchronized String tempDir(boolean clear) throws Exception {
         File file = new File(home);
         if (!file.exists()) {
             FileUtil.mkdir(file);
         }
         File temp = new File(file.getAbsolutePath() + File.separator + "temp");
         if (temp.exists()) {
-            for (File listFile : Objects.requireNonNull(temp.listFiles())) {
-                FileUtil.del(listFile);
+            if(clear){
+                for (File listFile : Objects.requireNonNull(temp.listFiles())) {
+                    FileUtil.del(listFile);
+                }
             }
+
         } else {
             FileUtil.mkdir(temp);
         }

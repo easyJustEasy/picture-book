@@ -3,6 +3,8 @@ package com.zhuzhu.picturebook.generate.text;
 import cn.hutool.core.exceptions.ExceptionUtil;
 import com.alibaba.fastjson.JSONObject;
 
+import com.zhuzhu.picturebook.config.AiConfig;
+import com.zhuzhu.picturebook.config.AppConfig;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import com.zhuzhu.picturebook.util.DeepSeekUtil;
@@ -17,6 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 
+import static com.zhuzhu.picturebook.consts.GenerateMode.OLLAMA_REMOTE_API;
+
 @Component
 @Slf4j
 public class OllamaDeepSeekTextGenerate implements ITextGenerate {
@@ -30,8 +34,14 @@ public class OllamaDeepSeekTextGenerate implements ITextGenerate {
     private static final String currentModel = qwen257b;
     @Autowired
     OllamaApi ollamaApi;
+    @Autowired
+    private AiConfig aiConfig;
     @PostConstruct
     private void init(){
+        int mode = aiConfig.getText().getMode();
+        if(mode!=OLLAMA_REMOTE_API.getCode()){
+            return;
+        }
         try {
             OllamaApi.PullModelRequest request = new OllamaApi.PullModelRequest(currentModel);
             Flux<OllamaApi.ProgressResponse> progressResponseFlux = ollamaApi.pullModel(request);

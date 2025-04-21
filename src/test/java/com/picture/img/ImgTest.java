@@ -6,20 +6,16 @@ import com.zhuzhu.PictureBookApp;
 import com.zhuzhu.picturebook.config.AiConfig;
 import com.zhuzhu.picturebook.config.AppConfig;
 import com.zhuzhu.picturebook.consts.BookType;
-import com.zhuzhu.picturebook.controller.GenerateImageController;
-import com.zhuzhu.picturebook.covert.PictureBookConvert;
 import com.zhuzhu.picturebook.dto.GenerateRequestDTO;
 import com.zhuzhu.picturebook.dto.Story;
 import com.zhuzhu.picturebook.generate.imgage.RemoteImageGenerate;
 import com.zhuzhu.picturebook.generate.text.OllamaDeepSeekTextGenerate;
 import com.zhuzhu.picturebook.generate.text.TongYiTextGenerate;
 import com.zhuzhu.picturebook.generate.voice.RemoteVoiceGenerate;
-import com.zhuzhu.picturebook.service.AbstractPictureBookService;
 import com.zhuzhu.picturebook.service.ChildrenBookService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.File;
 import java.time.LocalDate;
@@ -60,9 +56,9 @@ public class ImgTest {
     void contextLoads() throws Exception {
         String actors = "";
         String scene = "画面里，海绵宝宝穿着五颜六色的泳裤，戴着可爱的泳帽，手里拿着救生圈，兴冲冲地走在比奇堡的大街上。阳光明媚，海浪轻轻拍打着沙滩，各种海洋生物纷纷向海绵宝宝打招呼。";
-        String caption = "海绵宝宝一大早就兴奋地起床了，今天他要去比奇堡最大的公共泳池玩水！";
+        String caption = "海绵宝宝一大早就兴奋地起床了，今天他要去比奇堡最大的公共泳池玩水！画面里，海绵宝宝穿着五颜六色的泳裤，戴着可爱的泳帽，手里拿着救生圈，兴冲冲地走在比奇堡的大街上。阳光明媚，海浪轻轻拍打着沙滩，各种海洋生物纷纷向海绵宝宝打招呼。";
         String workDir = "temp";
-        String s = childrenBookService.makePrompt(actors, scene);
+        String s = childrenBookService.makePrompt(1, actors, scene);
         String temp = remoteImageGenerate.generate(s, workDir);
         String newPath = addCaption(temp, caption, workDir);
         FileUtil.del(new File(temp).getAbsolutePath());
@@ -137,9 +133,9 @@ public class ImgTest {
     void beauty() throws Exception {
         String actors = "";
         String scene = "画面里，yi";
-        String caption = "海绵宝宝一大早就兴奋地起床了，今天他要去比奇堡最大的公共泳池玩水！";
+        String caption = "愿你在未来的日子里，每天都能感受到进步与成长的喜悦，成为最闪耀的自己！";
         String workDir = "temp";
-        String s = childrenBookService.makePrompt(actors, scene);
+        String s = childrenBookService.makePrompt(1, actors, scene);
         String temp = remoteImageGenerate.generate(s, workDir);
         String newPath = addCaption(temp, caption, workDir);
         FileUtil.del(new File(temp).getAbsolutePath());

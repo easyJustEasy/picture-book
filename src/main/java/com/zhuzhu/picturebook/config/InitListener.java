@@ -17,7 +17,7 @@ public class InitListener implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         appConfig.dbInit();
-        appConfig.tempDir();
+        appConfig.tempDir(true);
 
         log.info("初始化完成");
     }

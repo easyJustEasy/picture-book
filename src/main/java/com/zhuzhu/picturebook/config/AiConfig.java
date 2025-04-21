@@ -17,6 +17,7 @@ public class AiConfig {
     public static class TextConfig {
         private int mode;
         private String remoteUrl;
+        private String ollamaUrl;
     }
 
     @Data

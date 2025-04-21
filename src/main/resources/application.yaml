@@ -22,8 +22,9 @@ spring:
       # leak-detection-threshold: 2000  # 可选，仅用于调试
 ai:
   text:
-     mode: 2 # 1: 通义千问 2 远程api
-     remote-url: http://127.0.0.1:11434/
+     mode: 2 # 1: 通义千问 2 远程api 3 远程OLLAMA
+     ollama-url: http://127.0.0.1:11434/
+     remote-url: http://192.168.1.4:10004/get_text_remote
   image:
      mode: 2
      remote-url: http://192.168.1.4:10001/get_image_remote

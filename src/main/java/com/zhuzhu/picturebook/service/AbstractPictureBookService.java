@@ -2,6 +2,7 @@ package com.zhuzhu.picturebook.service;
 
 import cn.hutool.core.exceptions.ExceptionUtil;
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.lang.UUID;
 import cn.hutool.core.util.StrUtil;
 import com.zhuzhu.picturebook.consts.BookType;
 import com.zhuzhu.picturebook.dto.GenerateResultDTO;
@@ -89,7 +90,7 @@ public abstract class AbstractPictureBookService {
         for (Story.Scene scene : story.getScenes()) {
             PictureDTO pictureDTO = new PictureDTO(scene.getCaption(), scene.getSceneDesc(), workDir);
             try {
-                pictureDTO.setImg(generatePictureDefault(actors, pictureDTO.getScene(), pictureDTO.getCaption(), workDir));
+                pictureDTO.setImg(generatePictureDefault(dto.getBookType(),actors, pictureDTO.getScene(), pictureDTO.getCaption(), workDir));
                 pictureDTO.setVoice(generateVoice(pictureDTO.getCaption(), FileUtils.getUuidFileName(workDir, ".wav"), BookType.getVoice(dto.getBookType())));
                 pictureDTO.setVideoPath(generateVideo(pictureDTO.getImg(), pictureDTO.getVoice(), workDir));
 
@@ -120,28 +121,43 @@ public abstract class AbstractPictureBookService {
             FileUtil.del(new File(pictureDTO.getVoice()));
             FileUtil.del(new File(pictureDTO.getVideoPath()));
         }
-        String voiceUrl = workDir + File.separator + story.getTitle() + ".mp4";
-        FileUtil.rename(new File(concat), voiceUrl, true);
-        try {
-            FileUtil.move(new File(voiceUrl), new File(AppConfig.videoDir()), true);
-            dto.setVideoUrl(AppConfig.videoUrl() + new File(voiceUrl).getName());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        String voiceUrl = workDir + File.separator + story.getTitle()+"_"+ UUID.fastUUID().toString(true) + ".mp4";
+        File file = new File(concat);
+        if (!file.exists()) {
+            dto.setError("未生成视频");
+            dto.setStatus(GenerateStatus.video_fail.getDesc());
+            log.error(dto.getError());
+            callBack.process(dto);
+            return null;
         }
-        dto.setStatus(GenerateStatus.success.getDesc());
-        callBack.process(dto);
-        return voiceUrl;
+        FileUtil.rename(file, voiceUrl, true);
+        File copy = null;
+        try {
+            copy = FileUtil.copy(new File(voiceUrl), new File(AppConfig.videoDir()), true);
+            dto.setVideoUrl(AppConfig.videoUrl() + new File(voiceUrl).getName());
+            dto.setStatus(GenerateStatus.success.getDesc());
+            callBack.process(dto);
+        } catch (Exception e) {
+            dto.setError(e.getMessage());
+            dto.setStatus(GenerateStatus.video_fail.getDesc());
+            log.error(ExceptionUtil.stacktraceToString(e));
+            callBack.process(dto);
+            return null;
+        } finally {
+            FileUtil.del(new File(workDir));
+        }
+        return copy.getAbsolutePath();
     }
 
-    private String generatePictureDefault(String actors, String scene, String caption, String workDir) throws Exception {
-        String path = generatePicture(actors, scene, caption, workDir);
+    private String generatePictureDefault(Integer bookType, String actors, String scene, String caption, String workDir) throws Exception {
+        String path = generatePicture(bookType,actors, scene, caption, workDir);
         String newPath = AbstractImageGenerate.addCaption(path, caption, workDir);
         FileUtil.del(new File(path).getAbsolutePath());
         return new File(newPath).getAbsolutePath();
     }
 
-    public String makePrompt(String actors, String scene) {
-        return String.format("卡通风格插画，人物描述：%s。场景描述：%s。", actors, scene);
+    public String makePrompt(Integer bookType, String actors, String scene) {
+        return String.format("%s，人物描述：%s。场景描述：%s。",BookType.getPictureStyle(bookType), actors, scene);
     }
 
     /**
@@ -163,7 +179,7 @@ public abstract class AbstractPictureBookService {
      */
 
 
-    abstract String generateVoice(String caption, String filePath,String voice) throws Exception;
+    abstract String generateVoice(String caption, String filePath, String voice) throws Exception;
 
     /**
      * 生成故事框架
@@ -177,13 +193,14 @@ public abstract class AbstractPictureBookService {
     /**
      * 生成图片
      *
-     * @param actors  角色
-     * @param scene   场景
-     * @param caption 旁白
+     * @param bookType
+     * @param actors   角色
+     * @param scene    场景
+     * @param caption  旁白
      * @return 图片路径
      */
 
-    abstract String generatePicture(String actors, String scene, String caption, String workDir) throws Exception;
+    abstract String generatePicture(Integer bookType, String actors, String scene, String caption, String workDir) throws Exception;
 
     /**
      * 生成视频
