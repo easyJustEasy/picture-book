@@ -98,7 +98,20 @@ public class ImgTest {
         System.out.println(generate);
 //        genGImg("红豆生南国,春来发几枝.愿君多采撷,此物最相思", parent);
     }
-
+    @Test
+    void genImg11() throws Exception {
+        String parent = "temp" + File.separator + "img";
+        File file = new File(parent);
+        FileUtil.mkdirsSafely(file,3,1000);
+        String generate = remoteImageGenerate.generate("""
+              一位阳光活力的亚洲少女，长相甜美可爱，皮肤白皙。
+              她身着粉色的半透明比基尼泳衣。纤细的腰肢与性感的身材，
+              165cm左右的娇小体型更显灵动。场景是海边的白色沙滩，午后阳光在水晶般清澈的海面上洒下粼粼波光，
+              她捧着一束鲜花，笑着的看着前方，身上还留着未干透的海水。
+              整体画面采用柔焦摄影风格，色彩搭配低饱和莫兰迪粉色调，突出夏日浪漫氛围与青春活力。
+                 """, file.getAbsolutePath());
+        System.out.println(generate);
+    }
     private void genGImg(String prompt, String parent) throws Exception {
         String system = """
                   请根据用户输入的中国古诗，解释古诗，并按照古诗中描绘的意境生成绘制图片的提示词

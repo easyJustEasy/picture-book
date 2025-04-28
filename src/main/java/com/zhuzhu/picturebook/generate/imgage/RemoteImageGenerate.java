@@ -35,7 +35,7 @@ public class RemoteImageGenerate extends AbstractImageGenerate implements IImage
                 outputStream.write(buffer, 0, bytesRead);
             }
         } catch (IOException e) {
-            FileUtil.del(filePath);
+            try{FileUtil.del(filePath);}catch (Exception ignored){}
             throw new RuntimeException(e);
         }
         return filePath;

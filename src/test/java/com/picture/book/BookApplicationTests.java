@@ -183,7 +183,7 @@ class BookApplicationTests {
     public void test4() throws Exception {
         List<GenerateRequestDTO> list = new ArrayList<>();
         try {
-            for (int i = 0; i < 30; i++) {
+            for (int i = 0; i < 300; i++) {
                 String prompt = remoteTextGenerate.generate("""
                         你是一个心灵鸡汤大师，擅长写作各种励志文案，听完能够振奋人心，激发人的斗志
                         """, """
