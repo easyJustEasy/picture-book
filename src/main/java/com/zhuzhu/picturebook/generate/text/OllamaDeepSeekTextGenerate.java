@@ -31,7 +31,9 @@ public class OllamaDeepSeekTextGenerate implements ITextGenerate {
     private static final String qwen2514b="qwen2.5:14b";
     private static final String qwen2532b="qwen2.5:32b";
     private static final String qwen2572b="qwen2.5:72b";
-    private static final String currentModel = qwen257b;
+    private static final String qwen38b="qwen3:8b";
+
+    private static final String currentModel = qwen38b;
     @Autowired
     OllamaApi ollamaApi;
     @Autowired

@@ -104,10 +104,7 @@ public class ImgTest {
         File file = new File(parent);
         FileUtil.mkdirsSafely(file,3,1000);
         String generate = remoteImageGenerate.generate("""
-              一位阳光活力的亚洲少女，长相甜美可爱，皮肤白皙。
-              她身着粉色的半透明比基尼泳衣。纤细的腰肢与性感的身材，
-              165cm左右的娇小体型更显灵动。场景是海边的白色沙滩，午后阳光在水晶般清澈的海面上洒下粼粼波光，
-              她捧着一束鲜花，笑着的看着前方，身上还留着未干透的海水。
+            一位阳光活力的中国少女捧着一束鲜花，长相甜美可爱，皮肤白皙，身着粉色的半透明比基尼泳衣，露出甜蜜的微笑。场景是海边的白色沙滩，午后阳光在水晶般清澈的海面上洒下粼粼波光，
               整体画面采用柔焦摄影风格，色彩搭配低饱和莫兰迪粉色调，突出夏日浪漫氛围与青春活力。
                  """, file.getAbsolutePath());
         System.out.println(generate);
@@ -124,7 +121,10 @@ public class ImgTest {
     @Test
     void scheduleImg() throws Exception {
         LocalDate today = LocalDate.now();
-        String parent = "E:\\toutiaoimge";
+        String parent = "E:\\toutiaoimge1";
+        if(!new File(parent).exists()){
+            new File(parent).mkdir();
+        }
         for (int i = 0; i < 60; i++) {
             String dir = parent + File.separator + today.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             File file = FileUtil.mkdir(dir);
@@ -134,7 +134,13 @@ public class ImgTest {
             }
             for (int j = 0; j < size; j++) {
                 String generate = """
-                        生成一个现代的性感中国女孩
+                        一位笑容甜美的中国少女，拥有瓷白透亮的肌肤，
+                        穿着粉色半透明比基尼，手捧花束。
+                        场景是午后阳光下的白色沙滩，
+                        清澈海水泛着钻石般的波光。
+                        柔焦摄影风格，
+                        采用低饱和度的莫兰迪粉色调，
+                        营造浪漫夏日氛围与青春活力。
                         """;
                 remoteImageGenerate.generate(generate, dir);
 
