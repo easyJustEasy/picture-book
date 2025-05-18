@@ -1,5 +1,6 @@
 package com.picture.img;
 
+import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
 import com.zhuzhu.PictureBookApp;
@@ -13,6 +14,8 @@ import com.zhuzhu.picturebook.generate.text.OllamaDeepSeekTextGenerate;
 import com.zhuzhu.picturebook.generate.text.TongYiTextGenerate;
 import com.zhuzhu.picturebook.generate.voice.RemoteVoiceGenerate;
 import com.zhuzhu.picturebook.service.ChildrenBookService;
+import com.zhuzhu.picturebook.util.DiskUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,9 +24,10 @@ import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 import static com.zhuzhu.picturebook.generate.imgage.AbstractImageGenerate.addCaption;
-
+@Slf4j
 @SpringBootTest(classes = PictureBookApp.class)
 public class ImgTest {
     @Autowired
@@ -103,9 +107,8 @@ public class ImgTest {
         String parent = "temp" + File.separator + "img";
         File file = new File(parent);
         FileUtil.mkdirsSafely(file,3,1000);
-        String generate = remoteImageGenerate.generate("""
-            一位阳光活力的中国少女捧着一束鲜花，长相甜美可爱，皮肤白皙，身着粉色的半透明比基尼泳衣，露出甜蜜的微笑。场景是海边的白色沙滩，午后阳光在水晶般清澈的海面上洒下粼粼波光，
-              整体画面采用柔焦摄影风格，色彩搭配低饱和莫兰迪粉色调，突出夏日浪漫氛围与青春活力。
+        String generate = remoteImageGenerate.generate("""  
+                    主角是一位年轻的中国女性，穿着蕾丝短裙，她的笑容如同春日里第一缕穿透云层的阳光，带着治愈的力量。她的嘴角微微上扬，露出一排整齐洁白的牙齿，眼神中闪烁着狡黠与愉悦，仿佛刚听完一个令人忍俊不禁的秘密。托腮的手指修长纤细，指甲修剪得整洁，动作自然优雅，既展现了她的从容，又透露出一丝俏皮。发丝在微风中轻轻飘动，几缕棕色卷发随风轻扬，为静态画面注入动态的韵律。
                  """, file.getAbsolutePath());
         System.out.println(generate);
     }
@@ -121,18 +124,32 @@ public class ImgTest {
     @Test
     void scheduleImg() throws Exception {
         LocalDate today = LocalDate.now();
-        String parent = "E:\\toutiaoimge1";
-        if(!new File(parent).exists()){
-            new File(parent).mkdir();
+        String parent = "E:\\toutiaoimge2";
+        File parentFile = new File(parent);
+        if(!parentFile.exists()){
+            parentFile.mkdir();
+            log.info("dir created {}",parentFile.getAbsoluteFile());
         }
-        for (int i = 0; i < 60; i++) {
-            String dir = parent + File.separator + today.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+        while(true){
+            long freeSpace = DiskUtil.getFreeSpace(parentFile);
+            if (freeSpace<=10L) {
+               log.error("磁盘空间不足，结束");
+                break;
+            }
+            StopWatch watch = new StopWatch();
+            String format = today.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            String dir = parent + File.separator +format ;
+            watch.start("date_"+format);
             File file = FileUtil.mkdir(dir);
+            log.info("image dir created {}",dir);
             int size = 108 - Objects.requireNonNull(file.listFiles()).length;
             if (size < 0) {
                 size = 0;
             }
             for (int j = 0; j < size; j++) {
+                StopWatch stopWatch = new StopWatch();
+                stopWatch.start("date_img_"+format+"_"+j);
                 String generate = """
                         一位笑容甜美的中国少女，拥有瓷白透亮的肌肤，
                         穿着粉色半透明比基尼，手捧花束。
@@ -142,10 +159,23 @@ public class ImgTest {
                         采用低饱和度的莫兰迪粉色调，
                         营造浪漫夏日氛围与青春活力。
                         """;
-                remoteImageGenerate.generate(generate, dir);
+                generate = """
+                         一位笑容甜美的中国少女，拥有瓷白透亮的肌肤，
+                        穿着蕾丝洋装，带着珍珠耳环，手捧花束。
+                        场景是午后阳光下的竹林溪涧，
+                        清澈溪水水泛着钻石般的波光。
+                        柔焦摄影风格，
+                        采用低饱和度的莫兰迪粉色调，
+                        营造浪漫夏日氛围与青春活力。
+                        """;
+                String generate1 = remoteImageGenerate.generate(generate, dir);
+                stopWatch.stop();
+                log.info("created image {} 耗时\r\n{}s",generate1,stopWatch.getTotal(TimeUnit.SECONDS));
 
             }
             today = today.plusDays(1);
+            watch.stop();
+            log.info("task in time {}s",watch.getTotal(TimeUnit.SECONDS));
         }
     }
     @Test

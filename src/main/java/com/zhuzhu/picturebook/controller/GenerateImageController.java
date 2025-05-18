@@ -23,7 +23,7 @@ import java.util.UUID;
 import java.util.concurrent.*;
 
 @RestController
-@RequestMapping("img")
+@RequestMapping("img1")
 public class GenerateImageController {
     @Autowired
     private OllamaDeepSeekTextGenerate textGenerate;
