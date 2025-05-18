@@ -1,5 +1,6 @@
 package com.zhuzhu.picturebook.generate.imgage;
 
+import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 import java.io.*;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Component
@@ -20,11 +22,12 @@ public class RemoteImageGenerate extends AbstractImageGenerate implements IImage
 
     @Override
     public String generate(String prompt, String workDir) throws Exception {
-
+        StopWatch stopWatch = new StopWatch("generateImg");
+        stopWatch.start();
         String filePath = workDir + File.separator + UUID.randomUUID() + ".png";
         FileUtil.touch(filePath);
         HttpResponse httpResponse = HttpUtil.createPost(aiConfig.getImage().getRemoteUrl())
-                .form(Map.of("prompt", prompt, "step", 20))
+                .form(Map.of("prompt", prompt, "step", 30))
                 .header("Accept", "image/png")
                 .execute();
         InputStream body = httpResponse.bodyStream();
@@ -38,6 +41,8 @@ public class RemoteImageGenerate extends AbstractImageGenerate implements IImage
             try{FileUtil.del(filePath);}catch (Exception ignored){}
             throw new RuntimeException(e);
         }
+        stopWatch.stop();
+        log.info("generateImg end ====>{}s",stopWatch.getTotal(TimeUnit.SECONDS));
         return filePath;
     }
 }

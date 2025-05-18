@@ -6,8 +6,10 @@ import cn.hutool.core.thread.ThreadUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 import com.zhuzhu.picturebook.config.AppConfig;
+import com.zhuzhu.picturebook.dto.DeleteImageRequestDTO;
 import com.zhuzhu.picturebook.dto.ImageGenerateRequestDTO;
 import com.zhuzhu.picturebook.generate.imgage.RemoteImageGenerate;
+import com.zhuzhu.picturebook.util.UrlUtil;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.ReentrantLock;
 
 @RestController
@@ -31,8 +35,10 @@ import java.util.concurrent.locks.ReentrantLock;
 @Slf4j
 public class ImageController {
     private static final String workDir;
-    private  final BlockingQueue<ImageGenerateRequestDTO> blockingQueue = new LinkedBlockingQueue<>();
+    private final BlockingQueue<ImageGenerateRequestDTO> blockingQueue = new LinkedBlockingQueue<>();
+    private final AtomicLong taskCount = new AtomicLong(0);
     private final ReentrantLock lock = new ReentrantLock();
+
     static {
         try {
             workDir = AppConfig.videoDir() + File.separator + "img";
@@ -47,7 +53,7 @@ public class ImageController {
     @PostConstruct
     public void init() {
         ThreadUtil.execute(() -> {
-            while (true){
+            while (true) {
                 try {
                     ImageGenerateRequestDTO requestDTO = blockingQueue.take();
                     log.info("take a queue {}", JSONObject.toJSONString(requestDTO));
@@ -61,11 +67,13 @@ public class ImageController {
                             genImage(prompt);
                         } catch (Exception e) {
                             throw new RuntimeException(e);
+                        } finally {
+                            taskCount.decrementAndGet();
                         }
                     }
-                    log.info("genImage end {}",JSONObject.toJSONString(requestDTO));
+                    log.info("genImage end {}", JSONObject.toJSONString(requestDTO));
                 } catch (InterruptedException e) {
-                   log.error("take queue error{}", ExceptionUtil.getMessage(e));
+                    log.error("take queue error{}", ExceptionUtil.getMessage(e));
                 }
                 ThreadUtil.safeSleep(300);
             }
@@ -76,20 +84,41 @@ public class ImageController {
     @PostMapping("generate")
     public String generate(@RequestBody ImageGenerateRequestDTO requestDTO) throws Exception {
         blockingQueue.put(requestDTO);
+        taskCount.getAndAdd(requestDTO.getBatchSize());
         log.info("put a queue {}", JSONObject.toJSONString(requestDTO));
 
         return "success";
     }
+
     @GetMapping("clear")
     public String clear() throws Exception {
         File file = new File(workDir);
         for (File listFile : Objects.requireNonNull(file.listFiles())) {
-            try{
+            try {
                 FileUtil.del(listFile.getAbsoluteFile());
-            }catch (Exception e){}
+            } catch (Exception e) {
+            }
         }
         return "success";
     }
+
+    @PostMapping("deleteImg")
+    public String deleteImg(@RequestBody DeleteImageRequestDTO image) throws Exception {
+        File file = new File(workDir);
+        String fileNameFromURL = UrlUtil.getFileNameFromURL(image.getImage());
+        File abFile = new File(file.getAbsolutePath() + File.separator + fileNameFromURL);
+        try {
+            FileUtil.del(abFile.getAbsoluteFile());
+        } catch (Exception e) {
+        }
+        return "success";
+    }
+
+    @GetMapping("taskCount")
+    public Long taskCount() throws Exception {
+        return taskCount.get();
+    }
+
     @GetMapping("list")
     public List<String> list() throws Exception {
         File file = new File(workDir);
@@ -124,9 +153,9 @@ public class ImageController {
 
     private String genImage(String prompt) throws Exception {
         lock.lock();
-        try{
+        try {
             return remoteImageGenerate.generate(prompt, ImageController.workDir);
-        }finally {
+        } finally {
             lock.unlock();
         }
 

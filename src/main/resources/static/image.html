@@ -55,15 +55,82 @@ body {
     }
     #main-content{
     }
-    img.list-img {
-        width: 150px;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
-        cursor: pointer;
+#imageWrapper::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+    .image-card {
+      display:inline-block;
+      float:left;
+      position: relative;
+      width: 150px;
+      height: 150px;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
     }
-     img.list-img:hover {
-        transform: scale(2);
+
+    .image-card:hover {
+      transform: scale(1.5);
+      z-index:1;
     }
+
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .delete-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(255, 255, 255, 0.7);
+      color: red;
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      font-size: 20px;
+      line-height: 26px;
+      text-align: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.2s ease;
+      /* 默认隐藏 */
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    /* 当.hover时显示删除按钮 */
+    .image-card:hover .delete-btn {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .delete-btn:hover {
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    /* 删除动画 */
+    .fade-out {
+      animation: fadeOut 2s forwards;
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+        transform: scale(1);
+      }
+      to {
+        opacity: 0;
+        transform: scale(0.8);
+        }
+    }
+
     /* 模态框样式 */
     .modal {
         display: none;
@@ -101,8 +168,12 @@ body {
     <div id="toolbar">
         <button id="generateBtn">生成</button>  <button id="clearBtn">清空</button>
         <input id="generateNumber" min="1" type="number" value="1" placeholder="图片数量"/>
-        <textarea id="generatePrompt" placeholder="生成一个美女图片">生成一个美女图片</textarea>
-        <div id="tips"></div>
+        <textarea id="generatePrompt" placeholder="生成一个美女图片">一位中国美女站在海滩上，半身入镜。她有着如瓷器般白皙的肌肤，非深色肤色，面容明亮。身材苗条，胸部巨大，曲线优美，体态优雅，五官精致可爱，眼睛明亮，带着甜美的微笑，她穿着一件白色T恤衫和短裙。画面采用正面视角，色彩鲜艳明亮，背景是清澈的蓝天、金色的沙滩和轻柔的海浪，写实风格，高细节呈现，人物要居中。</textarea>
+       <div class="tip-info">
+        <span id="optInfo"></span>    <span style="margin-left:32px;">已加载到图片数量<span id="tips">0</span>张</span>
+           系统中有<span id="taskCount" style="margin-left:32px;">0</span>个图片正在生成
+       </div>
+
     </div>
     <div id="main-content">
         <div id="imageWrapper"></div>
@@ -145,60 +216,96 @@ var viewMe = function(src){
 document.getElementById("generateBtn").onclick=function() {
              localStorage.generatePrompt=document.getElementById('generatePrompt').value;
              localStorage.generateNumber=document.getElementById('generateNumber').value;
-             document.getElementById('tips').innerHTML='正在提交到服务器';
+             document.getElementById('optInfo').innerHTML='正在提交到服务器';
              axios.post('/img/generate',{
              "batchSize":document.getElementById('generateNumber').value,
              "prompt":document.getElementById('generatePrompt').value
              }
              )
                 .then(response => {
-                 document.getElementById('tips').innerHTML='服务器已执行，约30s一张图片'
+                 document.getElementById('optInfo').innerHTML='服务器已执行，约50s一张图片'
                 })
                 .catch(error => {
                     console.error('error：', error);
-                    document.getElementById('tips').innerHTML='服务器执行失败，请重试';
+                    document.getElementById('optInfo').innerHTML='服务器执行失败，请重试';
                 });
 
     }
 var loadImage = function(){
-    document.getElementById('tips').innerHTML='正在刷新图片列表';
+    document.getElementById('optInfo').innerHTML='正在刷新图片列表';
 
     axios.get('/img/list'
              )
                 .then(response => {
                   var data = response.data
                   var imageStr = '';
-                   document.getElementById('tips').innerHTML='已加载到图片数量'+(0)+"张";
+                   document.getElementById('tips').innerHTML=0;
                   for(var i=0;i<data.length;i++){
                   var src = data[i];
                   imageStr+= `
-                  <img class="list-img" src="${src}" alt="动态加载的图片" onclick='viewMe("${src}")'>
+                  <div class="image-card">
+                      <button class="delete-btn" onclick='deleteImage("${src}")'>&times;</button>
+                      <img class="list-img" src="${src}" alt="动态加载的图片" onclick='viewMe("${src}")'/>
+                    </div>
                   `;
-                 document.getElementById('tips').innerHTML='已加载到图片数量'+(i+1)+"张";
+                 document.getElementById('tips').innerHTML=(i+1);
                   }
                  document.getElementById('imageWrapper').innerHTML=imageStr;
+                 document.getElementById('optInfo').innerHTML='图片列表加载完成';
+
                 })
                 .catch(error => {
                     console.error('error：', error);
+                   document.getElementById('optInfo').innerHTML='图片列表加载失败';
+
                 });
 }
 document.getElementById('clearBtn').onclick=function(){
-    document.getElementById('tips').innerHTML='正在清空图片列表';
+// 显示确认弹窗
+        const isConfirmed = window.confirm("确定要清空图片列表吗？");
+        if(isConfirmed){
+            document.getElementById('optInfo').innerHTML='正在清空图片列表';
 
-    axios.get('/img/clear'
+           axios.get('/img/clear'
              )
                 .then(response => {
-                document.getElementById('tips').innerHTML='图片已清空';
+                document.getElementById('optInfo').innerHTML='图片已清空';
                   loadImage();
                 })
                 .catch(error => {
                     console.error('error：', error);
                 });
+        }
 
+
+}
+var deleteImage=function (src){
+     const isConfirmed = window.confirm("确定要删除这张图片吗？");
+        if(isConfirmed){
+    document.getElementById('optInfo').innerHTML='正在删除图片';
+    axios.post('/img/deleteImg',{"image":src})
+                .then(response => {
+                  document.getElementById('optInfo').innerHTML='图片已删除';
+                  loadImage();
+                })
+                .catch(error => {
+                    console.error('error：', error);
+                });
+                }
+  }
+var loadTaskCount = function(){
+   axios.get('/img/taskCount').then(response => {
+                document.getElementById('taskCount').innerHTML=response.data;
+                })
+                .catch(error => {
+                    console.error('error：', error);
+                });
 }
 loadImage();
 initModel();
 setInterval(loadImage,5000)
+setInterval(loadTaskCount,1000)
+
 </script>
 
 </body>
