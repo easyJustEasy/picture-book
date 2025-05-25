@@ -5,6 +5,7 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
   SOURCE="$(readlink "$SOURCE")"
   [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
 done
+
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 #####
 #这里是配置信息
@@ -36,9 +37,9 @@ if ! command -v conda &> /dev/null; then
     echo "Conda could not be found. Please install Anaconda or Miniconda."
     exit 1
 fi
-
+export TORCH_CUDA_ARCH_LIST="8.6"
 ${ENV_BIN_PATH}/pip install gunicorn uvicorn
-
+cd  ${DIR}
 # 运行Python脚本
 #nohup $ENV_PATH $PYTHON_SCRIPT_PATH> $LOG_NAME 2>&1 &
 nohup  ${ENV_BIN_PATH}/gunicorn -w 1 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$port -t 1800 --log-level 'debug' server:app > $LOG_NAME 2>&1 &

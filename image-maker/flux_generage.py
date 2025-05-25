@@ -8,7 +8,7 @@ from diffusers.models.transformers.transformer_flux import FluxTransformer2DMode
 from diffusers.pipelines.flux.pipeline_flux import FluxPipeline
 from transformers import CLIPTextModel, CLIPTokenizer,T5EncoderModel, T5TokenizerFast,AutoTokenizer, pipeline,AutoModelForSeq2SeqLM
 import os
-
+from datetime import datetime
 
 # 下载模型
 from modelscope import snapshot_download
@@ -20,6 +20,7 @@ import uuid
 from starlette.background import BackgroundTask
 
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+os.environ['TORCH_CUDA_ARCH_LIST'] = "8.6"
 current_working_directory = str(Path(__file__).resolve().parent)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -34,7 +35,10 @@ print(f'downloaded at {bfl_repo}')
 def print_gpu_memory(step):
     allocated = torch.cuda.memory_allocated(device=0) / 1024**3  # 已分配显存（GB）
     cached = torch.cuda.memory_reserved(device=0) / 1024**3      # 保留缓存（GB）
-    print(f"{step}====> 已分配显存: {allocated:.2f} GB | 保留缓存: {cached:.2f} GB")
+    # 获取当前时间并格式化为 "YYYY-MM-DD HH:MM:SS"
+    formatted_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    print(f"{formatted_now} {step}====> 已分配显存: {allocated:.2f} GB | 保留缓存: {cached:.2f} GB")
 scheduler = FlowMatchEulerDiscreteScheduler.from_pretrained(bfl_repo, subfolder="scheduler")
 print_gpu_memory('scheduler model inited')
 text_encoder = CLIPTextModel.from_pretrained(bfl_repo, subfolder="text_encoder", torch_dtype=dtype)
