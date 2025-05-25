@@ -18,7 +18,7 @@ from pathlib import Path
 import uvicorn
 import uuid
 from starlette.background import BackgroundTask
-
+os.environ['CUDA_LAUNCH_BLOCKING'] = "1"
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 os.environ['TORCH_CUDA_ARCH_LIST'] = "8.6"
 current_working_directory = str(Path(__file__).resolve().parent)

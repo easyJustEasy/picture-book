@@ -10,7 +10,7 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 #####
 #这里是配置信息
 ENV_NAME="img"         # 将这里的your_env_name替换为你要激活的conda环境名称
-PYTHON_SCRIPT_PATH=${DIR}"/server.py"  # 替换为你的Python脚本路径
+PYTHON_SCRIPT_PATH=${DIR}"/mq.py"  # 替换为你的Python脚本路径
 port=10001 # 根据端口号去查询对应的PID
 LOG_NAME="image-maker.log"
 ######
@@ -42,7 +42,8 @@ ${ENV_BIN_PATH}/pip install gunicorn uvicorn
 cd  ${DIR}
 # 运行Python脚本
 #nohup $ENV_PATH $PYTHON_SCRIPT_PATH> $LOG_NAME 2>&1 &
-nohup  ${ENV_BIN_PATH}/gunicorn -w 1 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$port -t 1800 --log-level 'debug' server:app > $LOG_NAME 2>&1 &
+#nohup  ${ENV_BIN_PATH}/gunicorn -w 1 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$port -t 1800 --log-level 'debug' server:app > $LOG_NAME 2>&1 &
+nohup${ENV_BIN_PATH}/python $PYTHON_SCRIPT_PATH > $LOG_NAME 2>&1 &
 #14分钟启动
 echo "$ENV_PYTHON_PATH  $PYTHON_SCRIPT_PATH is running"
 
