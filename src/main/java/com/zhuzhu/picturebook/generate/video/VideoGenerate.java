@@ -18,18 +18,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 @Slf4j
 @Component
 public class VideoGenerate {
-    public String generate(String imagesPath, String audioPath, String workDir) throws Exception {
+    public String generate(List<File> imageFiles, String audioPath, String workDir) throws Exception {
         String outputVideoPath = workDir + File.separator + UUID.randomUUID() + ".mp4";
-        List<File> imageFiles = new ArrayList<>();
-        imageFiles.add(new File(imagesPath));
         BufferedImage firstImage = ImageIO.read(imageFiles.get(0));
         int width = firstImage.getWidth();
         int height = firstImage.getHeight();
@@ -42,9 +37,12 @@ public class VideoGenerate {
         try {
             recorder.start();
             Java2DFrameConverter converter = new Java2DFrameConverter();
-
             for (File imageFile : imageFiles) {
+                if (imageFile.length()<=0) {
+                    continue;
+                }
                 BufferedImage image = ImageIO.read(imageFile);
+
                 Frame frame = converter.convert(image);
                 recorder.record(frame);
             }
@@ -60,6 +58,24 @@ public class VideoGenerate {
         return new File(outputVideoPathFinal).getAbsolutePath();
     }
 
+    public String generate(String imagesPath, String audioPath, String workDir) throws Exception {
+        List<File> imageFiles = new ArrayList<>();
+        imageFiles.add(new File(imagesPath));
+        return generate(imageFiles, audioPath, workDir);
+    }
+
+    public String generateByImageDir(String imagesDir, String audioPath, String workDir) throws Exception {
+        File file = new File(imagesDir);
+        if (!file.exists()) {
+            throw new RuntimeException("路径不存在" + imagesDir);
+        }
+        if (file.isFile()) {
+            throw new RuntimeException("所给路径是一个文件！！！" + imagesDir);
+        }
+        List<File> imageFiles = new ArrayList<>(Arrays.asList(Objects.requireNonNull(file.listFiles())));
+        return generate(imageFiles, audioPath, workDir);
+    }
+
     private void addAudioToVideo(String audioFilePath, String videoWithoutAudioPath, String finalOutputPath) throws Exception {
         ProcessBuilder pb = new ProcessBuilder("ffmpeg",
                 "-i", videoWithoutAudioPath,
@@ -71,6 +87,7 @@ public class VideoGenerate {
                 finalOutputPath);
         pb.inheritIO().start().waitFor();
     }
+
     public static double getMediaDuration(String filePath) throws Exception {
         // 构造 ffprobe 命令
         String command = "ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 " + filePath;
@@ -112,7 +129,7 @@ public class VideoGenerate {
 
     public String mp3ToWav(String filelist) throws IOException, InterruptedException {
         File file = new File(filelist);
-        String outWav = file.getParent()+File.separator+ file.getName().replaceAll(".mp3","") + ".wav";
+        String outWav = file.getParent() + File.separator + file.getName().replaceAll(".mp3", "") + ".wav";
         ProcessBuilder pb = new ProcessBuilder("ffmpeg",
 //                "-v","debug",
                 "-i", file.getAbsolutePath(),
@@ -124,16 +141,17 @@ public class VideoGenerate {
         return outWav;
 
     }
+
     public String wavToMp3(String filelist) throws IOException, InterruptedException {
         File file = new File(filelist);
-        String outWav = file.getParent()+File.separator+ file.getName().replaceAll(".wav","") + ".mp3";
+        String outWav = file.getParent() + File.separator + file.getName().replaceAll(".wav", "") + ".mp3";
         ProcessBuilder pb = new ProcessBuilder("ffmpeg",
 //                "-v","debug",
                 "-i", file.getAbsolutePath(),
                 "-b:a", "64k",
                 "-acodec", "mp3",
                 "-ar", "44100",
-                "-ac","1",
+                "-ac", "1",
                 outWav);
         pb.inheritIO().start().waitFor();
         return outWav;

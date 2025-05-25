@@ -90,7 +90,7 @@ public abstract class AbstractPictureBookService {
         for (Story.Scene scene : story.getScenes()) {
             PictureDTO pictureDTO = new PictureDTO(scene.getCaption(), scene.getSceneDesc(), workDir);
             try {
-                pictureDTO.setImg(generatePictureDefault(dto.getBookType(),actors, pictureDTO.getScene(), pictureDTO.getCaption(), workDir));
+                pictureDTO.setImg(generatePictureDefault(dto.getBookType(), actors, pictureDTO.getScene(), pictureDTO.getCaption(), workDir));
                 pictureDTO.setVoice(generateVoice(pictureDTO.getCaption(), FileUtils.getUuidFileName(workDir, ".wav"), BookType.getVoice(dto.getBookType())));
                 pictureDTO.setVideoPath(generateVideo(pictureDTO.getImg(), pictureDTO.getVoice(), workDir));
 
@@ -121,7 +121,9 @@ public abstract class AbstractPictureBookService {
             FileUtil.del(new File(pictureDTO.getVoice()));
             FileUtil.del(new File(pictureDTO.getVideoPath()));
         }
-        String voiceUrl = workDir + File.separator + story.getTitle()+"_"+ UUID.fastUUID().toString(true) + ".mp4";
+        ;
+        String name = story.getTitle() + "_" + UUID.randomUUID().toString(true) + ".mp4";
+        String videoUrl = workDir + File.separator + name;
         File file = new File(concat);
         if (!file.exists()) {
             dto.setError("未生成视频");
@@ -130,13 +132,14 @@ public abstract class AbstractPictureBookService {
             callBack.process(dto);
             return null;
         }
-        FileUtil.rename(file, voiceUrl, true);
-        File copy = null;
+        FileUtil.rename(file, videoUrl, true);
         try {
-            copy = FileUtil.copy(new File(voiceUrl), new File(AppConfig.videoDir()), true);
-            dto.setVideoUrl(AppConfig.videoUrl() + new File(voiceUrl).getName());
+            File copy = new File(AppConfig.videoDir() + File.separator + name);
+            FileUtil.move(new File(videoUrl), new File(AppConfig.videoDir()), true);
+            dto.setVideoUrl(AppConfig.videoUrl() + new File(videoUrl).getName());
             dto.setStatus(GenerateStatus.success.getDesc());
             callBack.process(dto);
+            return copy.getAbsolutePath();
         } catch (Exception e) {
             dto.setError(e.getMessage());
             dto.setStatus(GenerateStatus.video_fail.getDesc());
@@ -146,18 +149,17 @@ public abstract class AbstractPictureBookService {
         } finally {
             FileUtil.del(new File(workDir));
         }
-        return copy.getAbsolutePath();
     }
 
     private String generatePictureDefault(Integer bookType, String actors, String scene, String caption, String workDir) throws Exception {
-        String path = generatePicture(bookType,actors, scene, caption, workDir);
+        String path = generatePicture(bookType, actors, scene, caption, workDir);
         String newPath = AbstractImageGenerate.addCaption(path, caption, workDir);
         FileUtil.del(new File(path).getAbsolutePath());
         return new File(newPath).getAbsolutePath();
     }
 
     public String makePrompt(Integer bookType, String actors, String scene) {
-        return String.format("%s，人物描述：%s。场景描述：%s。",BookType.getPictureStyle(bookType), actors, scene);
+        return String.format("%s，人物描述：%s。场景描述：%s。", BookType.getPictureStyle(bookType), actors, scene);
     }
 
     /**
