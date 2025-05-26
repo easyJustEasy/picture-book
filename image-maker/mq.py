@@ -128,5 +128,5 @@ try:
     channel.start_consuming()
 except KeyboardInterrupt:
     print("Consumer canceled by user")
-finally:
-    connection.close()
+#finally:
+#   connection.close()
