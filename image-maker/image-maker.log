@@ -1,119 +1,68 @@
-[2025-05-25 21:37:55 +0800] [49106] [DEBUG] Current configuration:
-  config: ./gunicorn.conf.py
-  wsgi_app: None
-  bind: ['0.0.0.0:10001']
-  backlog: 2048
-  workers: 1
-  worker_class: uvicorn.workers.UvicornWorker
-  threads: 1
-  worker_connections: 1000
-  max_requests: 0
-  max_requests_jitter: 0
-  timeout: 1800
-  graceful_timeout: 30
-  keepalive: 2
-  limit_request_line: 4094
-  limit_request_fields: 100
-  limit_request_field_size: 8190
-  reload: False
-  reload_engine: auto
-  reload_extra_files: []
-  spew: False
-  check_config: False
-  print_config: False
-  preload_app: False
-  sendfile: None
-  reuse_port: False
-  chdir: /mnt/f/work/picture-book/image-maker
-  daemon: False
-  raw_env: []
-  pidfile: None
-  worker_tmp_dir: None
-  user: 1000
-  group: 1000
-  umask: 0
-  initgroups: False
-  tmp_upload_dir: None
-  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
-  forwarded_allow_ips: ['127.0.0.1', '::1']
-  accesslog: None
-  disable_redirect_access_to_syslog: False
-  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
-  errorlog: -
-  loglevel: debug
-  capture_output: False
-  logger_class: gunicorn.glogging.Logger
-  logconfig: None
-  logconfig_dict: {}
-  logconfig_json: None
-  syslog_addr: udp://localhost:514
-  syslog: False
-  syslog_prefix: None
-  syslog_facility: user
-  enable_stdio_inheritance: False
-  statsd_host: None
-  dogstatsd_tags: 
-  statsd_prefix: 
-  proc_name: None
-  default_proc_name: server:app
-  pythonpath: None
-  paste: None
-  on_starting: <function OnStarting.on_starting at 0x784b4f3705e0>
-  on_reload: <function OnReload.on_reload at 0x784b4f370700>
-  when_ready: <function WhenReady.when_ready at 0x784b4f370820>
-  pre_fork: <function Prefork.pre_fork at 0x784b4f370940>
-  post_fork: <function Postfork.post_fork at 0x784b4f370a60>
-  post_worker_init: <function PostWorkerInit.post_worker_init at 0x784b4f370b80>
-  worker_int: <function WorkerInt.worker_int at 0x784b4f370ca0>
-  worker_abort: <function WorkerAbort.worker_abort at 0x784b4f370dc0>
-  pre_exec: <function PreExec.pre_exec at 0x784b4f370ee0>
-  pre_request: <function PreRequest.pre_request at 0x784b4f371000>
-  post_request: <function PostRequest.post_request at 0x784b4f371090>
-  child_exit: <function ChildExit.child_exit at 0x784b4f3711b0>
-  worker_exit: <function WorkerExit.worker_exit at 0x784b4f3712d0>
-  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x784b4f3713f0>
-  on_exit: <function OnExit.on_exit at 0x784b4f371510>
-  ssl_context: <function NewSSLContext.ssl_context at 0x784b4f371630>
-  proxy_protocol: False
-  proxy_allow_ips: ['127.0.0.1', '::1']
-  keyfile: None
-  certfile: None
-  ssl_version: 2
-  cert_reqs: 0
-  ca_certs: None
-  suppress_ragged_eofs: True
-  do_handshake_on_connect: False
-  ciphers: None
-  raw_paste_global_conf: []
-  permit_obsolete_folding: False
-  strip_header_spaces: False
-  permit_unconventional_http_method: False
-  permit_unconventional_http_version: False
-  casefold_http_method: False
-  forwarder_headers: ['SCRIPT_NAME', 'PATH_INFO']
-  header_map: drop
-[2025-05-25 21:37:55 +0800] [49106] [INFO] Starting gunicorn 23.0.0
-[2025-05-25 21:37:55 +0800] [49106] [DEBUG] Arbiter booted
-[2025-05-25 21:37:55 +0800] [49106] [INFO] Listening at: http://0.0.0.0:10001 (49106)
-[2025-05-25 21:37:55 +0800] [49106] [INFO] Using worker: uvicorn.workers.UvicornWorker
-[2025-05-25 21:37:55 +0800] [49109] [INFO] Booting worker with pid: 49109
-[2025-05-25 21:37:55 +0800] [49106] [DEBUG] 1 workers
-2025-05-25 21:38:03.548244: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-05-31 00:50:05.938773: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-E0000 00:00:1748180283.596992   49109 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1748180283.612291   49109 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-W0000 00:00:1748180283.718872   49109 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1748180283.719056   49109 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1748180283.719143   49109 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1748180283.719243   49109 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-Downloading Model to directory: /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
-downloaded at /mnt/e/modescope_model/models/zhusiyuanhao/FLUX1-schnell-fp8
-2025-05-25 21:38:10 scheduler model inited====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
-2025-05-25 21:38:11 text_encoder model inited====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
-2025-05-25 21:38:11 tokenizer model inited====> 已分配显存: 0.00 GB | 保留缓存: 0.00 GB
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.59s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.54s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.55s/it]
-You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
-Device set to use cuda
-[2025-05-25 21:57:50 +0800] [49109] [INFO] Started server process [49109]
-[2025-05-25 21:57:50 +0800] [49109] [INFO] Waiting for application startup.
-[2025-05-25 21:57:50 +0800] [49109] [INFO] Application startup complete.
+E0000 00:00:1748623805.959804 1521195 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1748623805.966974 1521195 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1748623805.983156 1521195 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1748623805.983397 1521195 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1748623805.983658 1521195 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1748623805.984077 1521195 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-05-31 00:50:12,512 - INFO - 
+🚀================================================================================
+2025-05-31 00:50:12,512 - INFO - ================================================================================
+2025-05-31 00:50:12,513 - INFO - 🚀 启动 FLUX-1 量子化推理引擎
+2025-05-31 00:50:12,513 - INFO - 🚀 任务: 使用 QFloat8 量化生成高清图像
+2025-05-31 00:50:12,513 - INFO - ================================================================================
+
+2025-05-31 00:50:12,513 - INFO - 🖥️ 开始: 系统信息收集...
+2025-05-31 00:50:12,514 - INFO - 🖥️ ===== 系统详情 =====
+2025-05-31 00:50:12,514 - INFO -   ⏱️ 当前时间: 2025-05-31 00:50:12
+2025-05-31 00:50:12,514 - INFO -   🖥️ 操作系统: posix #26~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr 17 19:20:47 UTC 2
+2025-05-31 00:50:12,514 - INFO -   🖥️ Python版本: 3.10.16
+2025-05-31 00:50:12,514 - INFO -   🖥️ PyTorch版本: 2.7.0+cu126
+2025-05-31 00:50:12,514 - INFO -   🎮 CUDA版本: 12.6
+2025-05-31 00:50:12,515 - INFO -   🎮 GPU型号: NVIDIA GeForce RTX 3090
+2025-05-31 00:50:12,515 - INFO -   🧮 GPU内存: 23.57 GB
+2025-05-31 00:50:12,516 - INFO -   💻 CPU核心数: 8 (逻辑核心: 16)
+2025-05-31 00:50:12,516 - INFO -   🧮 总内存: 62.72 GB
+2025-05-31 00:50:12,516 - INFO - 🖥️ ====================
+2025-05-31 00:50:12,516 - INFO - ✅ 完成: 系统信息收集!
+2025-05-31 00:50:12,517 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 00:50:12,517 - INFO - 📥 开始: 下载FLUX-1模型...
+2025-05-31 00:50:12,517 - INFO - 📥 正在下载 FLUX 模型...
+2025-05-31 00:50:13,688 - modelscope - INFO - Target directory already exists, skipping creation.
+2025-05-31 00:50:13,688 - INFO - 🧠 存储位置: /mnt/f/models/black-forest-labs/FLUX___1-dev
+2025-05-31 00:50:13,688 - INFO - 📥 正在下载 LoRA 模型...
+2025-05-31 00:50:15,590 - modelscope - WARNING - Model revision not specified, use revision: v1.0
+2025-05-31 00:50:15,742 - INFO - 🧠 存储位置: /mnt/e/modescope_model/models/yiwanji/FLUX_xiao_hong_shu_ji_zhi_zhen_shi_V2
+2025-05-31 00:50:16,712 - INFO - ✅ 完成: 下载FLUX-1模型!
+2025-05-31 00:50:16,713 - INFO -   ⏱️ 耗时: 4.20秒
+2025-05-31 00:50:16,714 - INFO - 🧠 开始: 初始化量子化管道...
+Downloading Model from https://www.modelscope.cn to directory: /mnt/f/models/black-forest-labs/FLUX.1-dev
+Downloading Model from https://www.modelscope.cn to directory: /mnt/e/modescope_model/models/yiwanji/FLUX_xiao_hong_shu_ji_zhi_zhen_shi_V2
+Downloading Model from https://www.modelscope.cn to directory: /mnt/e/modescope_model/models/AI-ModelScope/clip-vit-large-patch14
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:01,  3.96it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 18.09it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 17.95it/s]
+Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:01,  4.16it/s]You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
+Loading pipeline components...:  43%|████▎     | 3/7 [00:00<00:01,  3.48it/s]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  8.64it/s][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  8.67it/s][ALoading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 10.17it/s]
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:01<00:00,  4.58it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:01<00:00,  5.24it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:01<00:00,  4.72it/s]
+2025-05-31 00:50:18,203 - INFO - ✅ 完成: 初始化量子化管道!
+2025-05-31 00:50:18,204 - INFO -   ⏱️ 耗时: 1.49秒
+2025-05-31 00:50:18,204 - INFO - 🧠 开始: 设置toker...
+2025-05-31 00:50:18,204 - INFO - ✅ 完成: 设置toker!
+2025-05-31 00:50:18,204 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 00:50:18,205 - INFO - ⚡ 开始: 注入 LoRA 权重...
+2025-05-31 00:50:18,205 - INFO - 📥 加载 LoRA 权重...
+2025-05-31 00:50:18,290 - INFO - ✅ 完成: 注入 LoRA 权重!
+2025-05-31 00:50:18,291 - INFO -   ⏱️ 耗时: 0.09秒
+2025-05-31 00:50:18,291 - INFO - ⚡ 开始: 量子化模型组件...
+2025-05-31 00:50:18,292 - INFO - ⚡ 应用 QFloat8 量化到文本编码器...
+2025-05-31 00:50:18,446 - INFO - ⚡ 应用 QFloat8 量化到 Transformer 核心...
+2025-05-31 00:50:19,051 - INFO - ⚡ 文本编码器量子化状态
+2025-05-31 00:50:19,051 - INFO - ⚡ Transformer量子化状态
+2025-05-31 00:50:19,052 - INFO - ✅ 完成: 量子化模型组件!
+2025-05-31 00:50:19,052 - INFO -   ⏱️ 耗时: 0.76秒
+2025-05-31 00:50:19,053 - INFO - ❄️ 开始: 冻结量子化参数...

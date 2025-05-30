@@ -38,12 +38,12 @@ if ! command -v conda &> /dev/null; then
     exit 1
 fi
 export TORCH_CUDA_ARCH_LIST="8.6"
-${ENV_BIN_PATH}/pip install gunicorn uvicorn
+#${ENV_BIN_PATH}/pip install gunicorn uvicorn
 cd  ${DIR}
 # 运行Python脚本
 #nohup $ENV_PATH $PYTHON_SCRIPT_PATH> $LOG_NAME 2>&1 &
 #nohup  ${ENV_BIN_PATH}/gunicorn -w 1 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$port -t 1800 --log-level 'debug' server:app > $LOG_NAME 2>&1 &
-nohup${ENV_BIN_PATH}/python $PYTHON_SCRIPT_PATH > $LOG_NAME 2>&1 &
+nohup ${ENV_BIN_PATH}/python $PYTHON_SCRIPT_PATH > $LOG_NAME 2>&1 &
 #14分钟启动
 echo "$ENV_PYTHON_PATH  $PYTHON_SCRIPT_PATH is running"
 

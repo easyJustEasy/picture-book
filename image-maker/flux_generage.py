@@ -12,12 +12,8 @@ from datetime import datetime
 
 # 下载模型
 from modelscope import snapshot_download
-from fastapi import FastAPI, Request,Form
-from fastapi.responses import StreamingResponse
 from pathlib import Path
-import uvicorn
 import uuid
-from starlette.background import BackgroundTask
 os.environ['CUDA_LAUNCH_BLOCKING'] = "1"
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 os.environ['TORCH_CUDA_ARCH_LIST'] = "8.6"
