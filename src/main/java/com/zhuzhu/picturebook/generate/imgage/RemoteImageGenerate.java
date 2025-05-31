@@ -27,7 +27,7 @@ public class RemoteImageGenerate extends AbstractImageGenerate implements IImage
         String filePath = workDir + File.separator + UUID.randomUUID() + ".png";
         FileUtil.touch(filePath);
         HttpResponse httpResponse = HttpUtil.createPost(aiConfig.getImage().getRemoteUrl())
-                .form(Map.of("prompt", prompt, "step", 20))
+                .form(Map.of("prompt", prompt, "step", 50))
                 .header("Accept", "image/png")
                 .execute();
         InputStream body = httpResponse.bodyStream();

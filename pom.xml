@@ -111,6 +111,10 @@
       <artifactId>playwright</artifactId>
       <version>1.51.0</version>
     </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-amqp</artifactId>
+    </dependency>
     </dependencies>
 
     <build>

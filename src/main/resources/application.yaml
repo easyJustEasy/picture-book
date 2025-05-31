@@ -20,6 +20,12 @@ spring:
       auto-commit: true
       pool-name: picture-book
       # leak-detection-threshold: 2000  # 可选，仅用于调试
+
+  rabbitmq:
+    host: 192.168.1.4
+    port: 5672
+    username: pic
+    password: 12345678
 ai:
   text:
      mode: 3 # 1: 通义千问 2 远程api 3 远程OLLAMA

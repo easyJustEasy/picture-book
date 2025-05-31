@@ -29,7 +29,7 @@ body {
     #generateBtn:hover {
         background-color: #4cae4c;
     }
-       #clearBtn {
+       .btn {
         background-color: #5cb85c;
         color: white;
         border: none;
@@ -38,7 +38,7 @@ body {
         cursor: pointer;
         transition: background .3s ease;
     }
-    #clearBtn:hover {
+   .btn:hover {
         background-color: #4cae4c;
     }
     #generateNumber, #generatePrompt {
@@ -141,7 +141,8 @@ body {
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgba(0, 0, 0, 0.75);
+        background-color: #000;
+
     }
     .modal-content {
         margin: 5% auto;
@@ -151,6 +152,28 @@ body {
     }
     #modalImage{
     width:100%;
+    }
+    .img-index{
+    cursor:pointer;
+    padding:8px;
+    border-radius:10px;
+    color:#fff;
+    margin:16px;
+    }
+    #preImg{
+    position: absolute;
+ left: 80px;
+    top: 320px;
+    }
+    #nextImg{
+    position: absolute;
+  right: 80px;
+    top: 320px;
+    }
+    #removeImg{
+        position: absolute;
+  right: 80px;
+    top: 260px;
     }
     .close {
         position: absolute;
@@ -166,7 +189,8 @@ body {
 <!-- 包含图片的div容器 -->
 <div id="imageContainer">
     <div id="toolbar">
-        <button id="generateBtn">生成</button>  <button id="clearBtn">清空</button>
+        <button id="generateBtn" class="btn">生成</button>  <button id="clearBtn" class="btn">清空图片</button>
+        <button id="clearQueueBtn" class="btn">清空队列</button>
         <input id="generateNumber" min="1" type="number" value="1" placeholder="图片数量"/>
         <textarea id="generatePrompt" placeholder="生成一个美女图片">一位中国美女站在海滩上，半身入镜。她有着如瓷器般白皙的肌肤，非深色肤色，面容明亮。身材苗条，胸部巨大，曲线优美，体态优雅，五官精致可爱，眼睛明亮，带着甜美的微笑，她穿着一件白色T恤衫和短裙。画面采用正面视角，色彩鲜艳明亮，背景是清澈的蓝天、金色的沙滩和轻柔的海浪，写实风格，高细节呈现，人物要居中。</textarea>
        <div class="tip-info">
@@ -182,6 +206,10 @@ body {
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="modalImage">
+        <span id="preImg" class="img-index">《《</span>
+        <span id="nextImg" class="img-index">》》</span>
+        <span id="removeImg" class="img-index" onclick="removeImage()">删除</span>
+
     </div>
 </div>
 <script src="./js/axios.js"></script>
@@ -212,6 +240,35 @@ var viewMe = function(src){
     const span = document.getElementsByClassName("close")[0];
     modal.style.display = "block";
     modalImg.src = src;
+}
+document.getElementById("preImg").onclick=function(){
+    const imgs = document.querySelectorAll('img.list-img');
+    const modalImg = document.getElementById("modalImage");
+    let index = 0;
+    for(let i = 0;i<imgs.length;i++){
+        if(modalImg.src==imgs[i].src){
+         index=i-1;
+        }
+    }
+    if(index<=0){
+    index=imgs.length-1;
+    }
+    modalImg.src=imgs[index].src
+}
+document.getElementById("nextImg").onclick=function(){
+    const imgs = document.querySelectorAll('img.list-img');
+    const modalImg = document.getElementById("modalImage");
+    let index = 0;
+    for(let i = 0;i<imgs.length;i++){
+        if(modalImg.src==imgs[i].src){
+         index=i+1;
+        }
+    }
+    if(index>=imgs.length){
+      index=0;
+    }
+    modalImg.src=imgs[index].src
+
 }
 document.getElementById("generateBtn").onclick=function() {
              localStorage.generatePrompt=document.getElementById('generatePrompt').value;
@@ -279,19 +336,48 @@ document.getElementById('clearBtn').onclick=function(){
 
 
 }
-var deleteImage=function (src){
-     const isConfirmed = window.confirm("确定要删除这张图片吗？");
+document.getElementById('clearQueueBtn').onclick=function(){
+// 显示确认弹窗
+        const isConfirmed = window.confirm("确定要清空队列吗？");
         if(isConfirmed){
-    document.getElementById('optInfo').innerHTML='正在删除图片';
-    axios.post('/img/deleteImg',{"image":src})
+            document.getElementById('optInfo').innerHTML='正在清空队列';
+
+           axios.get('/img/clearQueue'
+             )
                 .then(response => {
-                  document.getElementById('optInfo').innerHTML='图片已删除';
+                document.getElementById('optInfo').innerHTML='队列已清空';
                   loadImage();
                 })
                 .catch(error => {
                     console.error('error：', error);
                 });
+        }
+
+
+}
+var deleteImage=function (src,callback){
+     const isConfirmed = window.confirm("确定要删除这张图片吗？");
+        if(isConfirmed){
+    document.getElementById('optInfo').innerHTML='正在删除图片';
+    axios.post('/img/deleteImg',{"image":src})
+                .then(response => {
+                 if(!!callback){
+                  callback()
+                  }
+                  document.getElementById('optInfo').innerHTML='图片已删除';
+                  loadImage();
+
+                })
+                .catch(error => {
+                    console.error('error：', error);
+                });
                 }
+  }
+  var removeImage = function (){
+  var src = document.getElementById('modalImage').src
+  deleteImage(src,function(){
+  document.getElementById("nextImg").click()
+  });
   }
 var loadTaskCount = function(){
    axios.get('/img/taskCount').then(response => {
