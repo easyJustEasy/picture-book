@@ -1,3 +1,5 @@
+
+export TORCH_CUDA_ARCH_LIST="7.5;8.6"
 # packages in environment at /home/ppx/miniconda3/envs/cosyvoice:
 #
 # Name                    Version                   Build  Channel

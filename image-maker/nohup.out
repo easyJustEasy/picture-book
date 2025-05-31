@@ -1,0 +1,94 @@
+2025-05-30 02:36:07.741906: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1748543767.763488 1219989 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1748543767.770742 1219989 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1748543767.786564 1219989 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1748543767.786772 1219989 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1748543767.786979 1219989 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1748543767.787083 1219989 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+Traceback (most recent call last):
+  File "/mnt/f/work/picture-book/image-maker/fx.py", line 4, in <module>
+    from optimum.quanto import quantize, qfloat8, freeze
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/optimum/quanto/__init__.py", line 17, in <module>
+    from .calibrate import *
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/optimum/quanto/calibrate.py", line 24, in <module>
+    from .nn import QModuleMixin
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/optimum/quanto/nn/__init__.py", line 15, in <module>
+    from .qconv2d import *
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/optimum/quanto/nn/qconv2d.py", line 19, in <module>
+    from ..tensor import Optimizer, qtype
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/optimum/quanto/tensor/__init__.py", line 18, in <module>
+    from .optimizers import *
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/optimum/quanto/tensor/optimizers/__init__.py", line 17, in <module>
+    from .hqq_optimizer import *
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/optimum/quanto/tensor/optimizers/hqq_optimizer.py", line 20, in <module>
+    from ..weights import quantize_weight
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/optimum/quanto/tensor/weights/__init__.py", line 1, in <module>
+    from .qbits import *
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/optimum/quanto/tensor/weights/qbits.py", line 22, in <module>
+    from ...library import is_extension_available
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/optimum/quanto/library/__init__.py", line 15, in <module>
+    from .extensions import *
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/optimum/quanto/library/extensions/__init__.py", line 19, in <module>
+    from .cpp import *
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/optimum/quanto/library/extensions/cpp/__init__.py", line 19, in <module>
+    from ..extension import Extension, register_extension
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/optimum/quanto/library/extensions/extension.py", line 7, in <module>
+    from torch.utils.cpp_extension import load
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 23, in <module>
+    from .hipify import hipify_python
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/site-packages/torch/utils/hipify/hipify_python.py", line 803, in <module>
+    RE_PYTORCH_PREPROCESSOR = re.compile(fr'(?<=\W)({PYTORCH_TRIE.export_to_regex()})(?=\W)')
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/re.py", line 251, in compile
+    return _compile(pattern, flags)
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/re.py", line 303, in _compile
+    p = sre_compile.compile(pattern, flags)
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_compile.py", line 788, in compile
+    p = sre_parse.parse(p, flags)
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 955, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 444, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 841, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 444, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 841, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 444, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 841, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 444, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 841, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 444, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 841, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 444, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 841, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 444, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 841, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 444, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 841, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 444, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 841, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 444, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 841, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 444, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+  File "/home/ppx/miniconda3/envs/img/lib/python3.10/sre_parse.py", line 861, in _parse
+    if op is SUBPATTERN:
+KeyboardInterrupt

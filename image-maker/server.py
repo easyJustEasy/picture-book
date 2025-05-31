@@ -15,7 +15,7 @@ print(f'app inited')
 @app.post("/get_image_remote")
 async def get_image_remote(prompt:str = Form(...),step:int=Form(default=4)):
     if step>20:
-        step = 20
+        step = 25
     if step<4:
         step = 4
     img = generate(prompt, step, 3.5, 1280, 720, -1)
