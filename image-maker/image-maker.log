@@ -1,68 +1,67 @@
-2025-05-31 00:50:05.938773: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-05-31 08:21:03.103351: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-E0000 00:00:1748623805.959804 1521195 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1748623805.966974 1521195 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-W0000 00:00:1748623805.983156 1521195 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1748623805.983397 1521195 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1748623805.983658 1521195 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-W0000 00:00:1748623805.984077 1521195 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-2025-05-31 00:50:12,512 - INFO - 
+E0000 00:00:1748650863.123763 1585913 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1748650863.130446 1585913 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1748650863.146328 1585913 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1748650863.146535 1585913 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1748650863.146862 1585913 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1748650863.147067 1585913 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-05-31 08:21:09,839 - INFO - 
 🚀================================================================================
-2025-05-31 00:50:12,512 - INFO - ================================================================================
-2025-05-31 00:50:12,513 - INFO - 🚀 启动 FLUX-1 量子化推理引擎
-2025-05-31 00:50:12,513 - INFO - 🚀 任务: 使用 QFloat8 量化生成高清图像
-2025-05-31 00:50:12,513 - INFO - ================================================================================
+2025-05-31 08:21:09,839 - INFO - ================================================================================
+2025-05-31 08:21:09,839 - INFO - 🚀 启动 FLUX-1 量子化推理引擎
+2025-05-31 08:21:09,840 - INFO - 🚀 任务: 使用 QFloat8 量化生成高清图像
+2025-05-31 08:21:09,840 - INFO - ================================================================================
 
-2025-05-31 00:50:12,513 - INFO - 🖥️ 开始: 系统信息收集...
-2025-05-31 00:50:12,514 - INFO - 🖥️ ===== 系统详情 =====
-2025-05-31 00:50:12,514 - INFO -   ⏱️ 当前时间: 2025-05-31 00:50:12
-2025-05-31 00:50:12,514 - INFO -   🖥️ 操作系统: posix #26~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr 17 19:20:47 UTC 2
-2025-05-31 00:50:12,514 - INFO -   🖥️ Python版本: 3.10.16
-2025-05-31 00:50:12,514 - INFO -   🖥️ PyTorch版本: 2.7.0+cu126
-2025-05-31 00:50:12,514 - INFO -   🎮 CUDA版本: 12.6
-2025-05-31 00:50:12,515 - INFO -   🎮 GPU型号: NVIDIA GeForce RTX 3090
-2025-05-31 00:50:12,515 - INFO -   🧮 GPU内存: 23.57 GB
-2025-05-31 00:50:12,516 - INFO -   💻 CPU核心数: 8 (逻辑核心: 16)
-2025-05-31 00:50:12,516 - INFO -   🧮 总内存: 62.72 GB
-2025-05-31 00:50:12,516 - INFO - 🖥️ ====================
-2025-05-31 00:50:12,516 - INFO - ✅ 完成: 系统信息收集!
-2025-05-31 00:50:12,517 - INFO -   ⏱️ 耗时: 0.00秒
-2025-05-31 00:50:12,517 - INFO - 📥 开始: 下载FLUX-1模型...
-2025-05-31 00:50:12,517 - INFO - 📥 正在下载 FLUX 模型...
-2025-05-31 00:50:13,688 - modelscope - INFO - Target directory already exists, skipping creation.
-2025-05-31 00:50:13,688 - INFO - 🧠 存储位置: /mnt/f/models/black-forest-labs/FLUX___1-dev
-2025-05-31 00:50:13,688 - INFO - 📥 正在下载 LoRA 模型...
-2025-05-31 00:50:15,590 - modelscope - WARNING - Model revision not specified, use revision: v1.0
-2025-05-31 00:50:15,742 - INFO - 🧠 存储位置: /mnt/e/modescope_model/models/yiwanji/FLUX_xiao_hong_shu_ji_zhi_zhen_shi_V2
-2025-05-31 00:50:16,712 - INFO - ✅ 完成: 下载FLUX-1模型!
-2025-05-31 00:50:16,713 - INFO -   ⏱️ 耗时: 4.20秒
-2025-05-31 00:50:16,714 - INFO - 🧠 开始: 初始化量子化管道...
+2025-05-31 08:21:09,840 - INFO - 🖥️ 开始: 系统信息收集...
+2025-05-31 08:21:09,840 - INFO - 🖥️ ===== 系统详情 =====
+2025-05-31 08:21:09,841 - INFO -   ⏱️ 当前时间: 2025-05-31 08:21:09
+2025-05-31 08:21:09,841 - INFO -   🖥️ 操作系统: posix #26~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr 17 19:20:47 UTC 2
+2025-05-31 08:21:09,841 - INFO -   🖥️ Python版本: 3.10.16
+2025-05-31 08:21:09,841 - INFO -   🖥️ PyTorch版本: 2.7.0+cu126
+2025-05-31 08:21:09,841 - INFO -   🎮 CUDA版本: 12.6
+2025-05-31 08:21:09,842 - INFO -   🎮 GPU型号: NVIDIA GeForce RTX 3090
+2025-05-31 08:21:09,842 - INFO -   🧮 GPU内存: 23.57 GB
+2025-05-31 08:21:09,843 - INFO -   💻 CPU核心数: 8 (逻辑核心: 16)
+2025-05-31 08:21:09,843 - INFO -   🧮 总内存: 62.72 GB
+2025-05-31 08:21:09,844 - INFO - 🖥️ ====================
+2025-05-31 08:21:09,844 - INFO - ✅ 完成: 系统信息收集!
+2025-05-31 08:21:09,844 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 08:21:09,844 - INFO - 📥 开始: 下载FLUX-1模型...
+2025-05-31 08:21:09,844 - INFO - 📥 正在下载 FLUX 模型...
+2025-05-31 08:21:11,056 - modelscope - INFO - Target directory already exists, skipping creation.
+2025-05-31 08:21:11,057 - INFO - 🧠 存储位置: /mnt/f/models/black-forest-labs/FLUX___1-dev
+2025-05-31 08:21:11,057 - INFO - 📥 正在下载 LoRA 模型...
+2025-05-31 08:21:12,903 - modelscope - WARNING - Model revision not specified, use revision: v1.0
+2025-05-31 08:21:13,039 - INFO - 🧠 存储位置: /mnt/e/modescope_model/models/yiwanji/FLUX_xiao_hong_shu_ji_zhi_zhen_shi_V2
+2025-05-31 08:21:14,122 - INFO - ✅ 完成: 下载FLUX-1模型!
+2025-05-31 08:21:14,123 - INFO -   ⏱️ 耗时: 4.28秒
+2025-05-31 08:21:14,124 - INFO - 🧠 开始: 初始化量子化管道...
 Downloading Model from https://www.modelscope.cn to directory: /mnt/f/models/black-forest-labs/FLUX.1-dev
 Downloading Model from https://www.modelscope.cn to directory: /mnt/e/modescope_model/models/yiwanji/FLUX_xiao_hong_shu_ji_zhi_zhen_shi_V2
 Downloading Model from https://www.modelscope.cn to directory: /mnt/e/modescope_model/models/AI-ModelScope/clip-vit-large-patch14
-Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:01,  3.96it/s]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
-Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 18.09it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 17.95it/s]
-Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:01,  4.16it/s]You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
-Loading pipeline components...:  43%|████▎     | 3/7 [00:00<00:01,  3.48it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:01,  4.83it/s]
 Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
-Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  8.64it/s][A
-Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  8.67it/s][ALoading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 10.17it/s]
-Loading pipeline components...:  86%|████████▌ | 6/7 [00:01<00:00,  4.58it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:01<00:00,  5.24it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:01<00:00,  4.72it/s]
-2025-05-31 00:50:18,203 - INFO - ✅ 完成: 初始化量子化管道!
-2025-05-31 00:50:18,204 - INFO -   ⏱️ 耗时: 1.49秒
-2025-05-31 00:50:18,204 - INFO - 🧠 开始: 设置toker...
-2025-05-31 00:50:18,204 - INFO - ✅ 完成: 设置toker!
-2025-05-31 00:50:18,204 - INFO -   ⏱️ 耗时: 0.00秒
-2025-05-31 00:50:18,205 - INFO - ⚡ 开始: 注入 LoRA 权重...
-2025-05-31 00:50:18,205 - INFO - 📥 加载 LoRA 权重...
-2025-05-31 00:50:18,290 - INFO - ✅ 完成: 注入 LoRA 权重!
-2025-05-31 00:50:18,291 - INFO -   ⏱️ 耗时: 0.09秒
-2025-05-31 00:50:18,291 - INFO - ⚡ 开始: 量子化模型组件...
-2025-05-31 00:50:18,292 - INFO - ⚡ 应用 QFloat8 量化到文本编码器...
-2025-05-31 00:50:18,446 - INFO - ⚡ 应用 QFloat8 量化到 Transformer 核心...
-2025-05-31 00:50:19,051 - INFO - ⚡ 文本编码器量子化状态
-2025-05-31 00:50:19,051 - INFO - ⚡ Transformer量子化状态
-2025-05-31 00:50:19,052 - INFO - ✅ 完成: 量子化模型组件!
-2025-05-31 00:50:19,052 - INFO -   ⏱️ 耗时: 0.76秒
-2025-05-31 00:50:19,053 - INFO - ❄️ 开始: 冻结量子化参数...
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  6.04it/s][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  5.33it/s][ALoading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  6.45it/s]
+Loading pipeline components...:  43%|████▎     | 3/7 [00:00<00:01,  3.19it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 24.89it/s]
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:01<00:00,  3.75it/s]Loading pipeline components...:  71%|███████▏  | 5/7 [00:01<00:00,  4.52it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:01<00:00,  5.18it/s]You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
+Loading pipeline components...: 100%|██████████| 7/7 [00:01<00:00,  4.38it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:01<00:00,  4.23it/s]
+2025-05-31 08:21:15,787 - INFO - ✅ 完成: 初始化量子化管道!
+2025-05-31 08:21:15,787 - INFO -   ⏱️ 耗时: 1.66秒
+2025-05-31 08:21:15,788 - INFO - 🧠 开始: 设置toker...
+2025-05-31 08:21:15,788 - INFO - ✅ 完成: 设置toker!
+2025-05-31 08:21:15,788 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 08:21:15,788 - INFO - ⚡ 开始: 注入 LoRA 权重...
+2025-05-31 08:21:15,789 - INFO - 📥 加载 LoRA 权重...
+2025-05-31 08:21:15,872 - INFO - ✅ 完成: 注入 LoRA 权重!
+2025-05-31 08:21:15,873 - INFO -   ⏱️ 耗时: 0.08秒
+2025-05-31 08:21:15,873 - INFO - ⚡ 开始: 量子化模型组件...
+2025-05-31 08:21:15,874 - INFO - ⚡ 应用 QFloat8 量化到文本编码器...
+2025-05-31 08:21:16,026 - INFO - ⚡ 应用 QFloat8 量化到 Transformer 核心...
+2025-05-31 08:21:16,611 - INFO - ⚡ 文本编码器量子化状态
+2025-05-31 08:21:16,611 - INFO - ⚡ Transformer量子化状态
+2025-05-31 08:21:16,612 - INFO - ✅ 完成: 量子化模型组件!
+2025-05-31 08:21:16,612 - INFO -   ⏱️ 耗时: 0.74秒
+2025-05-31 08:21:16,612 - INFO - ❄️ 开始: 冻结量子化参数...

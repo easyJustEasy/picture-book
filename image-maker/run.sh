@@ -20,12 +20,21 @@ LOG_NAME="image-maker.log"
 
 
 
-pid=$(sudo netstat -nlp | grep ":$port" | awk '{print $7}' | cut -d'/' -f1)
-# 杀掉对应的进程如果PID存在
-if [ -n "$pid" ]; then
-    sudo kill -9 $pid
-    echo "killed port:$port====> pid:$pid"
+# pid=$(sudo netstat -nlp | grep ":$port" | awk '{print $7}' | cut -d'/' -f1)
+# # 杀掉对应的进程如果PID存在
+# if [ -n "$pid" ]; then
+#     sudo kill -9 $pid
+#     echo "killed port:$port====> pid:$pid"
+# fi
+
+pids=$(ps -ef | grep "$PYTHON_SCRIPT_PATH" | grep -v "grep" | awk '{print $2}')
+
+if [ -n "$pids" ]; then
+  kill $pids
+else
+  echo "没有找到匹配的进程。"
 fi
+
 
 
 # 定义你的Conda基础路径和虚拟环境名称

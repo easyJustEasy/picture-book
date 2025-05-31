@@ -13030,3 +13030,1141 @@ The entire scene is filled with warm tones, with the afterglow of the sunset ref
 2025-05-31 00:50:19,052 - INFO - ✅ 完成: 量子化模型组件!
 2025-05-31 00:50:19,052 - INFO -   ⏱️ 耗时: 0.76秒
 2025-05-31 00:50:19,053 - INFO - ❄️ 开始: 冻结量子化参数...
+2025-05-31 00:54:59,789 - INFO - ✅ 完成: 冻结量子化参数!
+2025-05-31 00:54:59,816 - INFO -   ⏱️ 耗时: 280.73秒
+2025-05-31 00:54:59,818 - INFO - 
+🏆================================================================================
+2025-05-31 00:54:59,819 - INFO - 🏆 FLUX-1 量子化创作任务完成!
+2025-05-31 00:54:59,820 - INFO - 🏆================================================================================
+2025-05-31 00:54:59,820 - INFO - 💾 开始: 激活智能内存管理...
+2025-05-31 00:55:00,623 - INFO - ✅ 完成: 激活智能内存管理!
+2025-05-31 00:55:00,624 - INFO -   ⏱️ 耗时: 0.80秒
+2025-05-31 00:56:53,082 - INFO - 
+🚀================================================================================
+2025-05-31 00:56:53,082 - INFO - ================================================================================
+2025-05-31 00:56:53,082 - INFO - 🚀 启动 FLUX-1 量子化推理引擎
+2025-05-31 00:56:53,083 - INFO - 🚀 任务: 使用 QFloat8 量化生成高清图像
+2025-05-31 00:56:53,083 - INFO - ================================================================================
+
+2025-05-31 00:56:53,083 - INFO - 🖥️ 开始: 系统信息收集...
+2025-05-31 00:56:53,083 - INFO - 🖥️ ===== 系统详情 =====
+2025-05-31 00:56:53,084 - INFO -   ⏱️ 当前时间: 2025-05-31 00:56:53
+2025-05-31 00:56:53,084 - INFO -   🖥️ 操作系统: posix #26~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr 17 19:20:47 UTC 2
+2025-05-31 00:56:53,084 - INFO -   🖥️ Python版本: 3.10.16
+2025-05-31 00:56:53,084 - INFO -   🖥️ PyTorch版本: 2.7.0+cu126
+2025-05-31 00:56:53,084 - INFO -   🎮 CUDA版本: 12.6
+2025-05-31 00:56:53,084 - INFO -   🎮 GPU型号: NVIDIA GeForce RTX 3090
+2025-05-31 00:56:53,085 - INFO -   🧮 GPU内存: 23.57 GB
+2025-05-31 00:56:53,086 - INFO -   💻 CPU核心数: 8 (逻辑核心: 16)
+2025-05-31 00:56:53,086 - INFO -   🧮 总内存: 62.72 GB
+2025-05-31 00:56:53,087 - INFO - 🖥️ ====================
+2025-05-31 00:56:53,087 - INFO - ✅ 完成: 系统信息收集!
+2025-05-31 00:56:53,088 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 00:56:53,088 - INFO - 📥 开始: 下载FLUX-1模型...
+2025-05-31 00:56:53,088 - INFO - 📥 正在下载 FLUX 模型...
+2025-05-31 00:56:54,225 - INFO - 🧠 存储位置: /mnt/f/models/black-forest-labs/FLUX___1-dev
+2025-05-31 00:56:54,226 - INFO - 📥 正在下载 LoRA 模型...
+2025-05-31 00:56:56,200 - INFO - 🧠 存储位置: /mnt/e/modescope_model/models/yiwanji/FLUX_xiao_hong_shu_ji_zhi_zhen_shi_V2
+2025-05-31 00:56:57,255 - INFO - ✅ 完成: 下载FLUX-1模型!
+2025-05-31 00:56:57,256 - INFO -   ⏱️ 耗时: 4.17秒
+2025-05-31 00:56:57,256 - INFO - 🧠 开始: 初始化量子化管道...
+2025-05-31 00:57:01,820 - INFO - ✅ 完成: 初始化量子化管道!
+2025-05-31 00:57:01,821 - INFO -   ⏱️ 耗时: 4.56秒
+2025-05-31 00:57:01,821 - INFO - 🧠 开始: 设置toker...
+2025-05-31 00:57:01,822 - INFO - ✅ 完成: 设置toker!
+2025-05-31 00:57:01,822 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 00:57:01,823 - INFO - ⚡ 开始: 注入 LoRA 权重...
+2025-05-31 00:57:01,823 - INFO - 📥 加载 LoRA 权重...
+2025-05-31 00:57:07,940 - INFO - ✅ 完成: 注入 LoRA 权重!
+2025-05-31 00:57:07,941 - INFO -   ⏱️ 耗时: 6.12秒
+2025-05-31 00:57:07,942 - INFO - ⚡ 开始: 量子化模型组件...
+2025-05-31 00:57:07,943 - INFO - ⚡ 应用 QFloat8 量化到文本编码器...
+2025-05-31 00:57:08,182 - INFO - ⚡ 应用 QFloat8 量化到 Transformer 核心...
+2025-05-31 00:57:08,872 - INFO - ⚡ 文本编码器量子化状态
+2025-05-31 00:57:08,873 - INFO - ⚡ Transformer量子化状态
+2025-05-31 00:57:08,873 - INFO - ✅ 完成: 量子化模型组件!
+2025-05-31 00:57:08,874 - INFO -   ⏱️ 耗时: 0.93秒
+2025-05-31 00:57:08,874 - INFO - ❄️ 开始: 冻结量子化参数...
+2025-05-31 01:04:33,541 - INFO - ✅ 完成: 冻结量子化参数!
+2025-05-31 01:04:33,593 - INFO -   ⏱️ 耗时: 444.67秒
+2025-05-31 01:04:33,594 - INFO - 
+🏆================================================================================
+2025-05-31 01:04:33,594 - INFO - 🏆 FLUX-1 量子化创作任务完成!
+2025-05-31 01:04:33,601 - INFO - 🏆================================================================================
+2025-05-31 01:04:33,602 - INFO - 💾 开始: 激活智能内存管理...
+2025-05-31 01:04:34,376 - INFO - ✅ 完成: 激活智能内存管理!
+2025-05-31 01:04:34,377 - INFO -   ⏱️ 耗时: 0.77秒
+2025-05-31 01:06:56,403 - INFO - 
+🚀================================================================================
+2025-05-31 01:06:56,404 - INFO - ================================================================================
+2025-05-31 01:06:56,404 - INFO - 🚀 启动 FLUX-1 量子化推理引擎
+2025-05-31 01:06:56,404 - INFO - 🚀 任务: 使用 QFloat8 量化生成高清图像
+2025-05-31 01:06:56,404 - INFO - ================================================================================
+
+2025-05-31 01:06:56,405 - INFO - 🖥️ 开始: 系统信息收集...
+2025-05-31 01:06:56,405 - INFO - 🖥️ ===== 系统详情 =====
+2025-05-31 01:06:56,405 - INFO -   ⏱️ 当前时间: 2025-05-31 01:06:56
+2025-05-31 01:06:56,406 - INFO -   🖥️ 操作系统: posix #26~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr 17 19:20:47 UTC 2
+2025-05-31 01:06:56,406 - INFO -   🖥️ Python版本: 3.10.16
+2025-05-31 01:06:56,407 - INFO -   🖥️ PyTorch版本: 2.7.0+cu126
+2025-05-31 01:06:56,407 - INFO -   🎮 CUDA版本: 12.6
+2025-05-31 01:06:56,407 - INFO -   🎮 GPU型号: NVIDIA GeForce RTX 3090
+2025-05-31 01:06:56,407 - INFO -   🧮 GPU内存: 23.57 GB
+2025-05-31 01:06:56,408 - INFO -   💻 CPU核心数: 8 (逻辑核心: 16)
+2025-05-31 01:06:56,409 - INFO -   🧮 总内存: 62.72 GB
+2025-05-31 01:06:56,409 - INFO - 🖥️ ====================
+2025-05-31 01:06:56,409 - INFO - ✅ 完成: 系统信息收集!
+2025-05-31 01:06:56,409 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 01:06:56,409 - INFO - 📥 开始: 下载FLUX-1模型...
+2025-05-31 01:06:56,409 - INFO - 📥 正在下载 FLUX 模型...
+2025-05-31 01:06:57,645 - INFO - 🧠 存储位置: /mnt/f/models/black-forest-labs/FLUX___1-dev
+2025-05-31 01:06:57,645 - INFO - 📥 正在下载 LoRA 模型...
+2025-05-31 01:06:59,720 - INFO - 🧠 存储位置: /mnt/e/modescope_model/models/yiwanji/FLUX_xiao_hong_shu_ji_zhi_zhen_shi_V2
+2025-05-31 01:07:00,771 - INFO - ✅ 完成: 下载FLUX-1模型!
+2025-05-31 01:07:00,772 - INFO -   ⏱️ 耗时: 4.36秒
+2025-05-31 01:07:00,773 - INFO - 🧠 开始: 初始化量子化管道...
+2025-05-31 01:07:05,846 - INFO - ✅ 完成: 初始化量子化管道!
+2025-05-31 01:07:05,847 - INFO -   ⏱️ 耗时: 5.07秒
+2025-05-31 01:07:05,847 - INFO - 🧠 开始: 设置toker...
+2025-05-31 01:07:05,848 - INFO - ✅ 完成: 设置toker!
+2025-05-31 01:07:05,849 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 01:07:05,849 - INFO - ⚡ 开始: 注入 LoRA 权重...
+2025-05-31 01:07:05,850 - INFO - 📥 加载 LoRA 权重...
+2025-05-31 01:07:07,348 - INFO - ✅ 完成: 注入 LoRA 权重!
+2025-05-31 01:07:07,349 - INFO -   ⏱️ 耗时: 1.50秒
+2025-05-31 01:07:07,350 - INFO - ⚡ 开始: 量子化模型组件...
+2025-05-31 01:07:07,351 - INFO - ⚡ 应用 QFloat8 量化到文本编码器...
+2025-05-31 01:07:07,580 - INFO - ⚡ 应用 QFloat8 量化到 Transformer 核心...
+2025-05-31 01:07:08,405 - INFO - ⚡ 文本编码器量子化状态
+2025-05-31 01:07:08,405 - INFO - ⚡ Transformer量子化状态
+2025-05-31 01:07:08,406 - INFO - ✅ 完成: 量子化模型组件!
+2025-05-31 01:07:08,406 - INFO -   ⏱️ 耗时: 1.06秒
+2025-05-31 01:07:08,407 - INFO - ❄️ 开始: 冻结量子化参数...
+2025-05-31 01:15:02,380 - INFO - ✅ 完成: 冻结量子化参数!
+2025-05-31 01:15:02,394 - INFO -   ⏱️ 耗时: 473.97秒
+2025-05-31 01:15:02,394 - INFO - 
+🏆================================================================================
+2025-05-31 01:15:02,395 - INFO - 🏆 FLUX-1 量子化创作任务完成!
+2025-05-31 01:15:02,396 - INFO - 🏆================================================================================
+2025-05-31 01:15:02,396 - INFO - 💾 开始: 激活智能内存管理...
+2025-05-31 01:15:03,185 - INFO - ✅ 完成: 激活智能内存管理!
+2025-05-31 01:15:03,186 - INFO -   ⏱️ 耗时: 0.79秒
+2025-05-31 01:15:07,173 - INFO - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+2025-05-31 01:15:57,836 - INFO - Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+2025-05-31 01:15:57,837 - INFO - Socket connected: <socket.socket fd=48, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 40044), raddr=('127.0.0.1', 5672)>
+2025-05-31 01:15:57,838 - INFO - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x79de184b9660>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x79de184b9660> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
+2025-05-31 01:15:58,034 - INFO - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x79de184b9660> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-31 01:15:58,035 - INFO - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x79de184b9660> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-31 01:15:58,036 - INFO - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x79de184b9660> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-31 01:15:58,038 - INFO - Created channel=1
+2025-05-31 01:15:58,092 - INFO -  [*] Waiting for messages. To exit press CTRL+C
+2025-05-31 01:15:58,094 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 01:15:58,095 - INFO -  翻译prompt=======>
+2025-05-31 01:16:28,832 - ERROR - An error occurred while deleting the file: name 'prompt' is not defined
+2025-05-31 01:16:52,372 - WARNING - Received remote Channel.Close (406): 'PRECONDITION_FAILED - delivery acknowledgement on channel 1 timed out. Timeout value used: 1800000 ms. This timeout value can be configured, see consumers doc guide to learn more' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x78ae712f92a0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
+2025-05-31 01:16:52,503 - ERROR - Unexpected error: (406, 'PRECONDITION_FAILED - delivery acknowledgement on channel 1 timed out. Timeout value used: 1800000 ms. This timeout value can be configured, see consumers doc guide to learn more')
+2025-05-31 01:46:58,092 - WARNING - Received remote Channel.Close (406): 'PRECONDITION_FAILED - delivery acknowledgement on channel 1 timed out. Timeout value used: 1800000 ms. This timeout value can be configured, see consumers doc guide to learn more' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x79de184b9660> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
+2025-05-31 01:46:58,094 - ERROR - Unexpected error: (406, 'PRECONDITION_FAILED - delivery acknowledgement on channel 1 timed out. Timeout value used: 1800000 ms. This timeout value can be configured, see consumers doc guide to learn more')
+2025-05-31 07:26:32,237 - INFO - 
+🚀================================================================================
+2025-05-31 07:26:32,238 - INFO - ================================================================================
+2025-05-31 07:26:32,238 - INFO - 🚀 启动 FLUX-1 量子化推理引擎
+2025-05-31 07:26:32,238 - INFO - 🚀 任务: 使用 QFloat8 量化生成高清图像
+2025-05-31 07:26:32,238 - INFO - ================================================================================
+
+2025-05-31 07:26:32,239 - INFO - 🖥️ 开始: 系统信息收集...
+2025-05-31 07:26:32,239 - INFO - 🖥️ ===== 系统详情 =====
+2025-05-31 07:26:32,239 - INFO -   ⏱️ 当前时间: 2025-05-31 07:26:32
+2025-05-31 07:26:32,239 - INFO -   🖥️ 操作系统: posix #26~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr 17 19:20:47 UTC 2
+2025-05-31 07:26:32,239 - INFO -   🖥️ Python版本: 3.10.16
+2025-05-31 07:26:32,240 - INFO -   🖥️ PyTorch版本: 2.7.0+cu126
+2025-05-31 07:26:32,240 - INFO -   🎮 CUDA版本: 12.6
+2025-05-31 07:26:32,240 - INFO -   🎮 GPU型号: NVIDIA GeForce RTX 3090
+2025-05-31 07:26:32,240 - INFO -   🧮 GPU内存: 23.57 GB
+2025-05-31 07:26:32,241 - INFO -   💻 CPU核心数: 8 (逻辑核心: 16)
+2025-05-31 07:26:32,242 - INFO -   🧮 总内存: 62.72 GB
+2025-05-31 07:26:32,242 - INFO - 🖥️ ====================
+2025-05-31 07:26:32,242 - INFO - ✅ 完成: 系统信息收集!
+2025-05-31 07:26:32,242 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 07:26:32,243 - INFO - 📥 开始: 下载FLUX-1模型...
+2025-05-31 07:26:32,243 - INFO - 📥 正在下载 FLUX 模型...
+2025-05-31 07:26:33,354 - INFO - 🧠 存储位置: /mnt/f/models/black-forest-labs/FLUX___1-dev
+2025-05-31 07:26:33,354 - INFO - 📥 正在下载 LoRA 模型...
+2025-05-31 07:26:35,422 - INFO - 🧠 存储位置: /mnt/e/modescope_model/models/yiwanji/FLUX_xiao_hong_shu_ji_zhi_zhen_shi_V2
+2025-05-31 07:26:36,430 - INFO - ✅ 完成: 下载FLUX-1模型!
+2025-05-31 07:26:36,431 - INFO -   ⏱️ 耗时: 4.19秒
+2025-05-31 07:26:36,431 - INFO - 🧠 开始: 初始化量子化管道...
+2025-05-31 07:26:41,767 - INFO - ✅ 完成: 初始化量子化管道!
+2025-05-31 07:26:41,768 - INFO -   ⏱️ 耗时: 5.34秒
+2025-05-31 07:26:41,768 - INFO - 🧠 开始: 设置toker...
+2025-05-31 07:26:41,769 - INFO - ✅ 完成: 设置toker!
+2025-05-31 07:26:41,769 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 07:26:41,769 - INFO - ⚡ 开始: 注入 LoRA 权重...
+2025-05-31 07:26:41,770 - INFO - 📥 加载 LoRA 权重...
+2025-05-31 07:26:48,147 - INFO - ✅ 完成: 注入 LoRA 权重!
+2025-05-31 07:26:48,148 - INFO -   ⏱️ 耗时: 6.38秒
+2025-05-31 07:26:48,149 - INFO - ⚡ 开始: 量子化模型组件...
+2025-05-31 07:26:48,149 - INFO - ⚡ 应用 QFloat8 量化到文本编码器...
+2025-05-31 07:26:48,388 - INFO - ⚡ 应用 QFloat8 量化到 Transformer 核心...
+2025-05-31 07:26:49,102 - INFO - ⚡ 文本编码器量子化状态
+2025-05-31 07:26:49,103 - INFO - ⚡ Transformer量子化状态
+2025-05-31 07:26:49,103 - INFO - ✅ 完成: 量子化模型组件!
+2025-05-31 07:26:49,104 - INFO -   ⏱️ 耗时: 0.95秒
+2025-05-31 07:26:49,104 - INFO - ❄️ 开始: 冻结量子化参数...
+2025-05-31 07:31:08,103 - INFO - ✅ 完成: 冻结量子化参数!
+2025-05-31 07:31:08,119 - INFO -   ⏱️ 耗时: 259.00秒
+2025-05-31 07:31:08,120 - INFO - 
+🏆================================================================================
+2025-05-31 07:31:08,120 - INFO - 🏆 FLUX-1 量子化创作任务完成!
+2025-05-31 07:31:08,120 - INFO - 🏆================================================================================
+2025-05-31 07:31:08,120 - INFO - 💾 开始: 激活智能内存管理...
+2025-05-31 07:31:08,662 - INFO - ✅ 完成: 激活智能内存管理!
+2025-05-31 07:31:08,662 - INFO -   ⏱️ 耗时: 0.54秒
+2025-05-31 07:31:11,919 - INFO - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+2025-05-31 07:31:12,769 - INFO - Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+2025-05-31 07:31:12,770 - INFO - Socket connected: <socket.socket fd=48, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 39270), raddr=('127.0.0.1', 5672)>
+2025-05-31 07:31:12,771 - INFO - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7153085ad690>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7153085ad690> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
+2025-05-31 07:31:12,879 - INFO - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7153085ad690> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-31 07:31:12,881 - INFO - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7153085ad690> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-31 07:31:12,881 - INFO - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7153085ad690> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-31 07:31:12,882 - INFO - Created channel=1
+2025-05-31 07:31:12,890 - INFO -  [*] Waiting for messages. To exit press CTRL+C
+2025-05-31 07:31:12,891 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 07:31:12,891 - INFO -  翻译prompt=======>
+2025-05-31 07:31:45,108 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A young, beautiful woman with long black hair braided, wearing a red waist-length dress, is captured in a natural setting with green plants and soft sunlight. Her white skin, refined facial features, gentle eyes, and a subtle smile create a serene, realistic atmosphere.
+2025-05-31 07:31:45,109 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 07:31:45,110 - INFO - 🎨 生成参数配置:
+2025-05-31 07:31:45,111 - INFO -   🖼️ 分辨率: 5.5X1280 (UHD)
+2025-05-31 07:31:45,111 - INFO -   🧠 引导系数: 720
+2025-05-31 07:31:45,112 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 07:31:45,112 - INFO -   🧠 最大序列长度: -1
+2025-05-31 07:31:45,112 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:31:45,112 - INFO - 🧮 生成前资源状态:
+2025-05-31 07:31:45,142 - INFO - 🎮 GPU内存: 5040.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 07:31:45,142 - INFO - 🎮 GPU负载: 计算 7.0% | 显存 20.5% | 温度 44.0°C
+2025-05-31 07:31:45,143 - INFO - 💻 CPU内存: 使用 23.32/62.72 GB (38.3%)
+2025-05-31 07:31:45,144 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:31:45,144 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:31:45,144 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 07:31:47,183 - ERROR - An error occurred while deleting the file: can't convert negative int to unsigned
+2025-05-31 07:32:54,879 - INFO - 
+🚀================================================================================
+2025-05-31 07:32:54,879 - INFO - ================================================================================
+2025-05-31 07:32:54,879 - INFO - 🚀 启动 FLUX-1 量子化推理引擎
+2025-05-31 07:32:54,880 - INFO - 🚀 任务: 使用 QFloat8 量化生成高清图像
+2025-05-31 07:32:54,880 - INFO - ================================================================================
+
+2025-05-31 07:32:54,880 - INFO - 🖥️ 开始: 系统信息收集...
+2025-05-31 07:32:54,881 - INFO - 🖥️ ===== 系统详情 =====
+2025-05-31 07:32:54,881 - INFO -   ⏱️ 当前时间: 2025-05-31 07:32:54
+2025-05-31 07:32:54,881 - INFO -   🖥️ 操作系统: posix #26~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr 17 19:20:47 UTC 2
+2025-05-31 07:32:54,881 - INFO -   🖥️ Python版本: 3.10.16
+2025-05-31 07:32:54,882 - INFO -   🖥️ PyTorch版本: 2.7.0+cu126
+2025-05-31 07:32:54,882 - INFO -   🎮 CUDA版本: 12.6
+2025-05-31 07:32:54,882 - INFO -   🎮 GPU型号: NVIDIA GeForce RTX 3090
+2025-05-31 07:32:54,882 - INFO -   🧮 GPU内存: 23.57 GB
+2025-05-31 07:32:54,884 - INFO -   💻 CPU核心数: 8 (逻辑核心: 16)
+2025-05-31 07:32:54,884 - INFO -   🧮 总内存: 62.72 GB
+2025-05-31 07:32:54,884 - INFO - 🖥️ ====================
+2025-05-31 07:32:54,884 - INFO - ✅ 完成: 系统信息收集!
+2025-05-31 07:32:54,885 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 07:32:54,885 - INFO - 📥 开始: 下载FLUX-1模型...
+2025-05-31 07:32:54,885 - INFO - 📥 正在下载 FLUX 模型...
+2025-05-31 07:32:56,219 - INFO - 🧠 存储位置: /mnt/f/models/black-forest-labs/FLUX___1-dev
+2025-05-31 07:32:56,220 - INFO - 📥 正在下载 LoRA 模型...
+2025-05-31 07:32:57,986 - INFO - 🧠 存储位置: /mnt/e/modescope_model/models/yiwanji/FLUX_xiao_hong_shu_ji_zhi_zhen_shi_V2
+2025-05-31 07:32:59,125 - INFO - ✅ 完成: 下载FLUX-1模型!
+2025-05-31 07:32:59,126 - INFO -   ⏱️ 耗时: 4.24秒
+2025-05-31 07:32:59,127 - INFO - 🧠 开始: 初始化量子化管道...
+2025-05-31 07:33:00,690 - INFO - ✅ 完成: 初始化量子化管道!
+2025-05-31 07:33:00,690 - INFO -   ⏱️ 耗时: 1.56秒
+2025-05-31 07:33:00,690 - INFO - 🧠 开始: 设置toker...
+2025-05-31 07:33:00,690 - INFO - ✅ 完成: 设置toker!
+2025-05-31 07:33:00,691 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 07:33:00,691 - INFO - ⚡ 开始: 注入 LoRA 权重...
+2025-05-31 07:33:00,691 - INFO - 📥 加载 LoRA 权重...
+2025-05-31 07:33:00,770 - INFO - ✅ 完成: 注入 LoRA 权重!
+2025-05-31 07:33:00,771 - INFO -   ⏱️ 耗时: 0.08秒
+2025-05-31 07:33:00,771 - INFO - ⚡ 开始: 量子化模型组件...
+2025-05-31 07:33:00,771 - INFO - ⚡ 应用 QFloat8 量化到文本编码器...
+2025-05-31 07:33:00,922 - INFO - ⚡ 应用 QFloat8 量化到 Transformer 核心...
+2025-05-31 07:33:01,519 - INFO - ⚡ 文本编码器量子化状态
+2025-05-31 07:33:01,520 - INFO - ⚡ Transformer量子化状态
+2025-05-31 07:33:01,520 - INFO - ✅ 完成: 量子化模型组件!
+2025-05-31 07:33:01,521 - INFO -   ⏱️ 耗时: 0.75秒
+2025-05-31 07:33:01,521 - INFO - ❄️ 开始: 冻结量子化参数...
+2025-05-31 07:36:59,377 - INFO - ✅ 完成: 冻结量子化参数!
+2025-05-31 07:36:59,394 - INFO -   ⏱️ 耗时: 237.86秒
+2025-05-31 07:36:59,395 - INFO - 
+🏆================================================================================
+2025-05-31 07:36:59,396 - INFO - 🏆 FLUX-1 量子化创作任务完成!
+2025-05-31 07:36:59,396 - INFO - 🏆================================================================================
+2025-05-31 07:36:59,398 - INFO - 💾 开始: 激活智能内存管理...
+2025-05-31 07:37:00,186 - INFO - ✅ 完成: 激活智能内存管理!
+2025-05-31 07:37:00,186 - INFO -   ⏱️ 耗时: 0.79秒
+2025-05-31 07:37:04,178 - INFO - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+2025-05-31 07:37:56,834 - INFO - Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+2025-05-31 07:37:56,835 - INFO - Socket connected: <socket.socket fd=48, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 53452), raddr=('127.0.0.1', 5672)>
+2025-05-31 07:37:56,837 - INFO - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x72d165fdd720>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x72d165fdd720> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
+2025-05-31 07:37:56,876 - INFO - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x72d165fdd720> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-31 07:37:56,877 - INFO - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x72d165fdd720> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-31 07:37:56,878 - INFO - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x72d165fdd720> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-31 07:37:56,879 - INFO - Created channel=1
+2025-05-31 07:37:56,889 - INFO -  [*] Waiting for messages. To exit press CTRL+C
+2025-05-31 07:37:56,891 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 07:37:56,892 - INFO -  翻译prompt=======>
+2025-05-31 07:38:24,057 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A beautiful young woman with long black hair flowing naturally, wearing a red dress, surrounded by lush green plants and soft sunlight, embodying a peaceful and harmonious atmosphere.
+2025-05-31 07:38:24,057 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 07:38:24,058 - INFO - 🎨 生成参数配置:
+2025-05-31 07:38:24,058 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 07:38:24,059 - INFO -   🧠 引导系数: 5.5
+2025-05-31 07:38:24,059 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 07:38:24,059 - INFO -   🧠 最大序列长度: 512
+2025-05-31 07:38:24,059 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:38:24,060 - INFO - 🧮 生成前资源状态:
+2025-05-31 07:38:24,106 - INFO - 🎮 GPU内存: 6877.00/24576.00 GB (使用率: 28.0%)
+2025-05-31 07:38:24,107 - INFO - 🎮 GPU负载: 计算 8.0% | 显存 28.0% | 温度 49.0°C
+2025-05-31 07:38:24,107 - INFO - 💻 CPU内存: 使用 39.92/62.72 GB (64.7%)
+2025-05-31 07:38:24,108 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:38:24,108 - INFO -   ⏱️ 耗时: 0.05秒
+2025-05-31 07:38:24,108 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 07:38:57,260 - INFO - 
+🚀================================================================================
+2025-05-31 07:38:57,260 - INFO - ================================================================================
+2025-05-31 07:38:57,260 - INFO - 🚀 启动 FLUX-1 量子化推理引擎
+2025-05-31 07:38:57,260 - INFO - 🚀 任务: 使用 QFloat8 量化生成高清图像
+2025-05-31 07:38:57,261 - INFO - ================================================================================
+
+2025-05-31 07:38:57,261 - INFO - 🖥️ 开始: 系统信息收集...
+2025-05-31 07:38:57,261 - INFO - 🖥️ ===== 系统详情 =====
+2025-05-31 07:38:57,261 - INFO -   ⏱️ 当前时间: 2025-05-31 07:38:57
+2025-05-31 07:38:57,262 - INFO -   🖥️ 操作系统: posix #26~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr 17 19:20:47 UTC 2
+2025-05-31 07:38:57,262 - INFO -   🖥️ Python版本: 3.10.16
+2025-05-31 07:38:57,262 - INFO -   🖥️ PyTorch版本: 2.7.0+cu126
+2025-05-31 07:38:57,262 - INFO -   🎮 CUDA版本: 12.6
+2025-05-31 07:38:57,262 - INFO -   🎮 GPU型号: NVIDIA GeForce RTX 3090
+2025-05-31 07:38:57,262 - INFO -   🧮 GPU内存: 23.57 GB
+2025-05-31 07:38:57,264 - INFO -   💻 CPU核心数: 8 (逻辑核心: 16)
+2025-05-31 07:38:57,264 - INFO -   🧮 总内存: 62.72 GB
+2025-05-31 07:38:57,264 - INFO - 🖥️ ====================
+2025-05-31 07:38:57,265 - INFO - ✅ 完成: 系统信息收集!
+2025-05-31 07:38:57,265 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 07:38:57,265 - INFO - 📥 开始: 下载FLUX-1模型...
+2025-05-31 07:38:57,265 - INFO - 📥 正在下载 FLUX 模型...
+2025-05-31 07:38:58,374 - INFO - 🧠 存储位置: /mnt/f/models/black-forest-labs/FLUX___1-dev
+2025-05-31 07:38:58,374 - INFO - 📥 正在下载 LoRA 模型...
+2025-05-31 07:39:00,190 - INFO - 🧠 存储位置: /mnt/e/modescope_model/models/yiwanji/FLUX_xiao_hong_shu_ji_zhi_zhen_shi_V2
+2025-05-31 07:39:01,301 - INFO - ✅ 完成: 下载FLUX-1模型!
+2025-05-31 07:39:01,302 - INFO -   ⏱️ 耗时: 4.04秒
+2025-05-31 07:39:01,302 - INFO - 🧠 开始: 初始化量子化管道...
+2025-05-31 07:39:04,888 - INFO - ✅ 完成: 初始化量子化管道!
+2025-05-31 07:39:04,888 - INFO -   ⏱️ 耗时: 3.59秒
+2025-05-31 07:39:04,889 - INFO - 🧠 开始: 设置toker...
+2025-05-31 07:39:04,889 - INFO - ✅ 完成: 设置toker!
+2025-05-31 07:39:04,889 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 07:39:04,890 - INFO - ⚡ 开始: 注入 LoRA 权重...
+2025-05-31 07:39:04,890 - INFO - 📥 加载 LoRA 权重...
+2025-05-31 07:39:17,838 - INFO - ✅ 完成: 注入 LoRA 权重!
+2025-05-31 07:39:17,839 - INFO -   ⏱️ 耗时: 12.95秒
+2025-05-31 07:39:17,840 - INFO - ⚡ 开始: 量子化模型组件...
+2025-05-31 07:39:17,840 - INFO - ⚡ 应用 QFloat8 量化到文本编码器...
+2025-05-31 07:39:18,065 - INFO - ⚡ 应用 QFloat8 量化到 Transformer 核心...
+2025-05-31 07:39:18,811 - INFO - ⚡ 文本编码器量子化状态
+2025-05-31 07:39:18,812 - INFO - ⚡ Transformer量子化状态
+2025-05-31 07:39:18,812 - INFO - ✅ 完成: 量子化模型组件!
+2025-05-31 07:39:18,812 - INFO -   ⏱️ 耗时: 0.97秒
+2025-05-31 07:39:18,813 - INFO - ❄️ 开始: 冻结量子化参数...
+2025-05-31 07:42:20,700 - INFO - 
+🚀================================================================================
+2025-05-31 07:42:20,700 - INFO - ================================================================================
+2025-05-31 07:42:20,700 - INFO - 🚀 启动 FLUX-1 量子化推理引擎
+2025-05-31 07:42:20,701 - INFO - 🚀 任务: 使用 QFloat8 量化生成高清图像
+2025-05-31 07:42:20,701 - INFO - ================================================================================
+
+2025-05-31 07:42:20,701 - INFO - 🖥️ 开始: 系统信息收集...
+2025-05-31 07:42:20,701 - INFO - 🖥️ ===== 系统详情 =====
+2025-05-31 07:42:20,702 - INFO -   ⏱️ 当前时间: 2025-05-31 07:42:20
+2025-05-31 07:42:20,702 - INFO -   🖥️ 操作系统: posix #26~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr 17 19:20:47 UTC 2
+2025-05-31 07:42:20,702 - INFO -   🖥️ Python版本: 3.10.16
+2025-05-31 07:42:20,702 - INFO -   🖥️ PyTorch版本: 2.7.0+cu126
+2025-05-31 07:42:20,702 - INFO -   🎮 CUDA版本: 12.6
+2025-05-31 07:42:20,702 - INFO -   🎮 GPU型号: NVIDIA GeForce RTX 3090
+2025-05-31 07:42:20,703 - INFO -   🧮 GPU内存: 23.57 GB
+2025-05-31 07:42:20,704 - INFO -   💻 CPU核心数: 8 (逻辑核心: 16)
+2025-05-31 07:42:20,704 - INFO -   🧮 总内存: 62.72 GB
+2025-05-31 07:42:20,705 - INFO - 🖥️ ====================
+2025-05-31 07:42:20,705 - INFO - ✅ 完成: 系统信息收集!
+2025-05-31 07:42:20,706 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 07:42:20,706 - INFO - 📥 开始: 下载FLUX-1模型...
+2025-05-31 07:42:20,706 - INFO - 📥 正在下载 FLUX 模型...
+2025-05-31 07:42:21,937 - INFO - 🧠 存储位置: /mnt/f/models/black-forest-labs/FLUX___1-dev
+2025-05-31 07:42:21,938 - INFO - 📥 正在下载 LoRA 模型...
+2025-05-31 07:42:23,747 - INFO - 🧠 存储位置: /mnt/e/modescope_model/models/yiwanji/FLUX_xiao_hong_shu_ji_zhi_zhen_shi_V2
+2025-05-31 07:42:24,995 - INFO - ✅ 完成: 下载FLUX-1模型!
+2025-05-31 07:42:24,995 - INFO -   ⏱️ 耗时: 4.29秒
+2025-05-31 07:42:24,996 - INFO - 🧠 开始: 初始化量子化管道...
+2025-05-31 07:42:26,496 - INFO - ✅ 完成: 初始化量子化管道!
+2025-05-31 07:42:26,496 - INFO -   ⏱️ 耗时: 1.50秒
+2025-05-31 07:42:26,497 - INFO - 🧠 开始: 设置toker...
+2025-05-31 07:42:26,497 - INFO - ✅ 完成: 设置toker!
+2025-05-31 07:42:26,498 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 07:42:26,498 - INFO - ⚡ 开始: 注入 LoRA 权重...
+2025-05-31 07:42:26,499 - INFO - 📥 加载 LoRA 权重...
+2025-05-31 07:42:26,580 - INFO - ✅ 完成: 注入 LoRA 权重!
+2025-05-31 07:42:26,580 - INFO -   ⏱️ 耗时: 0.08秒
+2025-05-31 07:42:26,581 - INFO - ⚡ 开始: 量子化模型组件...
+2025-05-31 07:42:26,581 - INFO - ⚡ 应用 QFloat8 量化到文本编码器...
+2025-05-31 07:42:26,732 - INFO - ⚡ 应用 QFloat8 量化到 Transformer 核心...
+2025-05-31 07:42:27,433 - INFO - ⚡ 文本编码器量子化状态
+2025-05-31 07:42:27,433 - INFO - ⚡ Transformer量子化状态
+2025-05-31 07:42:27,434 - INFO - ✅ 完成: 量子化模型组件!
+2025-05-31 07:42:27,434 - INFO -   ⏱️ 耗时: 0.85秒
+2025-05-31 07:42:27,434 - INFO - ❄️ 开始: 冻结量子化参数...
+2025-05-31 07:45:20,215 - INFO - ✅ 完成: 冻结量子化参数!
+2025-05-31 07:45:20,231 - INFO -   ⏱️ 耗时: 172.78秒
+2025-05-31 07:45:20,231 - INFO - 
+🏆================================================================================
+2025-05-31 07:45:20,232 - INFO - 🏆 FLUX-1 量子化创作任务完成!
+2025-05-31 07:45:20,232 - INFO - 🏆================================================================================
+2025-05-31 07:45:20,232 - INFO - 💾 开始: 激活智能内存管理...
+2025-05-31 07:45:20,779 - INFO - ✅ 完成: 激活智能内存管理!
+2025-05-31 07:45:20,780 - INFO -   ⏱️ 耗时: 0.55秒
+2025-05-31 07:45:23,988 - INFO - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+2025-05-31 07:45:24,781 - INFO - Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+2025-05-31 07:45:24,782 - INFO - Socket connected: <socket.socket fd=48, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 42108), raddr=('127.0.0.1', 5672)>
+2025-05-31 07:45:24,783 - INFO - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7519f0495a50>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7519f0495a50> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
+2025-05-31 07:45:24,832 - INFO - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7519f0495a50> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-31 07:45:24,833 - INFO - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7519f0495a50> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-31 07:45:24,833 - INFO - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7519f0495a50> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-31 07:45:24,834 - INFO - Created channel=1
+2025-05-31 07:45:24,838 - INFO -  [*] Waiting for messages. To exit press CTRL+C
+2025-05-31 07:45:24,839 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 07:45:24,839 - INFO -  翻译prompt=======>
+2025-05-31 07:45:58,469 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A young, beautiful woman in a red skirt and flowing dress, her long black hair cascading naturally, wearing a soft, serene atmosphere with blurred green plants and soft sunlight. Her skin is pale, features refined, and eyes reflect a gentle smile.
+2025-05-31 07:45:58,470 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 07:45:58,470 - INFO - 🎨 生成参数配置:
+2025-05-31 07:45:58,470 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 07:45:58,471 - INFO -   🧠 引导系数: 5.5
+2025-05-31 07:45:58,471 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 07:45:58,471 - INFO -   🧠 最大序列长度: 512
+2025-05-31 07:45:58,471 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:45:58,471 - INFO - 🧮 生成前资源状态:
+2025-05-31 07:45:58,502 - INFO - 🎮 GPU内存: 5040.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 07:45:58,503 - INFO - 🎮 GPU负载: 计算 8.0% | 显存 20.5% | 温度 46.0°C
+2025-05-31 07:45:58,504 - INFO - 💻 CPU内存: 使用 23.14/62.72 GB (38.0%)
+2025-05-31 07:45:58,504 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:45:58,505 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:45:58,505 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 07:47:01,617 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:47:01,618 - INFO - 🧮 生成后资源状态:
+2025-05-31 07:47:01,650 - INFO - 🎮 GPU内存: 5030.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 07:47:01,651 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.5% | 温度 63.0°C
+2025-05-31 07:47:01,651 - INFO - 💻 CPU内存: 使用 24.60/62.72 GB (40.3%)
+2025-05-31 07:47:01,652 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:47:01,652 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:47:01,652 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 07:47:01,653 - INFO -   ⏱️ 耗时: 63.18秒
+2025-05-31 07:47:01,876 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_62053f60-3db0-11f0-bbcd-00e04c0ab814.png
+2025-05-31 07:47:01,880 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_62053f60-3db0-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 07:47:01,900 - INFO - Message sent successfully.
+2025-05-31 07:47:01,901 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_62053f60-3db0-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 07:47:01,968 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 07:47:01,970 - INFO -  翻译prompt=======>
+2025-05-31 07:47:35,216 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A young, elegant woman in flowing black hair, wearing a red dress, with soft sunlight filtering through a lush green background. Her skin is pale, eyes gentle, and smile warm, creating a serene, realistic atmosphere.
+2025-05-31 07:47:35,217 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 07:47:35,217 - INFO - 🎨 生成参数配置:
+2025-05-31 07:47:35,218 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 07:47:35,218 - INFO -   🧠 引导系数: 5.5
+2025-05-31 07:47:35,218 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 07:47:35,219 - INFO -   🧠 最大序列长度: 512
+2025-05-31 07:47:35,219 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:47:35,219 - INFO - 🧮 生成前资源状态:
+2025-05-31 07:47:35,250 - INFO - 🎮 GPU内存: 5086.00/24576.00 GB (使用率: 20.7%)
+2025-05-31 07:47:35,251 - INFO - 🎮 GPU负载: 计算 7.0% | 显存 20.7% | 温度 56.0°C
+2025-05-31 07:47:35,251 - INFO - 💻 CPU内存: 使用 24.67/62.72 GB (40.4%)
+2025-05-31 07:47:35,251 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:47:35,252 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:47:35,252 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 07:48:29,329 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:48:29,330 - INFO - 🧮 生成后资源状态:
+2025-05-31 07:48:29,362 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 07:48:29,362 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 66.0°C
+2025-05-31 07:48:29,363 - INFO - 💻 CPU内存: 使用 28.05/62.72 GB (45.8%)
+2025-05-31 07:48:29,364 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:48:29,364 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:48:29,364 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 07:48:29,365 - INFO -   ⏱️ 耗时: 54.15秒
+2025-05-31 07:48:29,704 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_964cfda8-3db0-11f0-bbcd-00e04c0ab814.png
+2025-05-31 07:48:29,706 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_964cfda8-3db0-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 07:48:29,716 - INFO - Message sent successfully.
+2025-05-31 07:48:29,716 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_964cfda8-3db0-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 07:48:29,717 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 07:48:29,717 - INFO -  翻译prompt=======>
+2025-05-31 07:49:00,566 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A young woman in a flowing, red tunic dress with long black hair, her face radiant and eyes gentle, surrounded by greenery and soft sunlight. Her skin is pale, eyes express warmth, and a smile plays on her lips. The scene is set in a realistic, serene atmosphere.
+2025-05-31 07:49:00,567 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 07:49:00,568 - INFO - 🎨 生成参数配置:
+2025-05-31 07:49:00,568 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 07:49:00,569 - INFO -   🧠 引导系数: 5.5
+2025-05-31 07:49:00,569 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 07:49:00,569 - INFO -   🧠 最大序列长度: 512
+2025-05-31 07:49:00,569 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:49:00,570 - INFO - 🧮 生成前资源状态:
+2025-05-31 07:49:00,600 - INFO - 🎮 GPU内存: 5046.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 07:49:00,601 - INFO - 🎮 GPU负载: 计算 8.0% | 显存 20.5% | 温度 58.0°C
+2025-05-31 07:49:00,602 - INFO - 💻 CPU内存: 使用 28.06/62.72 GB (45.8%)
+2025-05-31 07:49:00,602 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:49:00,602 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:49:00,603 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 07:49:53,899 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:49:53,900 - INFO - 🧮 生成后资源状态:
+2025-05-31 07:49:53,931 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 07:49:53,932 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 67.0°C
+2025-05-31 07:49:53,933 - INFO - 💻 CPU内存: 使用 28.81/62.72 GB (47.0%)
+2025-05-31 07:49:53,933 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:49:53,934 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:49:53,934 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 07:49:53,934 - INFO -   ⏱️ 耗时: 53.37秒
+2025-05-31 07:49:54,306 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_c8b551fa-3db0-11f0-bbcd-00e04c0ab814.png
+2025-05-31 07:49:54,309 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_c8b551fa-3db0-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 07:49:54,319 - INFO - Message sent successfully.
+2025-05-31 07:49:54,319 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_c8b551fa-3db0-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 07:49:54,320 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 07:49:54,320 - INFO -  翻译prompt=======>
+2025-05-31 07:50:33,429 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A young woman with long black hair cascading in waves, wearing a red waist-length dress, stands in a blurred green field with soft sunlight. Her white skin and gentle, well-mannered facial features create a serene and elegant atmosphere, with a smile that carries a hint of warmth.
+2025-05-31 07:50:33,430 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 07:50:33,430 - INFO - 🎨 生成参数配置:
+2025-05-31 07:50:33,430 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 07:50:33,430 - INFO -   🧠 引导系数: 5.5
+2025-05-31 07:50:33,431 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 07:50:33,431 - INFO -   🧠 最大序列长度: 512
+2025-05-31 07:50:33,431 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:50:33,431 - INFO - 🧮 生成前资源状态:
+2025-05-31 07:50:33,459 - INFO - 🎮 GPU内存: 5044.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 07:50:33,460 - INFO - 🎮 GPU负载: 计算 7.0% | 显存 20.5% | 温度 58.0°C
+2025-05-31 07:50:33,460 - INFO - 💻 CPU内存: 使用 28.83/62.72 GB (47.0%)
+2025-05-31 07:50:33,460 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:50:33,461 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:50:33,461 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 07:51:26,091 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:51:26,091 - INFO - 🧮 生成后资源状态:
+2025-05-31 07:51:26,121 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 07:51:26,122 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 68.0°C
+2025-05-31 07:51:26,122 - INFO - 💻 CPU内存: 使用 29.27/62.72 GB (47.7%)
+2025-05-31 07:51:26,122 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:51:26,123 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:51:26,123 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 07:51:26,123 - INFO -   ⏱️ 耗时: 52.69秒
+2025-05-31 07:51:26,437 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_ffa8331c-3db0-11f0-bbcd-00e04c0ab814.png
+2025-05-31 07:51:26,439 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_ffa8331c-3db0-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 07:51:26,447 - INFO - Message sent successfully.
+2025-05-31 07:51:26,447 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_ffa8331c-3db0-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 07:51:26,448 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 07:51:26,448 - INFO -  翻译prompt=======>
+2025-05-31 07:51:59,346 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A beautiful young woman with long black hair flowing naturally, wearing a red dress, and a serene, elegant look. The scene features blurred green plant scenes with soft sunlight, creating a tranquil and harmonious atmosphere. Her features are refined, her eyes gentle and smiling, and the overall style is realistic and full-body shot.
+2025-05-31 07:51:59,347 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 07:51:59,347 - INFO - 🎨 生成参数配置:
+2025-05-31 07:51:59,348 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 07:51:59,348 - INFO -   🧠 引导系数: 5.5
+2025-05-31 07:51:59,348 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 07:51:59,348 - INFO -   🧠 最大序列长度: 512
+2025-05-31 07:51:59,348 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:51:59,349 - INFO - 🧮 生成前资源状态:
+2025-05-31 07:51:59,379 - INFO - 🎮 GPU内存: 5046.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 07:51:59,380 - INFO - 🎮 GPU负载: 计算 7.0% | 显存 20.5% | 温度 59.0°C
+2025-05-31 07:51:59,381 - INFO - 💻 CPU内存: 使用 29.25/62.72 GB (47.7%)
+2025-05-31 07:51:59,381 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:51:59,381 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:51:59,382 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 07:52:51,948 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:52:51,949 - INFO - 🧮 生成后资源状态:
+2025-05-31 07:52:51,981 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 07:52:51,982 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 68.0°C
+2025-05-31 07:52:51,982 - INFO - 💻 CPU内存: 使用 29.35/62.72 GB (47.9%)
+2025-05-31 07:52:51,983 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:52:51,983 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:52:51,983 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 07:52:51,983 - INFO -   ⏱️ 耗时: 52.64秒
+2025-05-31 07:52:52,338 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_32d56b60-3db1-11f0-bbcd-00e04c0ab814.png
+2025-05-31 07:52:52,341 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_32d56b60-3db1-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 07:52:52,350 - INFO - Message sent successfully.
+2025-05-31 07:52:52,351 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_32d56b60-3db1-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 07:52:52,351 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 07:52:52,351 - INFO -  翻译prompt=======>
+2025-05-31 07:53:35,287 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A young, beautiful woman with flowing black hair cascading in a natural flow, wearing a red bandaged neckline dress. The scene features lush green plants and soft sunlight, creating a peaceful and harmonious atmosphere. Her skin is white, eyes serene, and smile gentle. The overall style is realistic and captures the warmth and freshness of her presence.
+2025-05-31 07:53:35,288 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 07:53:35,289 - INFO - 🎨 生成参数配置:
+2025-05-31 07:53:35,289 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 07:53:35,290 - INFO -   🧠 引导系数: 5.5
+2025-05-31 07:53:35,290 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 07:53:35,291 - INFO -   🧠 最大序列长度: 512
+2025-05-31 07:53:35,291 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:53:35,291 - INFO - 🧮 生成前资源状态:
+2025-05-31 07:53:35,321 - INFO - 🎮 GPU内存: 5048.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 07:53:35,322 - INFO - 🎮 GPU负载: 计算 6.0% | 显存 20.5% | 温度 58.0°C
+2025-05-31 07:53:35,322 - INFO - 💻 CPU内存: 使用 29.29/62.72 GB (47.8%)
+2025-05-31 07:53:35,323 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:53:35,323 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:53:35,323 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 07:54:27,969 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:54:27,970 - INFO - 🧮 生成后资源状态:
+2025-05-31 07:54:28,001 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 07:54:28,002 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 68.0°C
+2025-05-31 07:54:28,003 - INFO - 💻 CPU内存: 使用 29.60/62.72 GB (48.3%)
+2025-05-31 07:54:28,003 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:54:28,004 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:54:28,004 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 07:54:28,004 - INFO -   ⏱️ 耗时: 52.72秒
+2025-05-31 07:54:28,355 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_6c110e84-3db1-11f0-bbcd-00e04c0ab814.png
+2025-05-31 07:54:28,359 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_6c110e84-3db1-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 07:54:28,369 - INFO - Message sent successfully.
+2025-05-31 07:54:28,370 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_6c110e84-3db1-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 07:54:28,370 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 07:54:28,370 - INFO -  翻译prompt=======>
+2025-05-31 07:55:03,602 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A young, beautiful woman with long black hair cascading in soft, natural flow, wearing a red dress that shimmers in the gentle sunlight. Backgrounds are blurred with green plants and soft, serene light, casting a warm, elegant atmosphere. Her skin is pale, features refined, and eyes convey a gentle, warm smile. The style is realistic and captures the essence of a serene and pure beauty.
+2025-05-31 07:55:03,603 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 07:55:03,604 - INFO - 🎨 生成参数配置:
+2025-05-31 07:55:03,604 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 07:55:03,605 - INFO -   🧠 引导系数: 5.5
+2025-05-31 07:55:03,605 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 07:55:03,605 - INFO -   🧠 最大序列长度: 512
+2025-05-31 07:55:03,606 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:55:03,606 - INFO - 🧮 生成前资源状态:
+2025-05-31 07:55:03,636 - INFO - 🎮 GPU内存: 5046.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 07:55:03,637 - INFO - 🎮 GPU负载: 计算 8.0% | 显存 20.5% | 温度 59.0°C
+2025-05-31 07:55:03,638 - INFO - 💻 CPU内存: 使用 29.64/62.72 GB (48.3%)
+2025-05-31 07:55:03,638 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:55:03,638 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:55:03,639 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 07:55:56,308 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:55:56,309 - INFO - 🧮 生成后资源状态:
+2025-05-31 07:55:56,336 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 07:55:56,337 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 69.0°C
+2025-05-31 07:55:56,337 - INFO - 💻 CPU内存: 使用 29.41/62.72 GB (48.0%)
+2025-05-31 07:55:56,338 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:55:56,338 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:55:56,338 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 07:55:56,339 - INFO -   ⏱️ 耗时: 52.74秒
+2025-05-31 07:55:56,684 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_a0b7d3b6-3db1-11f0-bbcd-00e04c0ab814.png
+2025-05-31 07:55:56,688 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_a0b7d3b6-3db1-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 07:55:56,698 - INFO - Message sent successfully.
+2025-05-31 07:55:56,699 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_a0b7d3b6-3db1-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 07:55:56,699 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 07:55:56,700 - INFO -  翻译prompt=======>
+2025-05-31 07:56:28,280 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A young, beautiful woman with flowing black hair cascading down naturally, wearing a red, elastic waist dress, surrounded by lush green plants and soft sunlight, her skin pale and eyes gentle, smiling slightly with a warm gaze, captured in a realistic, harmonious style.
+2025-05-31 07:56:28,281 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 07:56:28,281 - INFO - 🎨 生成参数配置:
+2025-05-31 07:56:28,282 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 07:56:28,282 - INFO -   🧠 引导系数: 5.5
+2025-05-31 07:56:28,282 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 07:56:28,282 - INFO -   🧠 最大序列长度: 512
+2025-05-31 07:56:28,282 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:56:28,282 - INFO - 🧮 生成前资源状态:
+2025-05-31 07:56:28,313 - INFO - 🎮 GPU内存: 5046.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 07:56:28,314 - INFO - 🎮 GPU负载: 计算 8.0% | 显存 20.5% | 温度 59.0°C
+2025-05-31 07:56:28,315 - INFO - 💻 CPU内存: 使用 29.40/62.72 GB (48.0%)
+2025-05-31 07:56:28,315 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:56:28,316 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:56:28,316 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 07:57:21,091 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:57:21,092 - INFO - 🧮 生成后资源状态:
+2025-05-31 07:57:21,124 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 07:57:21,125 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 69.0°C
+2025-05-31 07:57:21,126 - INFO - 💻 CPU内存: 使用 29.92/62.72 GB (48.8%)
+2025-05-31 07:57:21,126 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:57:21,126 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:57:21,126 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 07:57:21,126 - INFO -   ⏱️ 耗时: 52.85秒
+2025-05-31 07:57:21,479 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_d3416da6-3db1-11f0-bbcd-00e04c0ab814.png
+2025-05-31 07:57:21,482 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_d3416da6-3db1-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 07:57:21,492 - INFO - Message sent successfully.
+2025-05-31 07:57:21,492 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_d3416da6-3db1-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 07:57:21,493 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 07:57:21,493 - INFO -  翻译prompt=======>
+2025-05-31 07:57:52,645 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A young woman in black hair, wearing a red dress, surrounded by mysterious green plants and soft sunlight, creating a serene and harmonious atmosphere.
+2025-05-31 07:57:52,646 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 07:57:52,646 - INFO - 🎨 生成参数配置:
+2025-05-31 07:57:52,647 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 07:57:52,647 - INFO -   🧠 引导系数: 5.5
+2025-05-31 07:57:52,647 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 07:57:52,647 - INFO -   🧠 最大序列长度: 512
+2025-05-31 07:57:52,648 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:57:52,648 - INFO - 🧮 生成前资源状态:
+2025-05-31 07:57:52,679 - INFO - 🎮 GPU内存: 5046.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 07:57:52,680 - INFO - 🎮 GPU负载: 计算 8.0% | 显存 20.5% | 温度 59.0°C
+2025-05-31 07:57:52,681 - INFO - 💻 CPU内存: 使用 29.83/62.72 GB (48.6%)
+2025-05-31 07:57:52,681 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:57:52,681 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:57:52,681 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 07:58:45,079 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:58:45,079 - INFO - 🧮 生成后资源状态:
+2025-05-31 07:58:45,108 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 07:58:45,108 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 69.0°C
+2025-05-31 07:58:45,109 - INFO - 💻 CPU内存: 使用 29.80/62.72 GB (48.6%)
+2025-05-31 07:58:45,109 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:58:45,109 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:58:45,109 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 07:58:45,110 - INFO -   ⏱️ 耗时: 52.46秒
+2025-05-31 07:58:45,471 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_05503f66-3db2-11f0-bbcd-00e04c0ab814.png
+2025-05-31 07:58:45,474 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_05503f66-3db2-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 07:58:45,485 - INFO - Message sent successfully.
+2025-05-31 07:58:45,486 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_05503f66-3db2-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 07:58:45,486 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 07:58:45,486 - INFO -  翻译prompt=======>
+2025-05-31 07:59:19,208 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A beautiful young woman with black hair cascading down, wearing a red dress, surrounded by lush green plants and soft sunlight. Her skin is pale, eyes are gentle, and a warm smile plays across her lips, creating a romantic and fresh atmosphere.
+2025-05-31 07:59:19,209 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 07:59:19,209 - INFO - 🎨 生成参数配置:
+2025-05-31 07:59:19,210 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 07:59:19,210 - INFO -   🧠 引导系数: 5.5
+2025-05-31 07:59:19,210 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 07:59:19,210 - INFO -   🧠 最大序列长度: 512
+2025-05-31 07:59:19,211 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 07:59:19,211 - INFO - 🧮 生成前资源状态:
+2025-05-31 07:59:19,242 - INFO - 🎮 GPU内存: 5046.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 07:59:19,243 - INFO - 🎮 GPU负载: 计算 8.0% | 显存 20.5% | 温度 59.0°C
+2025-05-31 07:59:19,243 - INFO - 💻 CPU内存: 使用 29.82/62.72 GB (48.6%)
+2025-05-31 07:59:19,244 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 07:59:19,244 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 07:59:19,245 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 08:00:11,648 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:00:11,649 - INFO - 🧮 生成后资源状态:
+2025-05-31 08:00:11,680 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 08:00:11,681 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 69.0°C
+2025-05-31 08:00:11,681 - INFO - 💻 CPU内存: 使用 29.96/62.72 GB (48.8%)
+2025-05-31 08:00:11,682 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:00:11,682 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 08:00:11,683 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 08:00:11,683 - INFO -   ⏱️ 耗时: 52.47秒
+2025-05-31 08:00:12,042 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_38ea5370-3db2-11f0-bbcd-00e04c0ab814.png
+2025-05-31 08:00:12,045 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_38ea5370-3db2-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 08:00:12,055 - INFO - Message sent successfully.
+2025-05-31 08:00:12,056 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_38ea5370-3db2-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 08:00:12,056 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 08:00:12,056 - INFO -  翻译prompt=======>
+2025-05-31 08:00:53,452 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A young, beautiful woman with long, flowing black hair in a natural style, cascading down her back. She wears a red waistband dress, flowing gracefully with a graceful silhouette. The background features soft, blurred sunlight filtering through green plants, creating a peaceful and harmonious atmosphere. Her pale skin, delicate features, warm, gentle eyes, and a smile that carries a subtle warmth paint a picture of a serene and refined figure. The scene is rendered in a realistic, artistic style.
+2025-05-31 08:00:53,453 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 08:00:53,453 - INFO - 🎨 生成参数配置:
+2025-05-31 08:00:53,454 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 08:00:53,454 - INFO -   🧠 引导系数: 5.5
+2025-05-31 08:00:53,455 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 08:00:53,455 - INFO -   🧠 最大序列长度: 512
+2025-05-31 08:00:53,456 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:00:53,456 - INFO - 🧮 生成前资源状态:
+2025-05-31 08:00:53,486 - INFO - 🎮 GPU内存: 5046.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 08:00:53,487 - INFO - 🎮 GPU负载: 计算 6.0% | 显存 20.5% | 温度 59.0°C
+2025-05-31 08:00:53,488 - INFO - 💻 CPU内存: 使用 29.97/62.72 GB (48.9%)
+2025-05-31 08:00:53,488 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:00:53,488 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 08:00:53,488 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 08:01:46,204 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:01:46,205 - INFO - 🧮 生成后资源状态:
+2025-05-31 08:01:46,235 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 08:01:46,236 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 69.0°C
+2025-05-31 08:01:46,236 - INFO - 💻 CPU内存: 使用 30.36/62.72 GB (49.5%)
+2025-05-31 08:01:46,237 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:01:46,237 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 08:01:46,237 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 08:01:46,237 - INFO -   ⏱️ 耗时: 52.78秒
+2025-05-31 08:01:46,584 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_71461c90-3db2-11f0-bbcd-00e04c0ab814.png
+2025-05-31 08:01:46,587 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_71461c90-3db2-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 08:01:46,597 - INFO - Message sent successfully.
+2025-05-31 08:01:46,598 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_71461c90-3db2-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 08:01:46,598 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 08:01:46,599 - INFO -  翻译prompt=======>
+2025-05-31 08:02:20,738 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A beautiful young woman with long flowing black hair, naturally down, wearing a red skirt and a dress, framed by mysterious green plants and soft sunlight, in a realistic style.
+2025-05-31 08:02:20,739 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 08:02:20,739 - INFO - 🎨 生成参数配置:
+2025-05-31 08:02:20,740 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 08:02:20,740 - INFO -   🧠 引导系数: 5.5
+2025-05-31 08:02:20,740 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 08:02:20,740 - INFO -   🧠 最大序列长度: 512
+2025-05-31 08:02:20,740 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:02:20,741 - INFO - 🧮 生成前资源状态:
+2025-05-31 08:02:20,771 - INFO - 🎮 GPU内存: 5046.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 08:02:20,771 - INFO - 🎮 GPU负载: 计算 7.0% | 显存 20.5% | 温度 59.0°C
+2025-05-31 08:02:20,772 - INFO - 💻 CPU内存: 使用 30.32/62.72 GB (49.4%)
+2025-05-31 08:02:20,772 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:02:20,772 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 08:02:20,772 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 08:03:14,093 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:03:14,094 - INFO - 🧮 生成后资源状态:
+2025-05-31 08:03:14,127 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 08:03:14,128 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 69.0°C
+2025-05-31 08:03:14,129 - INFO - 💻 CPU内存: 使用 30.84/62.72 GB (50.3%)
+2025-05-31 08:03:14,129 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:03:14,129 - INFO -   ⏱️ 耗时: 0.04秒
+2025-05-31 08:03:14,130 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 08:03:14,130 - INFO -   ⏱️ 耗时: 53.39秒
+2025-05-31 08:03:14,479 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_a5a97770-3db2-11f0-bbcd-00e04c0ab814.png
+2025-05-31 08:03:14,483 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_a5a97770-3db2-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 08:03:14,495 - INFO - Message sent successfully.
+2025-05-31 08:03:14,495 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_a5a97770-3db2-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 08:03:14,496 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 08:03:14,496 - INFO -  翻译prompt=======>
+2025-05-31 08:04:05,695 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A young, graceful woman with long black hair braided in natural flow, her hair blown by the breeze, wears a red skirt and elegant dress, her skin pale and features refined, eyes gentle and smiling with a smile on her lips. The scene features soft green plant backgrounds and gentle sunlight, creating a peaceful and harmonious atmosphere. The style is realistic.
+2025-05-31 08:04:05,696 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 08:04:05,697 - INFO - 🎨 生成参数配置:
+2025-05-31 08:04:05,697 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 08:04:05,698 - INFO -   🧠 引导系数: 5.5
+2025-05-31 08:04:05,698 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 08:04:05,698 - INFO -   🧠 最大序列长度: 512
+2025-05-31 08:04:05,698 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:04:05,698 - INFO - 🧮 生成前资源状态:
+2025-05-31 08:04:05,728 - INFO - 🎮 GPU内存: 5046.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 08:04:05,729 - INFO - 🎮 GPU负载: 计算 7.0% | 显存 20.5% | 温度 59.0°C
+2025-05-31 08:04:05,729 - INFO - 💻 CPU内存: 使用 30.91/62.72 GB (50.4%)
+2025-05-31 08:04:05,730 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:04:05,730 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 08:04:05,731 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 08:04:58,313 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:04:58,314 - INFO - 🧮 生成后资源状态:
+2025-05-31 08:04:58,344 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 08:04:58,345 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 69.0°C
+2025-05-31 08:04:58,346 - INFO - 💻 CPU内存: 使用 30.20/62.72 GB (49.2%)
+2025-05-31 08:04:58,346 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:04:58,346 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 08:04:58,346 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 08:04:58,346 - INFO -   ⏱️ 耗时: 52.65秒
+2025-05-31 08:04:58,654 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_e3c7a928-3db2-11f0-bbcd-00e04c0ab814.png
+2025-05-31 08:04:58,656 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_e3c7a928-3db2-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 08:04:58,666 - INFO - Message sent successfully.
+2025-05-31 08:04:58,666 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_e3c7a928-3db2-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 08:04:58,667 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 08:04:58,668 - INFO -  翻译prompt=======>
+2025-05-31 08:05:29,698 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A young woman with long black hair, flowing in natural waves, wearing a red dress that shimmers in the sunlight. The scene is set with gentle green plants and soft, diffused light, creating a serene and peaceful atmosphere. Her skin is pale, her features refined, and her eyes convey a warm, gentle smile, all captured in a realistic, vivid portrayal.
+2025-05-31 08:05:29,699 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 08:05:29,700 - INFO - 🎨 生成参数配置:
+2025-05-31 08:05:29,700 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 08:05:29,701 - INFO -   🧠 引导系数: 5.5
+2025-05-31 08:05:29,701 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 08:05:29,701 - INFO -   🧠 最大序列长度: 512
+2025-05-31 08:05:29,701 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:05:29,701 - INFO - 🧮 生成前资源状态:
+2025-05-31 08:05:29,731 - INFO - 🎮 GPU内存: 5046.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 08:05:29,731 - INFO - 🎮 GPU负载: 计算 8.0% | 显存 20.5% | 温度 60.0°C
+2025-05-31 08:05:29,732 - INFO - 💻 CPU内存: 使用 30.21/62.72 GB (49.2%)
+2025-05-31 08:05:29,732 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:05:29,732 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 08:05:29,732 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 08:06:22,368 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:06:22,369 - INFO - 🧮 生成后资源状态:
+2025-05-31 08:06:22,400 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 08:06:22,401 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 69.0°C
+2025-05-31 08:06:22,401 - INFO - 💻 CPU内存: 使用 30.17/62.72 GB (49.2%)
+2025-05-31 08:06:22,402 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:06:22,402 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 08:06:22,402 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 08:06:22,403 - INFO -   ⏱️ 耗时: 52.70秒
+2025-05-31 08:06:22,767 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_15e1adb4-3db3-11f0-bbcd-00e04c0ab814.png
+2025-05-31 08:06:22,770 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_15e1adb4-3db3-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 08:06:22,782 - INFO - Message sent successfully.
+2025-05-31 08:06:22,782 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_15e1adb4-3db3-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 08:06:22,783 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 08:06:22,783 - INFO -  翻译prompt=======>
+2025-05-31 08:06:57,422 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A young, beautiful woman with flowing black hair, wearing a red dress, sits in a serene scene with green plants and soft sunlight. Her skin is white, with refined features and gentle, smiling eyes. The atmosphere is peaceful and harmonious.
+2025-05-31 08:06:57,423 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 08:06:57,423 - INFO - 🎨 生成参数配置:
+2025-05-31 08:06:57,424 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 08:06:57,424 - INFO -   🧠 引导系数: 5.5
+2025-05-31 08:06:57,424 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 08:06:57,424 - INFO -   🧠 最大序列长度: 512
+2025-05-31 08:06:57,425 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:06:57,425 - INFO - 🧮 生成前资源状态:
+2025-05-31 08:06:57,455 - INFO - 🎮 GPU内存: 5044.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 08:06:57,456 - INFO - 🎮 GPU负载: 计算 8.0% | 显存 20.5% | 温度 60.0°C
+2025-05-31 08:06:57,457 - INFO - 💻 CPU内存: 使用 30.16/62.72 GB (49.2%)
+2025-05-31 08:06:57,457 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:06:57,457 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 08:06:57,458 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 08:07:49,999 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:07:50,000 - INFO - 🧮 生成后资源状态:
+2025-05-31 08:07:50,031 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 08:07:50,032 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 70.0°C
+2025-05-31 08:07:50,032 - INFO - 💻 CPU内存: 使用 30.21/62.72 GB (49.3%)
+2025-05-31 08:07:50,033 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:07:50,033 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 08:07:50,034 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 08:07:50,034 - INFO -   ⏱️ 耗时: 52.61秒
+2025-05-31 08:07:50,392 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_4a1d1280-3db3-11f0-bbcd-00e04c0ab814.png
+2025-05-31 08:07:50,395 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_4a1d1280-3db3-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 08:07:50,406 - INFO - Message sent successfully.
+2025-05-31 08:07:50,406 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_4a1d1280-3db3-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 08:07:50,407 - INFO - Received message: {'batchNo': 'a0f9f42e-3873-4b91-86db-01cd3c28ead8', 'prompt': '一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄', 'step': 20}
+2025-05-31 08:07:50,407 - INFO -  翻译prompt=======>
+2025-05-31 08:08:24,335 - INFO - prompt is 一位美丽的年轻女性，长发披肩，黑色的头发自然垂落，微风吹动她的发丝。她穿着一件红色的吊带连衣裙，显得清新优雅。背景是模糊的绿色植物和柔和的阳光，营造出一种宁静和谐的氛围。她的皮肤白皙，五官精致，眼神温柔，嘴角带着淡淡的微笑，整体给人一种温柔、清新的感觉，写实风格，全身拍摄 ,translated_text is A beautiful young woman with flowing black hair, wearing a red dress, sits in a peaceful scene of green plants and soft sunlight, her skin radiant and eyes gentle, smiling warmly. The atmosphere is serene and fresh.
+2025-05-31 08:08:24,336 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 08:08:24,337 - INFO - 🎨 生成参数配置:
+2025-05-31 08:08:24,337 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 08:08:24,338 - INFO -   🧠 引导系数: 5.5
+2025-05-31 08:08:24,338 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 08:08:24,339 - INFO -   🧠 最大序列长度: 512
+2025-05-31 08:08:24,339 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:08:24,339 - INFO - 🧮 生成前资源状态:
+2025-05-31 08:08:24,369 - INFO - 🎮 GPU内存: 5046.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 08:08:24,370 - INFO - 🎮 GPU负载: 计算 7.0% | 显存 20.5% | 温度 60.0°C
+2025-05-31 08:08:24,370 - INFO - 💻 CPU内存: 使用 30.24/62.72 GB (49.3%)
+2025-05-31 08:08:24,370 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:08:24,371 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 08:08:24,371 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 08:09:17,645 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:09:17,646 - INFO - 🧮 生成后资源状态:
+2025-05-31 08:09:17,678 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 08:09:17,679 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 69.0°C
+2025-05-31 08:09:17,679 - INFO - 💻 CPU内存: 使用 30.90/62.72 GB (50.4%)
+2025-05-31 08:09:17,679 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:09:17,679 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 08:09:17,679 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 08:09:17,680 - INFO -   ⏱️ 耗时: 53.34秒
+2025-05-31 08:09:18,040 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_7e5ac150-3db3-11f0-bbcd-00e04c0ab814.png
+2025-05-31 08:09:18,042 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_7e5ac150-3db3-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 08:09:18,052 - INFO - Message sent successfully.
+2025-05-31 08:09:18,052 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_7e5ac150-3db3-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 08:11:40,236 - INFO - Received message: {'batchNo': '896709df-9974-4204-9f74-c3db5a232ff6', 'prompt': 'pretty Asian woman was holding the flowers in her hands, Korean Model, real photo style, full body shot.', 'step': 20}
+2025-05-31 08:11:40,237 - INFO -  翻译prompt=======>
+2025-05-31 08:11:40,238 - INFO - prompt is pretty Asian woman was holding the flowers in her hands, Korean Model, real photo style, full body shot. ,translated_text is pretty Asian woman was holding the flowers in her hands, Korean Model, real photo style, full body shot.
+2025-05-31 08:11:40,239 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 08:11:40,240 - INFO - 🎨 生成参数配置:
+2025-05-31 08:11:40,241 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 08:11:40,241 - INFO -   🧠 引导系数: 5.5
+2025-05-31 08:11:40,242 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 08:11:40,242 - INFO -   🧠 最大序列长度: 512
+2025-05-31 08:11:40,243 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:11:40,243 - INFO - 🧮 生成前资源状态:
+2025-05-31 08:11:40,283 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 08:11:40,284 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 41.0°C
+2025-05-31 08:11:40,285 - INFO - 💻 CPU内存: 使用 30.90/62.72 GB (50.4%)
+2025-05-31 08:11:40,286 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:11:40,286 - INFO -   ⏱️ 耗时: 0.04秒
+2025-05-31 08:11:40,287 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 08:12:32,563 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:12:32,564 - INFO - 🧮 生成后资源状态:
+2025-05-31 08:12:32,595 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 08:12:32,596 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 66.0°C
+2025-05-31 08:12:32,597 - INFO - 💻 CPU内存: 使用 30.36/62.72 GB (49.5%)
+2025-05-31 08:12:32,597 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:12:32,598 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 08:12:32,598 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 08:12:32,598 - INFO -   ⏱️ 耗时: 52.36秒
+2025-05-31 08:12:32,948 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_f288f0ce-3db3-11f0-bbcd-00e04c0ab814.png
+2025-05-31 08:12:32,951 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_f288f0ce-3db3-11f0-bbcd-00e04c0ab814.png to Base64.
+2025-05-31 08:12:32,961 - INFO - Message sent successfully.
+2025-05-31 08:12:32,962 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_f288f0ce-3db3-11f0-bbcd-00e04c0ab814.png has been deleted successfully.
+2025-05-31 08:12:33,016 - INFO - Received message: {'batchNo': '896709df-9974-4204-9f74-c3db5a232ff6', 'prompt': 'pretty Asian woman was holding the flowers in her hands, Korean Model, real photo style, full body shot.', 'step': 20}
+2025-05-31 08:12:33,017 - INFO -  翻译prompt=======>
+2025-05-31 08:12:33,018 - INFO - prompt is pretty Asian woman was holding the flowers in her hands, Korean Model, real photo style, full body shot. ,translated_text is pretty Asian woman was holding the flowers in her hands, Korean Model, real photo style, full body shot.
+2025-05-31 08:12:33,018 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 08:12:33,019 - INFO - 🎨 生成参数配置:
+2025-05-31 08:12:33,019 - INFO -   🖼️ 分辨率: 1280X720 (UHD)
+2025-05-31 08:12:33,020 - INFO -   🧠 引导系数: 5.5
+2025-05-31 08:12:33,020 - INFO -   ⏱️ 推理步数: 20
+2025-05-31 08:12:33,021 - INFO -   🧠 最大序列长度: 512
+2025-05-31 08:12:33,021 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:12:33,022 - INFO - 🧮 生成前资源状态:
+2025-05-31 08:12:33,052 - INFO - 🎮 GPU内存: 4988.00/24576.00 GB (使用率: 20.3%)
+2025-05-31 08:12:33,053 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.3% | 温度 66.0°C
+2025-05-31 08:12:33,053 - INFO - 💻 CPU内存: 使用 30.35/62.72 GB (49.5%)
+2025-05-31 08:12:33,054 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:12:33,054 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 08:12:33,054 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 08:13:22,650 - INFO - 
+🚀================================================================================
+2025-05-31 08:13:22,650 - INFO - ================================================================================
+2025-05-31 08:13:22,651 - INFO - 🚀 启动 FLUX-1 量子化推理引擎
+2025-05-31 08:13:22,651 - INFO - 🚀 任务: 使用 QFloat8 量化生成高清图像
+2025-05-31 08:13:22,651 - INFO - ================================================================================
+
+2025-05-31 08:13:22,651 - INFO - 🖥️ 开始: 系统信息收集...
+2025-05-31 08:13:22,652 - INFO - 🖥️ ===== 系统详情 =====
+2025-05-31 08:13:22,653 - INFO -   ⏱️ 当前时间: 2025-05-31 08:13:22
+2025-05-31 08:13:22,653 - INFO -   🖥️ 操作系统: posix #26~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr 17 19:20:47 UTC 2
+2025-05-31 08:13:22,654 - INFO -   🖥️ Python版本: 3.10.16
+2025-05-31 08:13:22,654 - INFO -   🖥️ PyTorch版本: 2.7.0+cu126
+2025-05-31 08:13:22,654 - INFO -   🎮 CUDA版本: 12.6
+2025-05-31 08:13:22,654 - INFO -   🎮 GPU型号: NVIDIA GeForce RTX 3090
+2025-05-31 08:13:22,654 - INFO -   🧮 GPU内存: 23.57 GB
+2025-05-31 08:13:22,656 - INFO -   💻 CPU核心数: 8 (逻辑核心: 16)
+2025-05-31 08:13:22,656 - INFO -   🧮 总内存: 62.72 GB
+2025-05-31 08:13:22,656 - INFO - 🖥️ ====================
+2025-05-31 08:13:22,656 - INFO - ✅ 完成: 系统信息收集!
+2025-05-31 08:13:22,656 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 08:13:22,656 - INFO - 📥 开始: 下载FLUX-1模型...
+2025-05-31 08:13:22,657 - INFO - 📥 正在下载 FLUX 模型...
+2025-05-31 08:13:23,823 - INFO - 🧠 存储位置: /mnt/f/models/black-forest-labs/FLUX___1-dev
+2025-05-31 08:13:23,824 - INFO - 📥 正在下载 LoRA 模型...
+2025-05-31 08:13:25,817 - INFO - 🧠 存储位置: /mnt/e/modescope_model/models/yiwanji/FLUX_xiao_hong_shu_ji_zhi_zhen_shi_V2
+2025-05-31 08:13:26,918 - INFO - ✅ 完成: 下载FLUX-1模型!
+2025-05-31 08:13:26,919 - INFO -   ⏱️ 耗时: 4.26秒
+2025-05-31 08:13:26,920 - INFO - 🧠 开始: 初始化量子化管道...
+2025-05-31 08:13:30,322 - INFO - ✅ 完成: 初始化量子化管道!
+2025-05-31 08:13:30,323 - INFO -   ⏱️ 耗时: 3.40秒
+2025-05-31 08:13:30,323 - INFO - 🧠 开始: 设置toker...
+2025-05-31 08:13:30,323 - INFO - ✅ 完成: 设置toker!
+2025-05-31 08:13:30,323 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 08:13:30,323 - INFO - ⚡ 开始: 注入 LoRA 权重...
+2025-05-31 08:13:30,324 - INFO - 📥 加载 LoRA 权重...
+2025-05-31 08:13:30,405 - INFO - ✅ 完成: 注入 LoRA 权重!
+2025-05-31 08:13:30,405 - INFO -   ⏱️ 耗时: 0.08秒
+2025-05-31 08:13:30,406 - INFO - ⚡ 开始: 量子化模型组件...
+2025-05-31 08:13:30,406 - INFO - ⚡ 应用 QFloat8 量化到文本编码器...
+2025-05-31 08:13:30,571 - INFO - ⚡ 应用 QFloat8 量化到 Transformer 核心...
+2025-05-31 08:13:31,190 - INFO - ⚡ 文本编码器量子化状态
+2025-05-31 08:13:31,190 - INFO - ⚡ Transformer量子化状态
+2025-05-31 08:13:31,191 - INFO - ✅ 完成: 量子化模型组件!
+2025-05-31 08:13:31,191 - INFO -   ⏱️ 耗时: 0.79秒
+2025-05-31 08:13:31,192 - INFO - ❄️ 开始: 冻结量子化参数...
+2025-05-31 08:14:39,187 - INFO - 
+🚀================================================================================
+2025-05-31 08:14:39,188 - INFO - ================================================================================
+2025-05-31 08:14:39,188 - INFO - 🚀 启动 FLUX-1 量子化推理引擎
+2025-05-31 08:14:39,189 - INFO - 🚀 任务: 使用 QFloat8 量化生成高清图像
+2025-05-31 08:14:39,189 - INFO - ================================================================================
+
+2025-05-31 08:14:39,189 - INFO - 🖥️ 开始: 系统信息收集...
+2025-05-31 08:14:39,189 - INFO - 🖥️ ===== 系统详情 =====
+2025-05-31 08:14:39,190 - INFO -   ⏱️ 当前时间: 2025-05-31 08:14:39
+2025-05-31 08:14:39,190 - INFO -   🖥️ 操作系统: posix #26~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr 17 19:20:47 UTC 2
+2025-05-31 08:14:39,190 - INFO -   🖥️ Python版本: 3.10.16
+2025-05-31 08:14:39,190 - INFO -   🖥️ PyTorch版本: 2.7.0+cu126
+2025-05-31 08:14:39,190 - INFO -   🎮 CUDA版本: 12.6
+2025-05-31 08:14:39,191 - INFO -   🎮 GPU型号: NVIDIA GeForce RTX 3090
+2025-05-31 08:14:39,191 - INFO -   🧮 GPU内存: 23.57 GB
+2025-05-31 08:14:39,192 - INFO -   💻 CPU核心数: 8 (逻辑核心: 16)
+2025-05-31 08:14:39,192 - INFO -   🧮 总内存: 62.72 GB
+2025-05-31 08:14:39,192 - INFO - 🖥️ ====================
+2025-05-31 08:14:39,192 - INFO - ✅ 完成: 系统信息收集!
+2025-05-31 08:14:39,193 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 08:14:39,193 - INFO - 📥 开始: 下载FLUX-1模型...
+2025-05-31 08:14:39,193 - INFO - 📥 正在下载 FLUX 模型...
+2025-05-31 08:14:40,455 - INFO - 🧠 存储位置: /mnt/f/models/black-forest-labs/FLUX___1-dev
+2025-05-31 08:14:40,456 - INFO - 📥 正在下载 LoRA 模型...
+2025-05-31 08:14:42,952 - INFO - 🧠 存储位置: /mnt/e/modescope_model/models/yiwanji/FLUX_xiao_hong_shu_ji_zhi_zhen_shi_V2
+2025-05-31 08:14:44,132 - INFO - ✅ 完成: 下载FLUX-1模型!
+2025-05-31 08:14:44,133 - INFO -   ⏱️ 耗时: 4.94秒
+2025-05-31 08:14:44,134 - INFO - 🧠 开始: 初始化量子化管道...
+2025-05-31 08:14:45,622 - INFO - ✅ 完成: 初始化量子化管道!
+2025-05-31 08:14:45,623 - INFO -   ⏱️ 耗时: 1.49秒
+2025-05-31 08:14:45,623 - INFO - 🧠 开始: 设置toker...
+2025-05-31 08:14:45,623 - INFO - ✅ 完成: 设置toker!
+2025-05-31 08:14:45,623 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 08:14:45,623 - INFO - ⚡ 开始: 注入 LoRA 权重...
+2025-05-31 08:14:45,624 - INFO - 📥 加载 LoRA 权重...
+2025-05-31 08:14:45,706 - INFO - ✅ 完成: 注入 LoRA 权重!
+2025-05-31 08:14:45,706 - INFO -   ⏱️ 耗时: 0.08秒
+2025-05-31 08:14:45,707 - INFO - ⚡ 开始: 量子化模型组件...
+2025-05-31 08:14:45,707 - INFO - ⚡ 应用 QFloat8 量化到文本编码器...
+2025-05-31 08:14:45,859 - INFO - ⚡ 应用 QFloat8 量化到 Transformer 核心...
+2025-05-31 08:14:46,458 - INFO - ⚡ 文本编码器量子化状态
+2025-05-31 08:14:46,459 - INFO - ⚡ Transformer量子化状态
+2025-05-31 08:14:46,459 - INFO - ✅ 完成: 量子化模型组件!
+2025-05-31 08:14:46,460 - INFO -   ⏱️ 耗时: 0.75秒
+2025-05-31 08:14:46,460 - INFO - ❄️ 开始: 冻结量子化参数...
+2025-05-31 08:16:45,707 - INFO - ✅ 完成: 冻结量子化参数!
+2025-05-31 08:16:45,707 - INFO -   ⏱️ 耗时: 119.25秒
+2025-05-31 08:16:45,707 - INFO - 
+🏆================================================================================
+2025-05-31 08:16:45,708 - INFO - 🏆 FLUX-1 量子化创作任务完成!
+2025-05-31 08:16:45,708 - INFO - 🏆================================================================================
+2025-05-31 08:16:45,708 - INFO - 💾 开始: 激活智能内存管理...
+2025-05-31 08:16:46,260 - INFO - ✅ 完成: 激活智能内存管理!
+2025-05-31 08:16:46,261 - INFO -   ⏱️ 耗时: 0.55秒
+2025-05-31 08:16:49,892 - INFO - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+2025-05-31 08:16:50,635 - INFO - Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+2025-05-31 08:16:50,636 - INFO - Socket connected: <socket.socket fd=48, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 50070), raddr=('127.0.0.1', 5672)>
+2025-05-31 08:16:50,637 - INFO - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7184a0e99780>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7184a0e99780> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
+2025-05-31 08:16:50,711 - INFO - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7184a0e99780> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-31 08:16:50,712 - INFO - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7184a0e99780> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-31 08:16:50,713 - INFO - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7184a0e99780> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-31 08:16:50,714 - INFO - Created channel=1
+2025-05-31 08:16:50,721 - INFO -  [*] Waiting for messages. To exit press CTRL+C
+2025-05-31 08:16:50,722 - INFO - Received message: {'batchNo': '896709df-9974-4204-9f74-c3db5a232ff6', 'prompt': 'pretty Asian woman was holding the flowers in her hands, Korean Model, real photo style, full body shot.', 'step': 20}
+2025-05-31 08:16:50,722 - INFO -  翻译prompt=======>
+2025-05-31 08:16:50,723 - INFO - prompt is pretty Asian woman was holding the flowers in her hands, Korean Model, real photo style, full body shot. ,translated_text is pretty Asian woman was holding the flowers in her hands, Korean Model, real photo style, full body shot.
+2025-05-31 08:16:50,723 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 08:16:50,724 - INFO - 🎨 生成参数配置:
+2025-05-31 08:16:50,724 - INFO -   🖼️ 分辨率: 1920X1080 (UHD)
+2025-05-31 08:16:50,724 - INFO -   🧠 引导系数: 3.5
+2025-05-31 08:16:50,725 - INFO -   ⏱️ 推理步数: 50
+2025-05-31 08:16:50,725 - INFO -   🧠 最大序列长度: 512
+2025-05-31 08:16:50,726 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:16:50,726 - INFO - 🧮 生成前资源状态:
+2025-05-31 08:16:50,759 - INFO - 🎮 GPU内存: 4918.00/24576.00 GB (使用率: 20.0%)
+2025-05-31 08:16:50,759 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.0% | 温度 42.0°C
+2025-05-31 08:16:50,760 - INFO - 💻 CPU内存: 使用 23.50/62.72 GB (38.6%)
+2025-05-31 08:16:50,761 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:16:50,762 - INFO -   ⏱️ 耗时: 0.04秒
+2025-05-31 08:16:50,762 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 08:20:29,208 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:20:29,209 - INFO - 🧮 生成后资源状态:
+2025-05-31 08:20:29,241 - INFO - 🎮 GPU内存: 5028.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 08:20:29,242 - INFO - 🎮 GPU负载: 计算 21.0% | 显存 20.5% | 温度 71.0°C
+2025-05-31 08:20:29,242 - INFO - 💻 CPU内存: 使用 23.67/62.72 GB (38.8%)
+2025-05-31 08:20:29,243 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:20:29,243 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 08:20:29,243 - INFO - ✅ 完成: 量子艺术生成!
+2025-05-31 08:20:29,243 - INFO -   ⏱️ 耗时: 218.52秒
+2025-05-31 08:20:29,784 - INFO - Image saved at /mnt/f/work/picture-book/image-maker/temp/img_0ea34326-3db5-11f0-9f39-00e04c0ab814.png
+2025-05-31 08:20:29,793 - INFO - Successfully converted /mnt/f/work/picture-book/image-maker/temp/img_0ea34326-3db5-11f0-9f39-00e04c0ab814.png to Base64.
+2025-05-31 08:20:29,838 - INFO - Message sent successfully.
+2025-05-31 08:20:29,839 - INFO - File /mnt/f/work/picture-book/image-maker/temp/img_0ea34326-3db5-11f0-9f39-00e04c0ab814.png has been deleted successfully.
+2025-05-31 08:20:29,840 - INFO - Received message: {'batchNo': '896709df-9974-4204-9f74-c3db5a232ff6', 'prompt': 'pretty Asian woman was holding the flowers in her hands, Korean Model, real photo style, full body shot.', 'step': 20}
+2025-05-31 08:20:29,840 - INFO -  翻译prompt=======>
+2025-05-31 08:20:29,840 - INFO - prompt is pretty Asian woman was holding the flowers in her hands, Korean Model, real photo style, full body shot. ,translated_text is pretty Asian woman was holding the flowers in her hands, Korean Model, real photo style, full body shot.
+2025-05-31 08:20:29,840 - INFO - 🎨 开始: 量子艺术生成...
+2025-05-31 08:20:29,841 - INFO - 🎨 生成参数配置:
+2025-05-31 08:20:29,841 - INFO -   🖼️ 分辨率: 1920X1080 (UHD)
+2025-05-31 08:20:29,841 - INFO -   🧠 引导系数: 3.5
+2025-05-31 08:20:29,841 - INFO -   ⏱️ 推理步数: 50
+2025-05-31 08:20:29,841 - INFO -   🧠 最大序列长度: 512
+2025-05-31 08:20:29,841 - INFO - 🎮 开始: GPU内存快照...
+2025-05-31 08:20:29,842 - INFO - 🧮 生成前资源状态:
+2025-05-31 08:20:29,873 - INFO - 🎮 GPU内存: 5028.00/24576.00 GB (使用率: 20.5%)
+2025-05-31 08:20:29,874 - INFO - 🎮 GPU负载: 计算 0.0% | 显存 20.5% | 温度 70.0°C
+2025-05-31 08:20:29,875 - INFO - 💻 CPU内存: 使用 23.68/62.72 GB (38.8%)
+2025-05-31 08:20:29,875 - INFO - ✅ 完成: GPU内存快照!
+2025-05-31 08:20:29,875 - INFO -   ⏱️ 耗时: 0.03秒
+2025-05-31 08:20:29,876 - INFO - 🎨 开始生成量子艺术...
+2025-05-31 08:21:09,839 - INFO - 
+🚀================================================================================
+2025-05-31 08:21:09,839 - INFO - ================================================================================
+2025-05-31 08:21:09,839 - INFO - 🚀 启动 FLUX-1 量子化推理引擎
+2025-05-31 08:21:09,840 - INFO - 🚀 任务: 使用 QFloat8 量化生成高清图像
+2025-05-31 08:21:09,840 - INFO - ================================================================================
+
+2025-05-31 08:21:09,840 - INFO - 🖥️ 开始: 系统信息收集...
+2025-05-31 08:21:09,840 - INFO - 🖥️ ===== 系统详情 =====
+2025-05-31 08:21:09,841 - INFO -   ⏱️ 当前时间: 2025-05-31 08:21:09
+2025-05-31 08:21:09,841 - INFO -   🖥️ 操作系统: posix #26~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr 17 19:20:47 UTC 2
+2025-05-31 08:21:09,841 - INFO -   🖥️ Python版本: 3.10.16
+2025-05-31 08:21:09,841 - INFO -   🖥️ PyTorch版本: 2.7.0+cu126
+2025-05-31 08:21:09,841 - INFO -   🎮 CUDA版本: 12.6
+2025-05-31 08:21:09,842 - INFO -   🎮 GPU型号: NVIDIA GeForce RTX 3090
+2025-05-31 08:21:09,842 - INFO -   🧮 GPU内存: 23.57 GB
+2025-05-31 08:21:09,843 - INFO -   💻 CPU核心数: 8 (逻辑核心: 16)
+2025-05-31 08:21:09,843 - INFO -   🧮 总内存: 62.72 GB
+2025-05-31 08:21:09,844 - INFO - 🖥️ ====================
+2025-05-31 08:21:09,844 - INFO - ✅ 完成: 系统信息收集!
+2025-05-31 08:21:09,844 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 08:21:09,844 - INFO - 📥 开始: 下载FLUX-1模型...
+2025-05-31 08:21:09,844 - INFO - 📥 正在下载 FLUX 模型...
+2025-05-31 08:21:11,057 - INFO - 🧠 存储位置: /mnt/f/models/black-forest-labs/FLUX___1-dev
+2025-05-31 08:21:11,057 - INFO - 📥 正在下载 LoRA 模型...
+2025-05-31 08:21:13,039 - INFO - 🧠 存储位置: /mnt/e/modescope_model/models/yiwanji/FLUX_xiao_hong_shu_ji_zhi_zhen_shi_V2
+2025-05-31 08:21:14,122 - INFO - ✅ 完成: 下载FLUX-1模型!
+2025-05-31 08:21:14,123 - INFO -   ⏱️ 耗时: 4.28秒
+2025-05-31 08:21:14,124 - INFO - 🧠 开始: 初始化量子化管道...
+2025-05-31 08:21:15,787 - INFO - ✅ 完成: 初始化量子化管道!
+2025-05-31 08:21:15,787 - INFO -   ⏱️ 耗时: 1.66秒
+2025-05-31 08:21:15,788 - INFO - 🧠 开始: 设置toker...
+2025-05-31 08:21:15,788 - INFO - ✅ 完成: 设置toker!
+2025-05-31 08:21:15,788 - INFO -   ⏱️ 耗时: 0.00秒
+2025-05-31 08:21:15,788 - INFO - ⚡ 开始: 注入 LoRA 权重...
+2025-05-31 08:21:15,789 - INFO - 📥 加载 LoRA 权重...
+2025-05-31 08:21:15,872 - INFO - ✅ 完成: 注入 LoRA 权重!
+2025-05-31 08:21:15,873 - INFO -   ⏱️ 耗时: 0.08秒
+2025-05-31 08:21:15,873 - INFO - ⚡ 开始: 量子化模型组件...
+2025-05-31 08:21:15,874 - INFO - ⚡ 应用 QFloat8 量化到文本编码器...
+2025-05-31 08:21:16,026 - INFO - ⚡ 应用 QFloat8 量化到 Transformer 核心...
+2025-05-31 08:21:16,611 - INFO - ⚡ 文本编码器量子化状态
+2025-05-31 08:21:16,611 - INFO - ⚡ Transformer量子化状态
+2025-05-31 08:21:16,612 - INFO - ✅ 完成: 量子化模型组件!
+2025-05-31 08:21:16,612 - INFO -   ⏱️ 耗时: 0.74秒
+2025-05-31 08:21:16,612 - INFO - ❄️ 开始: 冻结量子化参数...

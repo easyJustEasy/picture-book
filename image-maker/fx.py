@@ -244,9 +244,10 @@ enable_memory_management(pipe)
 # 生成图像
 @timeit("量子艺术生成", EMOJI['generate'])
 def generate(prompt,step=50,
+                            guidance_scale=3.5,
                             width=1024,
                             height=1024,
-                            guidance_scale=3.5,
+                            seed=-1,
                             max_sequence_length=512,
                             ):    
     # 生成参数显示
@@ -260,7 +261,7 @@ def generate(prompt,step=50,
     log_gpu_memory("生成前")
     # 执行生成
     logger.info(f"{EMOJI['generate']} 开始生成量子艺术...")
-    seed = -1
+
     image = pipe(
         prompt=prompt,
         height=height,
