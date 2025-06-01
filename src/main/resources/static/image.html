@@ -1,202 +1,226 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <title>动态加载图片</title>
     <style>
-body {
+        body {}
 
-    }
-    #imageContainer {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, .1);
-        text-align: center;
-    }
-    #toolbar{
-       display:block;
-    }
-    #generateBtn {
-        background-color: #5cb85c;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background .3s ease;
-    }
-    #generateBtn:hover {
-        background-color: #4cae4c;
-    }
-       .btn {
-        background-color: #5cb85c;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background .3s ease;
-    }
-   .btn:hover {
-        background-color: #4cae4c;
-    }
-    #generateNumber, #generatePrompt {
-        width: 100%;
-        margin-top: 10px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    #tips {
-        margin-top: 10px;
-        font-size: .9em;
-        color: #666;
-    }
-    #main-content{
-    }
-#imageWrapper::after {
-    content: "";
-    display: block;
-    clear: both;
-}
-    .image-card {
-      display:inline-block;
-      float:left;
-      position: relative;
-      width: 150px;
-      height: 150px;
-      background-color: #fff;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .image-card:hover {
-      transform: scale(1.5);
-      z-index:1;
-    }
-
-    .image-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .delete-btn {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      background: rgba(255, 255, 255, 0.7);
-      color: red;
-      border: none;
-      border-radius: 50%;
-      width: 28px;
-      height: 28px;
-      font-size: 20px;
-      line-height: 26px;
-      text-align: center;
-      cursor: pointer;
-      z-index: 10;
-      transition: background 0.2s ease;
-      /* 默认隐藏 */
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    /* 当.hover时显示删除按钮 */
-    .image-card:hover .delete-btn {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .delete-btn:hover {
-      background: rgba(255, 255, 255, 0.95);
-    }
-
-    /* 删除动画 */
-    .fade-out {
-      animation: fadeOut 2s forwards;
-    }
-
-    @keyframes fadeOut {
-      from {
-        opacity: 1;
-        transform: scale(1);
-      }
-      to {
-        opacity: 0;
-        transform: scale(0.8);
+        #imageContainer {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+            text-align: center;
         }
-    }
 
-    /* 模态框样式 */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: #000;
+        #toolbar {
+            display: block;
+        }
 
-    }
-    .modal-content {
-        margin: 5% auto;
-        display: block;
-        width: 80%;
-        max-width: 800px;
-    }
-    #modalImage{
-    width:100%;
-    }
-    .img-index{
-    cursor:pointer;
-    padding:8px;
-    border-radius:10px;
-    color:#fff;
-    margin:16px;
-    }
-    #preImg{
-    position: absolute;
- left: 80px;
-    top: 320px;
-    }
-    #nextImg{
-    position: absolute;
-  right: 80px;
-    top: 320px;
-    }
-    #removeImg{
-        position: absolute;
-  right: 80px;
-    top: 260px;
-    }
-    .close {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        font-size: 40px;
-        color: white;
-        cursor: pointer;
-    }
+        #generateBtn {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background .3s ease;
+        }
+
+        #generateBtn:hover {
+            background-color: #4cae4c;
+        }
+
+        .btn {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background .3s ease;
+        }
+
+        .btn:hover {
+            background-color: #4cae4c;
+        }
+
+        #generateNumber,
+        #generatePrompt {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #generatePrompt {
+            height: 170px;
+        }
+
+        #tips {
+            margin-top: 10px;
+            font-size: .9em;
+            color: #666;
+        }
+
+        #main-content {}
+
+        #imageWrapper::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .image-card {
+            display: inline-block;
+            float: left;
+            position: relative;
+            width: 150px;
+            height: 150px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-card:hover {
+            transform: scale(1.5);
+            z-index: 1;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            color: red;
+            border: none;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            font-size: 20px;
+            line-height: 26px;
+            text-align: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.2s ease;
+            /* 默认隐藏 */
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* 当.hover时显示删除按钮 */
+        .image-card:hover .delete-btn {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .delete-btn:hover {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        /* 删除动画 */
+        .fade-out {
+            animation: fadeOut 2s forwards;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            to {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+        }
+
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: #000;
+
+        }
+
+        .modal-content {
+            margin: 5% auto;
+            display: block;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        #modalImage {
+            width: 100%;
+        }
+
+        .img-index {
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 10px;
+            color: #fff;
+            margin: 16px;
+        }
+
+        #preImg {
+            position: absolute;
+            left: 80px;
+            top: 320px;
+        }
+
+        #nextImg {
+            position: absolute;
+            right: 80px;
+            top: 320px;
+        }
+
+        #removeImg {
+            position: absolute;
+            right: 80px;
+            top: 260px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body>
 <!-- 包含图片的div容器 -->
 <div id="imageContainer">
     <div id="toolbar">
-        <button id="generateBtn" class="btn">生成</button>  <button id="clearBtn" class="btn">清空图片</button>
+        <button id="generateBtn" class="btn">生成</button> <button id="clearBtn" class="btn">清空图片</button>
         <button id="clearQueueBtn" class="btn">清空队列</button>
-        <input id="generateNumber" min="1" type="number" value="1" placeholder="图片数量"/>
-        <textarea id="generatePrompt" placeholder="生成一个美女图片">一位中国美女站在海滩上，半身入镜。她有着如瓷器般白皙的肌肤，非深色肤色，面容明亮。身材苗条，胸部巨大，曲线优美，体态优雅，五官精致可爱，眼睛明亮，带着甜美的微笑，她穿着一件白色T恤衫和短裙。画面采用正面视角，色彩鲜艳明亮，背景是清澈的蓝天、金色的沙滩和轻柔的海浪，写实风格，高细节呈现，人物要居中。</textarea>
-       <div class="tip-info">
-        <span id="optInfo"></span>    <span style="margin-left:32px;">已加载到图片数量<span id="tips">0</span>张</span>
-           系统中有<span id="taskCount" style="margin-left:32px;">0</span>个图片正在生成
-       </div>
+        <input id="generateNumber" min="1" type="number" value="1" placeholder="图片数量" />
+        <textarea id="generatePrompt"
+                  placeholder="生成一个美女图片">一位中国美女站在海滩上，半身入镜。她有着如瓷器般白皙的肌肤，非深色肤色，面容明亮。身材苗条，胸部巨大，曲线优美，体态优雅，五官精致可爱，眼睛明亮，带着甜美的微笑，她穿着一件白色T恤衫和短裙。画面采用正面视角，色彩鲜艳明亮，背景是清澈的蓝天、金色的沙滩和轻柔的海浪，写实风格，高细节呈现，人物要居中。</textarea>
+        <div class="tip-info">
+            <span id="optInfo"></span> <span style="margin-left:32px;">已加载到图片数量<span id="tips">0</span>张</span>
+            系统中有<span id="taskCount" style="margin-left:32px;">0</span>个图片正在生成
+        </div>
 
     </div>
     <div id="main-content">
@@ -214,197 +238,234 @@ body {
 </div>
 <script src="./js/axios.js"></script>
 <script>
-document.getElementById('generatePrompt').value=localStorage.generatePrompt||'';
-document.getElementById('generateNumber').value=localStorage.generateNumber||1;
-var initModel = function(){
-// 获取模态框和关闭按钮元素
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
-    const span = document.getElementsByClassName("close")[0];
-// 当用户点击关闭按钮（x）时关闭模态框
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
+        document.getElementById('generatePrompt').value = localStorage.generatePrompt || '';
+        document.getElementById('generateNumber').value = localStorage.generateNumber || 1;
+        var initModel = function () {
+            // 获取模态框和关闭按钮元素
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            const span = document.getElementsByClassName("close")[0];
+            // 当用户点击关闭按钮（x）时关闭模态框
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
 
-    // 点击模态框外部区域也可以关闭模态框
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+            // 点击模态框外部区域也可以关闭模态框
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
         }
-    }
-}
-var viewMe = function(src){
-// 获取模态框和关闭按钮元素
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
-    const span = document.getElementsByClassName("close")[0];
-    modal.style.display = "block";
-    modalImg.src = src;
-}
-document.getElementById("preImg").onclick=function(){
-    const imgs = document.querySelectorAll('img.list-img');
-    const modalImg = document.getElementById("modalImage");
-    let index = 0;
-    for(let i = 0;i<imgs.length;i++){
-        if(modalImg.src==imgs[i].src){
-         index=i-1;
+        var viewMe = function (src) {
+            // 获取模态框和关闭按钮元素
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            const span = document.getElementsByClassName("close")[0];
+            modal.style.display = "block";
+            modalImg.src = src;
         }
-    }
-    if(index<=0){
-    index=imgs.length-1;
-    }
-    modalImg.src=imgs[index].src
-}
-document.getElementById("nextImg").onclick=function(){
-    const imgs = document.querySelectorAll('img.list-img');
-    const modalImg = document.getElementById("modalImage");
-    let index = 0;
-    for(let i = 0;i<imgs.length;i++){
-        if(modalImg.src==imgs[i].src){
-         index=i+1;
+        document.getElementById("preImg").onclick = function () {
+            const imgs = document.querySelectorAll('img.list-img');
+            const modalImg = document.getElementById("modalImage");
+            let index = 0;
+            for (let i = 0; i < imgs.length; i++) {
+                if (modalImg.src == imgs[i].src) {
+                    index = i - 1;
+                }
+            }
+            if (index <= 0) {
+                index = imgs.length - 1;
+            }
+            modalImg.src = imgs[index].src
         }
-    }
-    if(index>=imgs.length){
-      index=0;
-    }
-    modalImg.src=imgs[index].src
+        document.getElementById("nextImg").onclick = function () {
+            const imgs = document.querySelectorAll('img.list-img');
+            const modalImg = document.getElementById("modalImage");
+            let index = 0;
+            for (let i = 0; i < imgs.length; i++) {
+                if (modalImg.src == imgs[i].src) {
+                    index = i + 1;
+                }
+            }
+            if (index >= imgs.length) {
+                index = 0;
+            }
+            modalImg.src = imgs[index].src
 
-}
-document.getElementById("generateBtn").onclick=function() {
-             localStorage.generatePrompt=document.getElementById('generatePrompt').value;
-             localStorage.generateNumber=document.getElementById('generateNumber').value;
-             document.getElementById('optInfo').innerHTML='正在提交到服务器';
-             axios.post('/img/generate',{
-             "batchSize":document.getElementById('generateNumber').value,
-             "prompt":document.getElementById('generatePrompt').value
-             }
-             )
+        }
+        document.getElementById("generateBtn").onclick = function () {
+            localStorage.generatePrompt = document.getElementById('generatePrompt').value;
+            localStorage.generateNumber = document.getElementById('generateNumber').value;
+            document.getElementById('optInfo').innerHTML = '正在提交到服务器';
+            axios.post('/img/generate', {
+                "batchSize": document.getElementById('generateNumber').value,
+                "prompt": document.getElementById('generatePrompt').value
+            }
+            )
                 .then(response => {
-                 document.getElementById('optInfo').innerHTML='服务器已执行，约50s一张图片'
+                    document.getElementById('optInfo').innerHTML = '服务器已执行，约50s一张图片'
+                   setTimeout(function(){
+                    loadTaskCount();
+                    loadImage();
+                    },1000)
                 })
                 .catch(error => {
                     console.error('error：', error);
-                    document.getElementById('optInfo').innerHTML='服务器执行失败，请重试';
+                    document.getElementById('optInfo').innerHTML = '服务器执行失败，请重试';
                 });
 
-    }
-var loadImage = function(){
-    document.getElementById('optInfo').innerHTML='正在刷新图片列表';
+        }
+        var loading = function (number,count) {
+        if(parseInt(document.getElementById('taskCount').innerHTML)<=0){
+        return ;
+        }
+            setTimeout(function () {
+                document.getElementById('optInfo').innerHTML = '图片生成中，请稍候.';
+                setTimeout(function () {
+                    document.getElementById('optInfo').innerHTML = '图片生成中，请稍候..';
+                    setTimeout(function () {
+                        document.getElementById('optInfo').innerHTML = '图片生成中，请稍候...';
+                        number++;
+                        if(number<=count){
+                             loading(number,count);
+                        }
+                    }, 1000)
+                }, 1000)
+            }, 1000)
 
-    axios.get('/img/list'
-             )
+        }
+        var loadImage = function () {
+            document.getElementById('optInfo').innerHTML = '正在刷新图片列表';
+
+            axios.get('/img/list'
+            )
                 .then(response => {
-                  var data = response.data
-                  var imageStr = '';
-                   document.getElementById('tips').innerHTML=0;
-                  for(var i=0;i<data.length;i++){
-                  var src = data[i];
-                  imageStr+= `
+                    var data = response.data
+                    var imageStr = '';
+                    document.getElementById('tips').innerHTML = 0;
+                    for (var i = 0; i < data.length; i++) {
+                        var src = data[i];
+                        imageStr += `
                   <div class="image-card">
                       <button class="delete-btn" onclick='deleteImage("${src}")'>&times;</button>
                       <img class="list-img" src="${src}" alt="动态加载的图片" onclick='viewMe("${src}")'/>
                     </div>
                   `;
-                 document.getElementById('tips').innerHTML=(i+1);
-                  }
-                 document.getElementById('imageWrapper').innerHTML=imageStr;
-                 document.getElementById('optInfo').innerHTML='图片列表加载完成';
+                        document.getElementById('tips').innerHTML = (i + 1);
+                    }
+                    document.getElementById('imageWrapper').innerHTML = imageStr;
+                    setTimeout(function () {
+                        document.getElementById('optInfo').innerHTML = '图片列表加载完成';
+                        setTimeout(function () {
+                            loading(0,150);
+
+                        }, 1000)
+                    }, 1000)
+
 
                 })
                 .catch(error => {
                     console.error('error：', error);
-                   document.getElementById('optInfo').innerHTML='图片列表加载失败';
+                    document.getElementById('optInfo').innerHTML = '图片列表加载失败';
 
-                });
-}
-document.getElementById('clearBtn').onclick=function(){
-// 显示确认弹窗
-        const isConfirmed = window.confirm("确定要清空图片列表吗？");
-        if(isConfirmed){
-            document.getElementById('optInfo').innerHTML='正在清空图片列表';
-
-           axios.get('/img/clear'
-             )
-                .then(response => {
-                document.getElementById('optInfo').innerHTML='图片已清空';
-                  loadImage();
-                })
-                .catch(error => {
-                    console.error('error：', error);
                 });
         }
+        document.getElementById('clearBtn').onclick = function () {
+            // 显示确认弹窗
+            const isConfirmed = window.confirm("确定要清空图片列表吗？");
+            if (isConfirmed) {
+                document.getElementById('optInfo').innerHTML = '正在清空图片列表';
+
+                axios.get('/img/clear'
+                )
+                    .then(response => {
+                        document.getElementById('optInfo').innerHTML = '图片已清空';
+                        loadTaskCount();
+                        loadImage();
+                    })
+                    .catch(error => {
+                        console.error('error：', error);
+                    });
+            }
 
 
-}
-document.getElementById('clearQueueBtn').onclick=function(){
-// 显示确认弹窗
-        const isConfirmed = window.confirm("确定要清空队列吗？");
-        if(isConfirmed){
-            document.getElementById('optInfo').innerHTML='正在清空队列';
-
-           axios.get('/img/clearQueue'
-             )
-                .then(response => {
-                document.getElementById('optInfo').innerHTML='队列已清空';
-                  loadImage();
-                })
-                .catch(error => {
-                    console.error('error：', error);
-                });
         }
+        document.getElementById('clearQueueBtn').onclick = function () {
+            // 显示确认弹窗
+            const isConfirmed = window.confirm("确定要清空队列吗？");
+            if (isConfirmed) {
+                document.getElementById('optInfo').innerHTML = '正在清空队列';
+
+                axios.get('/img/clearQueue'
+                )
+                    .then(response => {
+                        document.getElementById('optInfo').innerHTML = '队列已清空';
+                        loadTaskCount();
+                    })
+                    .catch(error => {
+                        console.error('error：', error);
+                    });
+            }
 
 
-}
-var deleteImage=function (src,callback){
-     const isConfirmed = window.confirm("确定要删除这张图片吗？");
-        if(isConfirmed){
-    document.getElementById('optInfo').innerHTML='正在删除图片';
-    axios.post('/img/deleteImg',{"image":src})
-                .then(response => {
-                 if(!!callback){
-                  callback()
-                  }
-                  document.getElementById('optInfo').innerHTML='图片已删除';
-                  loadImage();
+        }
+        var deleteImage = function (src, callback) {
+            const isConfirmed = window.confirm("确定要删除这张图片吗？");
+            if (isConfirmed) {
+                document.getElementById('optInfo').innerHTML = '正在删除图片';
+                axios.post('/img/deleteImg', { "image": src })
+                    .then(response => {
+                        if (!!callback) {
+                            callback()
+                        }
+                        document.getElementById('optInfo').innerHTML = '图片已删除';
+                        loadImage();
 
-                })
-                .catch(error => {
-                    console.error('error：', error);
-                });
+                    })
+                    .catch(error => {
+                        console.error('error：', error);
+                    });
+            }
+        }
+        var removeImage = function () {
+            var src = document.getElementById('modalImage').src
+            deleteImage(src, function () {
+                document.getElementById("nextImg").click()
+            });
+        }
+        var loadTaskCount = function () {
+            axios.get('/img/taskCount').then(response => {
+                var count = document.getElementById('taskCount').innerHTML
+                if (count != response.data) {
+                    loadImage()
                 }
-  }
-  var removeImage = function (){
-  var src = document.getElementById('modalImage').src
-  deleteImage(src,function(){
-  document.getElementById("nextImg").click()
-  });
-  }
-var loadTaskCount = function(){
-   axios.get('/img/taskCount').then(response => {
-                document.getElementById('taskCount').innerHTML=response.data;
-                })
+                document.getElementById('taskCount').innerHTML = response.data;
+            })
                 .catch(error => {
                     console.error('error：', error);
                 });
-}
-loadImage();
-initModel();
-setInterval(loadImage,5000)
-setInterval(loadTaskCount,1000)
-document.addEventListener('keyup', function(event) {
-const modal = document.getElementById("imageModal");
-    if(modal.style.display=='none'){
-    return;
-    }
-    console.log('Key up: ', event.key);
-    if(event.key=='ArrowLeft'||event.key=='ArrowUp'){
-        document.getElementById("preImg").click()
-    }
-      if(event.key=='ArrowRight'||event.key=='ArrowDown'){
-        document.getElementById("nextImg").click()
-    }
-});
-</script>
+        }
+        loadImage();
+        initModel();
+        loadTaskCount();
+        //  setInterval(loadImage, 5000)
+        setInterval(loadTaskCount, 30000)
+        document.addEventListener('keyup', function (event) {
+            const modal = document.getElementById("imageModal");
+            if (modal.style.display == 'none') {
+                return;
+            }
+            console.log('Key up: ', event.key);
+            if (event.key == 'ArrowLeft' || event.key == 'ArrowUp') {
+                document.getElementById("preImg").click()
+            }
+            if (event.key == 'ArrowRight' || event.key == 'ArrowDown') {
+                document.getElementById("nextImg").click()
+            }
+        });
+    </script>
 
 </body>
+
 </html>
