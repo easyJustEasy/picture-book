@@ -391,7 +391,19 @@ loadImage();
 initModel();
 setInterval(loadImage,5000)
 setInterval(loadTaskCount,1000)
-
+document.addEventListener('keyup', function(event) {
+const modal = document.getElementById("imageModal");
+    if(modal.style.display=='none'){
+    return;
+    }
+    console.log('Key up: ', event.key);
+    if(event.key=='ArrowLeft'||event.key=='ArrowUp'){
+        document.getElementById("preImg").click()
+    }
+      if(event.key=='ArrowRight'||event.key=='ArrowDown'){
+        document.getElementById("nextImg").click()
+    }
+});
 </script>
 
 </body>
